@@ -423,7 +423,27 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
   font-family: var(--f-cond); font-weight: 700; font-size: 1.05rem; letter-spacing: .03em; white-space: nowrap;
   padding: 0 1.4rem; display: flex; align-items: center; gap: 1.4rem;
 }
-.laufband__spur li::after { content: ""; width: .35rem; height: .35rem; background: var(--rot); transform: skewX(-13deg); }
+.laufband__spur li.laufband__text::after { content: ""; width: .35rem; height: .35rem; background: var(--rot); transform: skewX(-13deg); }
+.laufband__spur li.kachel { padding: 0 1.15rem; margin: 0 .4rem; }
+.laufband__inner { min-height: 4.4rem; }
+
+/* Versicherer-Logos auf hellen Kacheln (Originalfarben, nie verzerrt) */
+.kachel {
+  --k: 1;
+  display: flex; align-items: center; justify-content: center;
+  background: oklch(0.985 0.004 75);
+  box-shadow: inset 0 0 0 1px oklch(0.2 0.012 28 / .06);
+}
+.kachel img { height: calc(var(--h) * var(--k) * 1px); width: auto; max-width: 100%; }
+.laufband .kachel { --k: .72; height: 3.15rem; transform: skewX(-13deg); }
+.laufband .kachel { flex: none; }
+.laufband .kachel img { transform: skewX(13deg); max-width: none; }
+.versicherer { margin-top: clamp(1.5rem, 3vw, 2.5rem); display: grid; gap: .9rem; }
+.versicherer__wand { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+.versicherer__wand .kachel { --k: .8; height: 4.6rem; padding: .6rem; box-shadow: 0 .6rem 1.2rem -.8rem oklch(0.25 0.12 27 / .6); }
+.versicherer__fuss { font-family: var(--f-cond); font-weight: 700; font-size: .95rem; color: oklch(0.96 0.025 40); }
+@media (max-width: 1080px) { .versicherer__wand { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 640px) { .versicherer__wand { grid-template-columns: repeat(3, 1fr); } .versicherer__wand .kachel { --k: .62; height: 3.8rem; } }
 @keyframes lauf { to { transform: translateX(-50%); } }
 .laufband:hover .laufband__spur { animation-play-state: paused; }
 

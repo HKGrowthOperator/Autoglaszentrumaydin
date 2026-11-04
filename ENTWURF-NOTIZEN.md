@@ -29,7 +29,7 @@ Technik nebenbei: Logo als scharfe Vektordatei nachgebaut (bisher nur JPG), Schr
 - Adresse, Telefon, WhatsApp, E-Mail, Öffnungszeiten Mo bis Sa 9:30 bis 18:00: aktuelle Website autoglaszentrum-aydin.de
 - Leistungen, 30 Jahre Garantie auf Dichtigkeit, Kamera-Kalibrierung, 50 km mobiler Service, 2-Euro-Regel, Klebeband-Tipp: aktuelle Website
 - Kundenstimmen (Guido B., Mira S., Gabi M., Karl H., Niklas F., Theorist): wörtlich gekürzt von der aktuellen Website
-- Versichererliste: aktuelle Website
+- Versichererliste und Versicherer-Logos (HUK-COBURG, Allianz, ERGO, AXA, Generali, R+V, DEVK, HDI, VHV, LVM, Württembergische, Provinzial): aktuelle Website, freigestellt und optisch gleich groß gemacht, Farben und Proportionen unverändert
 - Instagram-Bilder: aus dem Screenshot geschnitten (niedrige Auflösung, nur für den Entwurf)
 - Koordinaten der Werkstatt: strukturierte Daten der aktuellen Website. Flüsse und Autobahnen: Natural Earth (gemeinfrei)
 
