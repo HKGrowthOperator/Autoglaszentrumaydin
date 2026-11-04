@@ -80,21 +80,32 @@
 
 <main id="inhalt">
 
-<section class="shop-kopf" aria-labelledby="shop-titel">
-  <div class="wrap">
-    <div class="shop-kopf__titel">
-      <span class="entwurf-marke">Entwurf · Beispielsortiment und Beispielpreise</span>
-      <h1 class="display" id="shop-titel">Shop.</h1>
-      <p class="lead">Wischer, Scheibenpflege, Winterkram. Ausgesucht von Leuten, die jeden Tag Scheiben in der Hand haben.</p>
-      <ul class="versprechen" role="list">
-        <li>Abholung in der Werkstatt Duisburg, kostenlos</li>
-        <li>Wischer montieren wir dir beim Abholen direkt drauf</li>
-        <li>Versand in ganz Deutschland</li>
-      </ul>
+<section class="shop-hero" aria-labelledby="shop-titel">
+  <img class="shop-hero__bild" src="assets/img/shop/hero.jpg" alt="Nachtfahrt im Regen: Wischer, Tropfen und rote Rücklichter durch die Windschutzscheibe" width="911" height="683" fetchpriority="high">
+  <div class="wrap shop-hero__inhalt">
+    <span class="entwurf-marke">Entwurf · Beispielsortiment und Beispielpreise</span>
+    <h1 class="display" id="shop-titel">Shop.</h1>
+    <p class="lead">Wischer, Pflege, Winter. Ausgesucht von Leuten, die jeden Tag Scheiben in der Hand haben.</p>
+    <div class="shop-hero__aktion">
+      <a class="btn btn--rot" href="#sortiment"><span>Zum Sortiment</span></a>
+      <a class="btn btn--rahmen" href="#finder-band"><span>Wischer nach Fahrzeugschein</span></a>
     </div>
+  </div>
+  <ul class="shop-hero__fakten wrap" role="list">
+    <li><b>Abholung in Duisburg</b><span>kostenlos, Mo bis Sa</span></li>
+    <li><b>Wischer-Montage</b><span>beim Abholen direkt drauf</span></li>
+    <li><b>Versand</b><span>in ganz Deutschland</span></li>
+  </ul>
+</section>
 
+<section class="rot finder-band" id="finder-band" aria-labelledby="finder-titel">
+  <div class="wrap">
+    <div class="finder-band__text">
+      <p class="label">Wischer-Finder</p>
+      <h2 class="h2" id="finder-titel">Welche Wischer passen?</h2>
+      <p class="lead">Schau in deinen Fahrzeugschein. Mit den Feldern 2.1 und 2.2 finden wir genau die Wischer, die dein Hersteller vorsieht. Länge, Adapter, alles.</p>
+    </div>
     <div class="schein-box">
-      <p class="label">Welche Wischer passen? Schau in deinen Fahrzeugschein.</p>
       <form class="schein" id="finder" data-finder novalidate aria-label="Wischer-Finder nach Fahrzeugschein">
         <div class="schein__kopf">
           <div><b>Zulassungsbescheinigung Teil I</b><small>Fahrzeugschein · Felder 2.1 und 2.2</small></div>
@@ -113,7 +124,6 @@
           </div>
           <div class="feld feld--2"><span class="feld__nr">D.1</span><span class="feld__wert">Marke</span></div>
           <div class="feld feld--4"><span class="feld__nr">D.3</span><span class="feld__wert">Handelsbezeichnung</span></div>
-          <p class="schein__hinweis">Mit HSN und TSN finden wir genau die Wischer, die dein Hersteller vorsieht. Länge, Adapter, alles.</p>
         </div>
       </form>
       <div class="finder__aktion">
@@ -127,7 +137,10 @@
 <section class="sektion kreide" id="sortiment" aria-labelledby="sortiment-titel">
   <div class="wrap">
     <div class="sortiment__kopf">
-      <h2 class="h2" id="sortiment-titel">Sortiment</h2>
+      <div>
+        <p class="label" style="color:var(--rot-tief);margin-bottom:1rem">Sortiment</p>
+        <h2 class="h2" id="sortiment-titel">Alles für klare Sicht.</h2>
+      </div>
       <div class="filter" role="group" aria-label="Kategorie filtern" data-filter>
         <button type="button" aria-pressed="true" data-kat="alle"><span>Alles<small data-anzahl="alle"></small></span></button>
         <button type="button" aria-pressed="false" data-kat="wischer" id="wischer"><span>Wischer<small data-anzahl="wischer"></small></span></button>
@@ -141,11 +154,57 @@
   </div>
 </section>
 
-<section class="sektion asphalt" aria-labelledby="montage-titel">
+<section class="winterpaket asphalt" aria-labelledby="winter-titel">
+  <figure class="winterpaket__bild">
+    <img src="assets/img/shop/winter.jpg" alt="Eiskratzer räumt eine vereiste Windschutzscheibe frei, Blick von innen" width="1024" height="640" loading="lazy">
+  </figure>
+  <div class="winterpaket__text">
+    <p class="label" style="color:var(--rot-hell)">Saison · Winterpaket</p>
+    <h2 class="h2" id="winter-titel">Morgens um sieben. Minus vier.</h2>
+    <p>Alles, damit du nicht mit der Kundenkarte kratzt. Einmal packen lassen, in der Werkstatt mitnehmen.</p>
+    <ul class="paket" role="list">
+      <li><span>Winter-Scheibenreiniger 5 L</span><s>12,90 €</s></li>
+      <li><span>Enteiser-Spray 500 ml</span><s>5,90 €</s></li>
+      <li><span>Eiskratzer mit Handschuh</span><s>7,90 €</s></li>
+      <li><span>Frontscheiben-Abdeckung</span><s>14,90 €</s></li>
+    </ul>
+    <div class="paket__preis">
+      <p><small>einzeln 41,60 €</small><b class="zahl">34<sup>90</sup> €</b></p>
+      <button class="btn btn--rot" type="button" data-paket><span>Paket in den Korb</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="sektion kreide-2 montage-band" aria-labelledby="montage-titel">
   <div class="wrap montage">
     <h2 class="h2" id="montage-titel">Hast eh einen Termin? Bringen wir mit.</h2>
     <p>Neue Wischer oder Winterreiniger beim Steinschlag-Termin: Schreib's in die WhatsApp, wir legen es dir hin und bauen es direkt ein.</p>
-    <a class="btn btn--rot" href="https://wa.me/4917620908479?text=Hallo%2C%20ich%20habe%20einen%20Termin%20und%20m%C3%B6chte%20Zubeh%C3%B6r%20dazu." ><span><svg aria-hidden="true"><use href="#i-chat"/></svg>Zum Termin dazulegen</span></a>
+    <a class="btn btn--schwarz" href="https://wa.me/4917620908479?text=Hallo%2C%20ich%20habe%20einen%20Termin%20und%20m%C3%B6chte%20Zubeh%C3%B6r%20dazu."><span><svg aria-hidden="true"><use href="#i-chat"/></svg>Zum Termin dazulegen</span></a>
+  </div>
+</section>
+
+<section class="kreide bildnachweis" aria-labelledby="nachweis-titel">
+  <div class="wrap">
+    <details>
+      <summary id="nachweis-titel">Bildnachweise</summary>
+      <ul role="list" data-nachweise>
+        <li><b>Titelbild:</b> <a href="https://www.flickr.com/photos/23094783@N03/9344910958" rel="noopener">„ohne Titel“</a> von eflon, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>, zugeschnitten</li>
+        <li><b>Winterpaket:</b> <a href="https://www.flickr.com/photos/135396164@N05/31402264633" rel="noopener">„Removing frost from car windshield“</a> von freestocks.org, <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener">CC0 1.0</a>, zugeschnitten</li>
+        <li><b>Flachbalken-Wischer:</b> <a href="https://www.flickr.com/photos/10710442@N08/5046288236" rel="noopener">„Windshield Wiper“</a> von Steve Snodgrass, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>, zugeschnitten</li>
+        <li><b>Hybrid-Wischer:</b> <a href="https://www.flickr.com/photos/86775868@N03/9154996801" rel="noopener">„Wipe“</a> von ChadCooperPhotos, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>, zugeschnitten</li>
+        <li><b>Heckwischer:</b> <a href="https://www.flickr.com/photos/26344495@N05/8481034311" rel="noopener">„Windshield covered in raindrops“</a> von Ivan Radic, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>, zugeschnitten</li>
+        <li><b>Winter-Scheibenreiniger:</b> <a href="https://www.flickr.com/photos/8022403@N06/3250099711" rel="noopener">„windsheild washer fluid res 1“</a> von schwartz.mark, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>, zugeschnitten</li>
+        <li><b>Sommer-Konzentrat:</b> <a href="https://www.flickr.com/photos/37996646802@N01/2824428296" rel="noopener">„Going Where I Have Been“</a> von cogdogblog, <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener">CC0 1.0</a>, zugeschnitten</li>
+        <li><b>Insektenentferner:</b> <a href="https://www.rawpixel.com/image/5903684/photo-image-public-domain-hands-red" rel="noopener">„Washing red car sponge close“</a> von unbekannt, <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener">CC0 1.0</a>, zugeschnitten</li>
+        <li><b>Scheibenversiegelung:</b> <a href="https://www.flickr.com/photos/21837290@N00/2329780241" rel="noopener">„dew on a cold glass roof“</a> von jcgoforth, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>, zugeschnitten</li>
+        <li><b>Enteiser-Spray:</b> <a href="https://www.flickr.com/photos/47264866@N00/12423280805" rel="noopener">„Frosty Window“</a> von OakleyOriginals, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>, zugeschnitten</li>
+        <li><b>Eiskratzer:</b> <a href="https://www.flickr.com/photos/7852439@N07/2972735933" rel="noopener">„Alicia&#x27;s Ice Scraper - Brilliant!“</a> von Collin Anderson, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>, zugeschnitten</li>
+        <li><b>Frontscheiben-Abdeckung:</b> <a href="https://www.flickr.com/photos/36256722@N00/128374990" rel="noopener">„Snow Covered Car“</a> von shrff, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>, zugeschnitten</li>
+        <li><b>Gutschein Herbstcheck:</b> <a href="https://www.flickr.com/photos/84225480@N05/15136415434" rel="noopener">„Newfound Gap Road - Great Smoky Mountains National Park, TN“</a> von pvarney3, <a href="https://creativecommons.org/publicdomain/mark/1.0/" rel="noopener">Public Domain Mark 1.0</a>, zugeschnitten</li>
+        <li><b>Geschenkgutschein:</b> <a href="https://www.flickr.com/photos/21484712@N00/3673390863" rel="noopener">„New Car“</a> von Caitlinator, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>, zugeschnitten</li>
+      </ul>
+      <p>Im fertigen Shop ersetzen eigene Produktfotos aus der Werkstatt diese Bilder.</p>
+    </details>
   </div>
 </section>
 

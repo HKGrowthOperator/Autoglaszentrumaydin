@@ -9,19 +9,23 @@
 
   // Beispielsortiment (Preise im Entwurf frei angenommen)
   const ARTIKEL = [
-    { id: 'w-satz', kat: 'wischer', name: 'Flachbalken-Wischer, Satz vorne', spec: 'passend nach Fahrzeugschein, mit Adapter', preis: 24.9, ab: true, icon: 'p-wischer', grund: 'Montage inklusive', marke: 'Beliebt' },
-    { id: 'w-premium', kat: 'wischer', name: 'Hybrid-Wischer Premium, Satz', spec: 'leise, streifenfrei, für Kameraautos', preis: 34.9, ab: true, icon: 'p-wischer', grund: 'Montage inklusive' },
-    { id: 'w-heck', kat: 'wischer', name: 'Heckwischer', spec: 'für Kombi, SUV und Kleinwagen', preis: 9.9, ab: true, icon: 'p-heckwischer', grund: 'Montage inklusive' },
-    { id: 'p-winter5', kat: 'winter', name: 'Winter-Scheibenreiniger 5 L', spec: 'gebrauchsfertig bis −20 °C', preis: 12.9, icon: 'p-kanister', grund: '2,58 € / L', marke: 'Saison' },
-    { id: 'p-sommer', kat: 'pflege', name: 'Sommer-Scheibenreiniger Konzentrat 1 L', spec: 'ergibt bis zu 100 L', preis: 6.9, icon: 'p-flasche', grund: '6,90 € / L' },
-    { id: 'p-insekt', kat: 'pflege', name: 'Insektenentferner 500 ml', spec: 'löst Rückstände ohne Kratzen', preis: 5.9, icon: 'p-spray', grund: '11,80 € / L' },
-    { id: 'p-versiegelung', kat: 'pflege', name: 'Scheibenversiegelung 100 ml', spec: 'Regen perlt ab, bessere Sicht nachts', preis: 14.9, icon: 'p-flasche', grund: '149,00 € / L' },
-    { id: 'p-enteiser', kat: 'winter', name: 'Enteiser-Spray 500 ml', spec: 'wirkt in Sekunden, schont Gummis', preis: 5.9, icon: 'p-spray', grund: '11,80 € / L' },
-    { id: 'p-kratzer', kat: 'winter', name: 'Eiskratzer mit Handschuh', spec: 'Messinglippe, kratzt nicht', preis: 7.9, icon: 'p-kratzer', grund: 'Stück' },
-    { id: 'p-abdeckung', kat: 'winter', name: 'Frontscheiben-Abdeckung', spec: 'gegen Eis und Schnee, mit Magneten', preis: 14.9, icon: 'p-abdeckung', grund: 'Stück' },
-    { id: 'g-check', kat: 'gutschein', name: 'Gutschein Herbstcheck', spec: 'Scheibe, Wischer, Wasser, Frostschutz', preis: 19.9, icon: 'p-gutschein', grund: 'einlösbar in Duisburg', marke: 'Geschenk' },
-    { id: 'g-50', kat: 'gutschein', name: 'Geschenkgutschein 50 €', spec: 'für Reparatur, Tausch oder Shop', preis: 50, icon: 'p-gutschein', grund: 'per Mail oder gedruckt' }
+    { id: 'w-satz', kat: 'wischer', name: 'Flachbalken-Wischer, Satz vorne', spec: 'passend nach Fahrzeugschein, mit Adapter', preis: 24.9, ab: true, bild: 'w-satz', alt: 'Wischerarm auf rotem Lack vor der Windschutzscheibe', grund: 'Montage inklusive', marke: 'Bestseller', gross: true,
+      punkte: ['nach HSN/TSN zugeordnet', 'beim Abholen direkt montiert', 'leise und streifenfrei'] },
+    { id: 'w-premium', kat: 'wischer', name: 'Hybrid-Wischer Premium, Satz', spec: 'leise, streifenfrei, für Autos mit Kamera', preis: 34.9, ab: true, bild: 'w-premium', alt: 'Wischerblatt mit Regentropfen in Nahaufnahme', grund: 'Montage inklusive' },
+    { id: 'w-heck', kat: 'wischer', name: 'Heckwischer', spec: 'für Kombi, SUV und Kleinwagen', preis: 9.9, ab: true, bild: 'w-heck', alt: 'Scheibe voller Regentropfen mit Wischern', grund: 'Montage inklusive' },
+    { id: 'p-winter5', kat: 'winter', name: 'Winter-Scheibenreiniger 5 L', spec: 'gebrauchsfertig bis −20 °C', preis: 12.9, bild: 'p-winter5', alt: 'Behälter für Scheibenwaschwasser im Motorraum mit gelbem Deckel', grund: '2,58 € / L', marke: 'Saison' },
+    { id: 'p-sommer', kat: 'pflege', name: 'Sommer-Konzentrat 1 L', spec: 'ergibt bis zu 100 L Waschwasser', preis: 6.9, bild: 'p-sommer', alt: 'Außenspiegel mit Landstraße im Sommer', grund: '6,90 € / L' },
+    { id: 'p-insekt', kat: 'pflege', name: 'Insektenentferner 500 ml', spec: 'löst Rückstände ohne Kratzen', preis: 5.9, bild: 'p-insekt', alt: 'Hand wäscht roten Lack mit einem Schwamm', grund: '11,80 € / L' },
+    { id: 'p-versiegelung', kat: 'pflege', name: 'Scheibenversiegelung 100 ml', spec: 'Regen perlt ab, bessere Sicht nachts', preis: 14.9, bild: 'p-versiegelung', alt: 'Wassertropfen perlen auf Glas', grund: '149,00 € / L' },
+    { id: 'p-enteiser', kat: 'winter', name: 'Enteiser-Spray 500 ml', spec: 'wirkt in Sekunden, schont Gummis', preis: 5.9, bild: 'p-enteiser', alt: 'Eisblumen auf einer Autoscheibe', grund: '11,80 € / L' },
+    { id: 'p-kratzer', kat: 'winter', name: 'Eiskratzer mit Handschuh', spec: 'warme Hand, Messinglippe', preis: 7.9, bild: 'p-kratzer', alt: 'Eiskratzer mit kariertem Handschuh auf einem Tisch', grund: 'Stück' },
+    { id: 'p-abdeckung', kat: 'winter', name: 'Frontscheiben-Abdeckung', spec: 'gegen Eis und Schnee, mit Magneten', preis: 14.9, bild: 'p-abdeckung', alt: 'Rotes Auto mit Schnee auf dem Dach', grund: 'Stück' },
+    { id: 'g-check', kat: 'gutschein', name: 'Gutschein Herbstcheck', spec: 'Scheibe, Wischer, Wasser, Frostschutz', preis: 19.9, bild: 'g-check', alt: 'Landstraße durch einen bunten Herbstwald', grund: 'einlösbar in Duisburg', marke: 'Geschenk' },
+    { id: 'paket-winter', kat: 'winter', versteckt: true, name: 'Winterpaket', spec: 'Reiniger 5 L, Enteiser, Eiskratzer, Abdeckung', preis: 34.9, bild: 'winter', alt: '', grund: 'Paket' },
+    { id: 'g-50', kat: 'gutschein', name: 'Geschenkgutschein 50 €', spec: 'für Reparatur, Tausch oder Shop', preis: 50, bild: 'g-50', alt: 'Hand hält einen Autoschlüssel', grund: 'per Mail oder gedruckt' }
   ];
+  // Einzeldatei-Vorschau legt eingebettete Bilder in window.AZA_BILDER ab
+  const bildUrl = (n) => (window.AZA_BILDER && window.AZA_BILDER[n]) || 'assets/img/shop/' + n + '.jpg';
   const KAT = { wischer: 'Wischer', pflege: 'Pflege', winter: 'Winter', gutschein: 'Gutschein' };
 
   /* ---------- Speicher (nur Komfort, darf fehlen) ---------- */
@@ -35,30 +39,36 @@
   const preisHtml = (p, ab) => { const [e, c] = p.toFixed(2).split('.'); return `${ab ? '<small>ab</small>' : ''}${e}<sup>${c}</sup><small>€</small>`; };
   function regalBauen(kat) {
     regal.textContent = '';
-    const liste = ARTIKEL.filter((a) => kat === 'alle' || a.kat === kat);
+    const liste = ARTIKEL.filter((a) => !a.versteckt && (kat === 'alle' || a.kat === kat));
     if (!liste.length) { regal.innerHTML = '<li class="regal__leer">Hier ist gerade nichts im Regal.</li>'; return; }
     liste.forEach((a, i) => {
-      const li = document.createElement('li');
+      const gross = a.gross && (kat === 'alle' || kat === a.kat);
+      const li = document.createElement('li'); if (gross) li.className = 'gross';
       li.innerHTML = `
-        <article class="etikett" aria-labelledby="t-${a.id}">
-          <span class="etikett__kat" data-kat="${a.kat}"><span>${KAT[a.kat]}</span><span>${String(i + 1).padStart(2, '0')}</span></span>
-          ${a.marke ? `<span class="etikett__marke">${a.marke}</span>` : ''}
-          <span class="etikett__bild"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#${a.icon}"/></svg></span>
-          <span class="etikett__info">
-            <span class="etikett__name" id="t-${a.id}">${a.name}</span>
-            <span class="etikett__spec">${a.spec}</span>
-            <span></span>
-            <span class="etikett__preis"><span class="preis">${preisHtml(a.preis, a.ab)}</span><span class="etikett__grund">${a.grund}</span></span>
-            <button class="btn btn--schwarz etikett__korb" type="button" data-rein="${a.id}"><span>In den Korb</span></button>
-          </span>
+        <article class="produkt${gross ? ' produkt--gross' : ''}" aria-labelledby="t-${a.id}">
+          <figure class="produkt__bild">
+            <img src="${bildUrl(a.bild)}" alt="${a.alt}" width="800" height="600" loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async">
+            <span class="produkt__kat">${KAT[a.kat]}</span>
+            ${a.marke ? `<span class="produkt__marke">${a.marke}</span>` : ''}
+          </figure>
+          <div class="produkt__info">
+            <h3 class="produkt__name" id="t-${a.id}">${a.name}</h3>
+            <p class="produkt__spec">${a.spec}</p>
+            ${gross && a.punkte ? `<ul class="produkt__punkte" role="list">${a.punkte.map((p) => `<li>${p}</li>`).join('')}</ul>` : '<span></span>'}
+            <div class="produkt__preis"><span class="preis">${preisHtml(a.preis, a.ab)}</span><span class="produkt__grund">${a.grund}</span></div>
+            <button class="btn btn--schwarz produkt__korb" type="button" data-rein="${a.id}"><span>In den Korb</span></button>
+          </div>
         </article>`;
       regal.appendChild(li);
     });
+    const extra = document.createElement('li'); extra.className = 'anfrage';
+    extra.innerHTML = `<div class="anfrage__kachel"><p class="label">Nicht dabei?</p><p class="anfrage__titel">Wir besorgen's.</p><p>Spezielle Wischer, Pflege oder Zubehör für dein Modell. Kurz schreiben, wir sagen dir Preis und Termin.</p><a class="btn btn--schwarz" href="${WA + encodeURIComponent('Hallo, ich suche folgendes Zubehör: ')}"><span>Per WhatsApp fragen</span></a></div>`;
+    regal.appendChild(extra);
     knoepfeMarkieren();
   }
   const filter = $('[data-filter]');
   $$('button', filter).forEach((b) => {
-    const k = b.dataset.kat; const n = k === 'alle' ? ARTIKEL.length : ARTIKEL.filter((a) => a.kat === k).length;
+    const k = b.dataset.kat; const n = ARTIKEL.filter((a) => !a.versteckt && (k === 'alle' || a.kat === k)).length;
     $(`[data-anzahl="${k}"]`, b).textContent = String(n);
     b.addEventListener('click', () => {
       $$('button', filter).forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
@@ -96,14 +106,14 @@
     zahl.setAttribute('aria-label', `${stueck} Artikel im Korb`);
     posten.textContent = '';
     if (!ids.length) {
-      posten.innerHTML = '<li class="schublade__leer"><svg viewBox="0 0 120 90" width="110" aria-hidden="true"><use href="#p-wischer"/></svg><p>Noch leer. Fang mit Wischern an, die stimmen nach einem Winter fast nie mehr.</p></li>';
+      posten.innerHTML = '<li class="schublade__leer"><p>Noch leer. Fang mit Wischern an, die sind nach einem Winter fast immer durch.</p><a class="btn btn--schwarz" href="#sortiment" data-korb-zu-link><span>Zum Sortiment</span></a></li>';
     }
     let summe = 0;
     ids.forEach((id) => {
       const a = ARTIKEL.find((x) => x.id === id); const k = korb[id]; summe += a.preis * k.n;
       const li = document.createElement('li'); li.className = 'posten';
       li.innerHTML = `
-        <span class="posten__bild"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#${a.icon}"/></svg></span>
+        <span class="posten__bild"><img src="${bildUrl(a.bild)}" alt="" width="58" height="58"></span>
         <div><b>${a.name}</b><small>${k.notiz ? k.notiz : a.spec}</small><br>
           <span class="menge"><button type="button" data-minus="${id}" aria-label="Eins weniger">−</button><output aria-live="polite">${k.n}</output><button type="button" data-plus="${id}" aria-label="Eins mehr">+</button></span></div>
         <div class="posten__preis">${euro.format(a.preis * k.n)}<button class="posten__weg" type="button" data-weg="${id}">Entfernen</button></div>`;
@@ -132,6 +142,14 @@
   schatten.addEventListener('click', () => oeffnen(false));
   addEventListener('keydown', (e) => { if (e.key === 'Escape' && schublade.classList.contains('is-offen')) oeffnen(false); });
   $('[data-kasse]').addEventListener('click', () => $('[data-kasse-hinweis]').classList.add('is-da'));
+  posten.addEventListener('click', (e) => { if (e.target.closest('[data-korb-zu-link]')) oeffnen(false); });
+  // Winterpaket: vier Artikel auf einmal, Paketpreis als Hinweis
+  const paket = $('[data-paket]');
+  if (paket) paket.addEventListener('click', () => {
+    rein('paket-winter', 1);
+    $('span', paket).textContent = 'Im Korb ✓'; setTimeout(() => { $('span', paket).textContent = 'Paket in den Korb'; }, 1600);
+    oeffnen(true);
+  });
   zeichnen();
 
   /* ---------- Wischer-Finder ---------- */
