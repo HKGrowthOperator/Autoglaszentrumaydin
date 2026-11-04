@@ -4,3 +4,5 @@ Startseite (`index.html`) und Shop (`shop.html`), reines HTML/CSS/JS ohne Build-
 Zum Anschauen `index.html` im Browser öffnen. Für Kunden ohne Ordnerstruktur liegen eigenständige Einzeldateien in `vorschau-einzeldatei/`.
 
 Konzept, verwendete Quellen und offene Punkte: [ENTWURF-NOTIZEN.md](ENTWURF-NOTIZEN.md)
+
+Demo auf dem eigenen Server per Coolify: [deploy/coolify/README.md](deploy/coolify/README.md)
