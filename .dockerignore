@@ -1,4 +1,3 @@
-# BuildKit liest "<Dockerfile>.dockerignore" neben dem Dockerfile.
 # Gebraucht werden nur index.html, shop.html, assets/ und deploy/coolify/nginx.conf.
 .git
 vorschau

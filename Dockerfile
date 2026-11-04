@@ -3,8 +3,9 @@
 # Kein Build-Schritt: index.html, shop.html und assets/ SIND der ausgelieferte
 # Stand. Das Image legt sie nur hinter nginx (Konfiguration: nginx.conf).
 #
-# In Coolify: Build Pack = Dockerfile, Base Directory = /,
-# Dockerfile Location = /deploy/coolify/Dockerfile, Ports Exposes = 80.
+# Liegt bewusst in der Repo-Wurzel: In Coolify reichen die Standardwerte
+# (Build Pack = Dockerfile, Base Directory = /, Dockerfile Location = /Dockerfile),
+# dazu Ports Exposes = 80.
 
 FROM nginx:1.27-alpine
 

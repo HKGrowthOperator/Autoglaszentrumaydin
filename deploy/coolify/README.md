@@ -13,15 +13,17 @@ Neue Resource → Application → GitHub App (privates Repo) oder Public Reposit
 | Branch | `main` |
 | Build Pack | `Dockerfile` |
 | Base Directory | `/` |
-| Dockerfile Location | `/deploy/coolify/Dockerfile` |
+| Dockerfile Location | `/Dockerfile` (Standardwert, nichts ändern) |
 | Ports Exposes | `80` (Port Mappings leer lassen) |
 | Domain | z. B. `https://autoglasaydin.hk-growthoperator.de` |
 | Health Check | aus (dann gilt der aus dem Dockerfile) oder Pfad `/gesund`, Status `204` |
 
 „Automatic Deployment“ einschalten, dann baut jeder Push auf `main` die Demo neu.
 
-**Beide Pfadfelder müssen stimmen.** Steht `Dockerfile Location` auf dem Standard
-`/Dockerfile`, bricht der Build mit `open Dockerfile: no such file or directory` ab.
+Das `Dockerfile` liegt in der Repo-Wurzel, die nginx-Konfiguration hier unter
+`deploy/coolify/nginx.conf`. Kommt `open Dockerfile: no such file or directory`,
+steht `Dockerfile Location` auf einem anderen Pfad als `/Dockerfile`, oder
+`Base Directory` ist nicht `/`.
 
 Für die Subdomain braucht es einen DNS-Eintrag (A-Record) auf den Coolify-Server,
 falls bei hk-growthoperator.de kein Wildcard-Eintrag besteht.
