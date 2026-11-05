@@ -36,6 +36,13 @@ falls bei hk-growthoperator.de kein Wildcard-Eintrag besteht.
   `nginx.conf` entfernen.
 - WhatsApp- und Telefonlinks zeigen auf die echten Nummern des Betriebs.
 
+## Zwischenspeicher
+
+HTML, CSS und JS gehen mit `Cache-Control: no-cache` raus (Browser fragt kurz nach,
+meist 304). Zusätzlich hängt das Dockerfile beim Bauen `?v=<Prüfsumme>` an alle
+CSS/JS-Verweise. So zeigt nach einem Deploy kein Browser eine alte Fassung.
+Bilder 1 Tag, Schriften 30 Tage.
+
 ## Adressen
 
 | Adresse | Antwort |
