@@ -570,17 +570,9 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 .kosten__bons { grid-column: 6 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 2.5vw, 2rem); align-items: start; }
 .bon {
   background: var(--kreide); color: var(--tinte);
-  padding: 1.6rem 1.4rem 2.6rem;
+  padding: 1.6rem 1.4rem;
   font-family: var(--f-cond); font-size: .98rem;
-  box-shadow: 0 1.5rem 2.5rem -1rem oklch(0.25 0.12 27 / .55), 0 .2rem .4rem oklch(0.25 0.12 27 / .3);
-  --zz: 10px;
-  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--zz)) 100%;
-          mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--zz)) 100%;
-  transform: rotate(-1.6deg);
-  transition: transform .6s var(--ease-out);
 }
-.bon:nth-child(2) { transform: rotate(1.3deg) translateY(2.5rem); }
-.bon:hover { transform: rotate(0) translateY(-.25rem); }
 .bon__kopf { text-align: center; display: grid; gap: .15rem; padding-bottom: 1rem; border-bottom: 2px dashed oklch(0.2 0.012 28 / .35); }
 .bon__kopf svg { width: 72%; margin: 0 auto .5rem; color: var(--tinte); }
 .bon__kopf small { font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--grau); }
@@ -593,9 +585,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 .bon__summe span { font-weight: 820; text-transform: uppercase; letter-spacing: .04em; }
 .bon__summe b { font-family: var(--f-display); font-style: italic; font-weight: 900; font-size: 2.6rem; line-height: 1; color: var(--rot); }
 .bon__fuss { margin-top: 1.1rem; font-size: .78rem; color: var(--grau); text-align: center; letter-spacing: .03em; }
-.bon__barcode { height: 2.2rem; margin: .9rem auto 0; width: 80%;
-  background: repeating-linear-gradient(90deg, var(--tinte) 0 2px, transparent 2px 4px, var(--tinte) 4px 5px, transparent 5px 8px, var(--tinte) 8px 11px, transparent 11px 12px);
-}
 .kosten__fuss { grid-column: 6 / -1; margin-top: clamp(3.5rem, 6vw, 5rem); display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center; }
 .kosten__fuss p { max-width: 52ch; font-size: .98rem; color: oklch(0.96 0.025 40); }
 @media (max-width: 1080px) {
@@ -604,7 +593,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 }
 @media (max-width: 640px) {
   .kosten__bons { grid-template-columns: 1fr; gap: 2.5rem; }
-  .bon:nth-child(2) { transform: rotate(1.3deg); }
   .kosten__fuss { grid-template-columns: 1fr; }
 }
 
