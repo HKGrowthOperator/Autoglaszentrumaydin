@@ -9,8 +9,13 @@
   background: var(--tinte); color: var(--grund); border: 0; font-weight: 500; font-size: var(--step-body); cursor: pointer;
   transition: background 0.2s;
 }
-.korb-knopf svg { width: 1.25rem; height: 1.25rem; }
+.korb-knopf svg { width: 1.25rem; height: 1.25rem; flex: none; }
 .korb-knopf:hover { background: var(--rot); }
+@media (max-width: 480px) {
+  .kopf__rechts { gap: 1rem; }
+  .korb-knopf { padding: 0 0.75rem; }
+  .korb-knopf__wort { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
 .korb-knopf.hupf { animation: hupf 0.45s var(--ease); }
 @keyframes hupf { 40% { transform: translateY(-4px); } }
 @media (max-width: 860px) { .kopf .nav { display: none; } }
@@ -20,25 +25,22 @@
    ========================================================================== */
 .shopstart {
   display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter);
-  min-height: calc(100svh - 7.5rem); padding-top: clamp(2rem, 5vw, 4rem); align-content: end;
+  min-height: calc(100svh - 7.5rem); padding-top: clamp(2rem, 4vw, 3.5rem); grid-template-rows: 1fr auto; align-items: start;
 }
-.shopstart__titel {
-  grid-column: 1 / span 8; grid-row: 1; align-self: end;
-  font-family: var(--f-anzeige); font-weight: 700; font-size: var(--step-display); line-height: 0.9; letter-spacing: -0.02em;
-}
+.shopstart__text { grid-column: 1 / span 7; display: grid; gap: 2.5rem; justify-items: start; }
+.shopstart__titel { font-family: var(--f-anzeige); font-weight: 700; font-size: var(--step-display); line-height: 0.9; letter-spacing: -0.02em; }
 .shopstart__titel span { display: block; }
-.shopstart__bild { grid-column: 9 / -1; grid-row: 1; margin: 0; align-self: end; }
-.shopstart__bild img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 48% 50%; }
-.shopstart__unten { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: end; padding-top: clamp(2rem, 4vw, 3rem); }
-.shopstart__stuetze { grid-column: 1 / span 5; font-size: var(--step-lead); line-height: 1.3; max-width: 30ch; }
-.shopstart__aktion { grid-column: 9 / -1; display: grid; gap: 1rem; justify-items: start; }
-.shopstart__ecken { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; padding-block: 2.5rem 1.5rem; }
+.shopstart__stuetze { font-size: var(--step-lead); line-height: 1.3; max-width: 30ch; margin-top: -1rem; }
+.shopstart__aktion { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+.shopstart__bild { grid-column: 9 / -1; margin: 0; }
+.shopstart__bild img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 55% 50%; }
+.shopstart__ecken { grid-column: 1 / -1; align-self: end; display: flex; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; padding-block: 2.5rem 1.5rem; }
 @media (max-width: 860px) {
-  .shopstart { min-height: 0; align-content: start; }
-  .shopstart__titel, .shopstart__bild, .shopstart__stuetze, .shopstart__aktion { grid-column: 1 / -1; }
-  .shopstart__bild { grid-row: 2; margin-top: 1.5rem; }
+  .shopstart { min-height: 0; grid-template-rows: none; }
+  .shopstart__text, .shopstart__bild { grid-column: 1 / -1; }
+  .shopstart__bild { margin-top: 2rem; }
   .shopstart__bild img { aspect-ratio: 3 / 2; }
-  .shopstart__unten { grid-template-columns: 1fr; gap: 1.5rem; }
+  .shopstart__aktion { display: grid; width: 100%; }
   .shopstart__aktion .knopf { justify-self: stretch; }
   .shopstart__ecken { flex-direction: column; }
 }
@@ -90,6 +92,10 @@
 .produkt { display: grid; gap: 1rem; height: 100%; grid-template-rows: auto 1fr; }
 .produkt__bild { margin: 0; background: var(--flaeche); overflow: hidden; }
 .produkt__bild img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: transform 0.6s var(--ease); }
+.produkt__bild--flaeche { aspect-ratio: 4 / 3; background: var(--tinte); color: var(--auf-dunkel); display: grid; place-items: center; padding: 1rem; text-align: center; }
+.produkt__bild--flaeche span { font-family: var(--f-anzeige); font-weight: 700; font-size: var(--step-head); line-height: 0.95; letter-spacing: -0.02em; hyphens: manual; }
+.produkt:hover .produkt__bild--flaeche { background: var(--rot); }
+.posten__flaeche { display: block; width: 4rem; height: 4rem; background: var(--tinte); }
 .produkt:hover .produkt__bild img { transform: scale(1.03); }
 .produkt__info { display: grid; gap: 0.35rem; align-content: start; }
 .produkt__name { font-family: var(--f-text); font-weight: 500; font-size: var(--step-body); line-height: 1.3; }

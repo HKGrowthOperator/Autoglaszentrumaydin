@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Entwurf · Shop: Wischer, Scheibenpflege &amp; Winterzubehör | Autoglas Zentrum Aydin</title>
-<meta name="description" content="Wischer nach Fahrzeugschein, Scheibenpflege und Winterzubehör. Online bestellen, in Duisburg abholen, Wischer-Montage direkt in der Werkstatt.">
+<meta name="description" content="Wischer passend nach Fahrzeugschein, Scheibenpflege und Winterzubehör. Online bestellen und in der Werkstatt in Duisburg abholen.">
 <meta name="theme-color" content="#f2f5f6">
 <link rel="preload" href="assets/fonts/BarlowCondensed-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
@@ -23,7 +23,7 @@
 </svg>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
-<p class="entwurf">Entwurf von HK Growth Operator für Autoglas Zentrum Aydin · Sortiment und Preise sind Beispiele · nicht öffentlich</p>
+<p class="entwurf">Entwurf von HK Growth Operator für Autoglas Zentrum Aydin · Stand 10. November 2026 · Sortiment, Preise, Montage und Versand sind Vorschläge · nicht öffentlich</p>
 
 <header class="kopf rand" data-kopf>
   <a class="logo" href="index.html" aria-label="Autoglas Zentrum Aydin, Startseite"><svg viewBox="-2 0 903 104" aria-hidden="true"><use href="#wortmarke"/></svg></a>
@@ -35,7 +35,7 @@
     <a href="shop.html" aria-current="page">Shop</a>
   </nav>
   <div class="kopf__rechts">
-    <button class="korb-knopf" type="button" aria-controls="schublade" aria-expanded="false" data-korb-auf><svg aria-hidden="true"><use href="#i-korb"/></svg>Korb <span data-korb-zahl aria-label="0 Artikel im Korb">0</span></button>
+    <button class="korb-knopf" type="button" aria-controls="schublade" aria-expanded="false" data-korb-auf><svg aria-hidden="true"><use href="#i-korb"/></svg><span class="korb-knopf__wort">Korb</span> <span data-korb-zahl aria-label="0 Artikel im Korb">0</span></button>
     <button class="menu-knopf" type="button" aria-expanded="false" aria-controls="menu" data-menu-auf>Menü</button>
   </div>
 </header>
@@ -58,20 +58,20 @@
 
 <!-- 1 · Start: die Zeile vom Shop-Band der Startseite, hier als Titel -->
 <section class="shopstart rand" aria-labelledby="shop-titel">
-  <h1 class="shopstart__titel" id="shop-titel"><span>Wischer und</span> <span>Winterkram.</span></h1>
-  <figure class="shopstart__bild">
-    <img src="assets/img/shop/hero.jpg" alt="Nachtfahrt im Regen: Wischer und rote Rücklichter durch die nasse Windschutzscheibe" width="911" height="683" fetchpriority="high">
-  </figure>
-  <div class="shopstart__unten">
+  <div class="shopstart__text">
+    <h1 class="shopstart__titel" id="shop-titel"><span>Wischer und</span> <span>Winterkram.</span></h1>
     <p class="shopstart__stuetze">Online bestellen, in Duisburg abholen. Wischer bauen wir dir beim Abholen direkt ein.</p>
     <div class="shopstart__aktion">
       <a class="knopf knopf--rot" href="#sortiment">Zum Sortiment</a>
       <a class="textlink" href="#finder">Wischer nach Fahrzeugschein finden</a>
     </div>
   </div>
+  <figure class="shopstart__bild">
+    <img src="assets/img/shop/w-premium.jpg" alt="Wischerblatt mit Regentropfen in Nahaufnahme" width="800" height="600" fetchpriority="high">
+  </figure>
   <div class="shopstart__ecken">
     <p>Abholung Duisburger Str. 150 · Mo bis Sa 9:30 bis 18:00</p>
-    <p>Im Entwurf: Sortiment und Preise sind Beispiele</p>
+    <p>Im Entwurf: Sortiment, Preise, Montage und Versand sind Vorschläge</p>
   </div>
 </section>
 
@@ -79,7 +79,7 @@
 <section class="finder feld-rot rand" id="finder" aria-labelledby="finder-titel">
   <div class="finder__text" data-auftritt>
     <h2 id="finder-titel">Welche Wischer passen?</h2>
-    <p>Schau in deinen Fahrzeugschein. Mit Feld 2.1 und 2.2 finden wir genau die Wischer, die dein Hersteller vorsieht, mit Länge und Adapter.</p>
+    <p>Schau in deinen Fahrzeugschein. Mit Feld 2.1 und 2.2 suchen wir die passenden Wischer raus, mit Länge und Adapter.</p>
   </div>
   <form class="finder__form" data-auftritt data-finder novalidate aria-label="Wischer-Finder nach Fahrzeugschein">
     <div class="finder__feld">
@@ -91,7 +91,7 @@
       <input id="tsn" name="tsn" maxlength="3" placeholder="erste 3 Zeichen" autocomplete="off" data-tsn>
     </div>
     <button class="knopf knopf--tinte" type="submit">Passende Wischer finden</button>
-    <p class="finder__antwort" aria-live="polite" data-finder-antwort>Wir notieren deinen Schlüssel und bestätigen dir Länge und Preis per WhatsApp.</p>
+    <p class="finder__antwort" aria-live="polite" data-finder-antwort>Wir legen den passenden Satz in deinen Korb. Länge und Preis bestätigen wir dir nach der Bestellung.</p>
   </form>
 </section>
 
@@ -110,7 +110,7 @@
   <ul class="regal" role="list" data-regal aria-live="polite">
     <li class="regal__ohne-js">Das Sortiment braucht JavaScript. Ruf an oder schreib uns, wir legen dir alles hin.</li>
   </ul>
-  <p class="sortiment__fuss" data-auftritt>Alle Preise inkl. MwSt., zzgl. Versand. Bei Abholung in Duisburg kein Versand. Im Entwurf sind Sortiment und Preise Beispiele und noch nicht mit der Werkstatt abgestimmt.</p>
+  <p class="sortiment__fuss" data-auftritt>Alle Preise inkl. MwSt., zzgl. Versand. Abholung in Duisburg ohne Versandkosten. Im Entwurf sind Sortiment und Preise Beispiele und noch nicht mit der Werkstatt abgestimmt.</p>
 </section>
 
 <!-- 4 · Winterpaket auf dem dunklen Feld -->
@@ -120,11 +120,11 @@
   </figure>
   <div class="winterpaket__text">
     <h2 id="winter-titel" data-auftritt><span>Morgens um sieben.</span> <span>Minus vier.</span></h2>
-    <p data-auftritt>Alles, damit du nicht mit der Kundenkarte kratzt. Wir packen es dir zusammen, du nimmst es in der Werkstatt mit.</p>
-    <p class="paket__preis" data-auftritt><span class="paket__summe">34,90 €</span> statt 41,60 € einzeln</p>
+    <p data-auftritt>Alles, damit du nicht mit der Kundenkarte kratzt. Wir packen es dir zusammen, zum Abholen in der Werkstatt oder per Versand.</p>
+    <p class="paket__preis" data-auftritt><span class="paket__summe">34,90 €</span> statt 41,60 € einzeln, Beispielpreise</p>
     <ul class="paket" role="list" data-auftritt>
-      <li><span>Winter-Scheibenreiniger 5 L</span><span>12,90 €</span></li>
-      <li><span>Enteiser-Spray 500 ml</span><span>5,90 €</span></li>
+      <li><span>Winter-Scheibenreiniger 5 L</span><span>12,90 €</span></li>
+      <li><span>Enteiser-Spray 500 ml</span><span>5,90 €</span></li>
       <li><span>Eiskratzer mit Handschuh</span><span>7,90 €</span></li>
       <li><span>Frontscheiben-Abdeckung</span><span>14,90 €</span></li>
     </ul>
@@ -134,9 +134,9 @@
 
 <!-- 5 · Zum Termin dazulegen -->
 <section class="montage rand" aria-labelledby="montage-titel">
-  <h2 id="montage-titel" data-auftritt><span>Hast eh einen Termin?</span> <span>Bringen wir mit.</span></h2>
+  <h2 id="montage-titel" data-auftritt><span>Hast eh einen Termin?</span> <span>Legen wir dazu.</span></h2>
   <div class="montage__text" data-auftritt>
-    <p>Neue Wischer oder Winterreiniger beim Steinschlag-Termin: Schreib es in die WhatsApp, wir legen es dir hin und bauen es direkt ein.</p>
+    <p>Neue Wischer oder Winterreiniger zum Termin? Schreib es in die WhatsApp. Wir legen alles bereit, Wischer bauen wir direkt ein.</p>
     <a class="knopf knopf--rot" href="https://wa.me/4917620908479?text=Hallo%2C%20ich%20habe%20einen%20Termin%20und%20m%C3%B6chte%20Zubeh%C3%B6r%20dazu." data-wa><svg aria-hidden="true"><use href="#i-chat"/></svg>Zum Termin dazulegen</a>
   </div>
 </section>
@@ -161,7 +161,7 @@
     <p><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · Entwurf · Stand 10. November 2026</p>
     <details class="fuss__nachweis">
       <summary>Bildnachweise</summary>
-      <p>Alle Produktfotos sind Platzhalter aus freien Quellen, zugeschnitten. Im fertigen Shop stehen hier eigene Fotos aus der Werkstatt. Nachtfahrt im Regen: eflon, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Wischer auf rotem Lack: Steve Snodgrass, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Wischerblatt mit Tropfen: ChadCooperPhotos, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Regentropfen auf der Scheibe: Ivan Radic, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Behälter für Waschwasser: schwartz.mark, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Außenspiegel: cogdogblog, CC0. Schwamm auf rotem Lack: rawpixel, CC0. Tau auf Glas: jcgoforth, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Eisblumen: OakleyOriginals, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Eiskratzer: Collin Anderson, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Schnee auf dem Auto: shrff, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Herbstwald: pvarney3, Public Domain Mark. Autoschlüssel: Caitlinator, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Eiskratzer auf der Scheibe: freestocks.org, CC0. Alle über Flickr oder rawpixel.</p>
+      <p>Alle Produktfotos sind Platzhalter aus freien Quellen, zugeschnitten. Im fertigen Shop stehen hier eigene Fotos aus der Werkstatt. Nachtfahrt im Regen: eflon, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Wischer auf rotem Lack: Steve Snodgrass, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Wischerblatt mit Tropfen: ChadCooperPhotos, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Regentropfen auf der Scheibe: Ivan Radic, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Behälter für Waschwasser: schwartz.mark, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Waschwasser auf der Scheibe: spader, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Schwamm auf rotem Lack: rawpixel, CC0. Tau auf Glas: jcgoforth, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Eisblumen: OakleyOriginals, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Eiskratzer: Collin Anderson, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Schnee auf dem Auto: shrff, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Eiskratzer auf der Scheibe: freestocks.org, CC0. Alle über Flickr oder rawpixel.</p>
     </details>
   </div>
   <a class="fuss__logo" href="index.html" aria-label="Zur Startseite"><svg viewBox="-2 0 903 104" aria-hidden="true"><use href="#wortmarke"/></svg></a>
@@ -178,11 +178,11 @@
     <fieldset class="liefer">
       <legend>Lieferung</legend>
       <label><input type="radio" name="liefer" value="abholung" checked><span>Abholung in Duisburg</span><span>0,00 €</span></label>
-      <label><input type="radio" name="liefer" value="versand"><span>Versand mit DHL</span><span>4,90 €</span></label>
+      <label><input type="radio" name="liefer" value="versand"><span>Versand</span><span>4,90 €</span></label>
     </fieldset>
-    <p class="summe"><span>Summe inkl. MwSt.</span><span data-summe>0,00 €</span></p>
+    <p class="summe"><span>Summe inkl. MwSt. (Beispielpreise)</span><span data-summe>0,00 €</span></p>
     <button class="knopf knopf--rot" type="button" data-kasse>Zur Kasse</button>
-    <p class="kasse-hinweis" data-kasse-hinweis role="status" hidden>Im Entwurf ist die Kasse noch nicht angebunden. Im fertigen Shop: PayPal, Karte, Klarna und Apple Pay, die Bestellung landet direkt bei euch.</p>
+    <p class="kasse-hinweis" data-kasse-hinweis role="status" hidden>Im Entwurf ist die Kasse noch nicht angebunden. Welche Zahlarten der Shop anbietet, legt die Werkstatt fest.</p>
   </div>
 </aside>
 

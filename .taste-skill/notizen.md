@@ -281,3 +281,88 @@ node .claude/skills/design-taste-frontend/scripts/lint.mjs index.html assets/css
 CHROME_PATH=werkzeuge/chrome-ohne-sandbox.sh node .claude/skills/design-taste-frontend/scripts/inspect.mjs index.html --out .taste-skill/after
 ```
 Ziel: 0 FAIL bei 1440, 768 und 390; jede WARN mit einem Satz begründet. Vorher-Werte zum Vergleich: 12 FAIL, 12 WARN, 31 Schriftgrößen, 3 Familien, 0 gezählte echte Bilder, Rand 60 px. Danach Screenshots an den art-direktor zur Kritik (Runde 1). `shop.html` einmal öffnen und auf Bruch durch die neuen Tokens prüfen. `vorschau-einzeldatei/` erst nach Abnahme neu erzeugen.
+
+---
+
+## 7 · Kritik nach dem Umbau (10.11.2026)
+
+Art-Direktor, Runde 1. Gesehen: alle Aufnahmen in `.taste-skill/after/` (desktop-fold, desktop-page-01..03, tablet-fold, tablet-page-01..02, mobile-fold, mobile-page-01..02) und `.taste-skill/after-shop/` (dieselben Sätze). Die Inspector-Bögen enden vor Schluss und Fuß (Startseite) und am Handy vor den Fragen; diese Abschnitte habe ich mit eigenen Aufnahmen bei 1440, 768 und 390 px nachgeholt, dazu der 2-Euro-Test bei 6 mm, 32/34 mm und „Da läuft schon ein Riss“ (Scratch-Ordner, nicht im Repo). Code nicht geändert.
+
+**Messwerte vorher → nachher (Startseite, Inspector):** FAIL 12 → 0 · WARN 12 → 3 (no-footage, statement-length, measure) · Schriftfamilien 3 → 2 · Schriftgrößen 31 → 5 (14, 19, 30, 76, 146) · Mini-Versalien 33 → 0 · Etiketten 14 → 0 · Haarlinien 13 → 0 · Schatten 19 → 0 · Verläufe → 0 · echte Bilder 0 → 10 (Desktop) · Seitenrand 60 → 32 px · Seitenhöhe 18,6 → 13,8 Bildschirme · bewegte Elemente 31. Füllgrad Desktop je Bildschirm: 0,28 · 0,41 · 0,75 · 0,59 · 0,29 · 0,31 · 0,79 · 1 · 0,98 · 0,39 · **0,10** · 0,37.
+
+Die Ornamente sind weg und nichts Verbotenes ist zurückgekommen. Die Seite hat jetzt ein System: eine Schrift in zwei Schnitten, fünf Größen, ein kühler Grund, Rot als Signal, echte Leute aus der Halle. Was jetzt fehlt, ist Spannung und Genauigkeit in der Komposition, und an zwei Stellen liegt etwas über Text.
+
+### Startseite
+
+```
+ROUND 1 (nach Umbau, .taste-skill/after + eigene Aufnahmen)
+Seen in one second: „Scheibe [Foto] kaputt?“ als eine schwarze Zeile auf hellem Grund, das Nachtfoto mit Wischer im Wortzwischenraum.
+Idea (one sentence): Der WhatsApp-Ton der Werkstatt wird zu kurzen Sätzen in Plakatgröße, in denen das Ding selbst an der Stelle eines Wortes steht (Foto, Münze, 0 € auf dem Logofeld, die Adresse); trägt in Start, Kosten, Ablauf, Standorte, Fuß; FAQ und Shop-Band sind wieder neutral.
+Live thing: 2-Euro-Test (Münze, Regler, vier Antworten, Ergebnis mit WhatsApp-Vorlage); funktioniert, bricht aber ab 26 mm optisch aus (siehe 1).
+Layout words by section: start=satz-mit-bild / test=scheibe-index / kosten=farbfeld-satz / leistungen=tabelle-rechts / ablauf=treppe / stimmen=zitat-band / standorte=inverses-feld-karte / shop=versammelte-bilder / fragen=tabelle-fragen / schluss=feld-frage / fuss=fuß-mit-name. Kein Wort doppelt.
+Scores: design 7 · usability 6 · creativity 7 · content 7 → overall 6.7
+Caps applied: Text unter Linien (Risse über „Die Scheibe muss neu.“, Regler und Hilfetext) und Knopf über dem Stützsatz bei 768 → usability ≤ 6 (bindend). Sonst kein Deckel: 0 FAIL, keine verbotenen Mittel sichtbar, 10 echte Bilder, Seite bewegt sich, Knopf auf dem ersten Bildschirm, jede Sektion mit Überschrift.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. Der Test kollidiert mit sich selbst (eigene Aufnahme test-32, mt-test-34): ab 26 mm und bei „Riss“ laufen die Risslinien aus der Zeichnung über die rote Ergebnis-Überschrift (sieht durchgestrichen aus), über „Wie groß?“, den Regler und den Hilfetext, am Handy über den Bildschirmrand. Fix: Korrektur 1.
+2. Der erste Bildschirm hält nicht zusammen (desktop-fold, tablet-fold, mobile-fold): Stützsatz und Knopf sind an den Fuß gedockt, 200 px unter der h1 (Füllgrad 0,28); bei 768 liegt der Knopf über dem Satz („wir sa|gen“ verdeckt); am Handy deckt die Aktionsleiste den Start-Knopf halb ab. Fix: Korrektur 2.
+3. Drei Abschnitte lassen die Hälfte der Breite liegen (desktop-page-02 links oben und rechts oben, desktop-page-03 links unten): Leistungen (Überschrift 360 px breit, rechts oben leer, 0,29), Ablauf (Treppe nur 116 px je Stufe, rechts 40 % leer, 0,31), Shop-Band → Fragen (Bildschirm 11 bei 0,10, Überschrift grau in 30 px). Fix: Korrekturen 6 bis 8.
+```
+
+Erwartung nach den Korrekturen 1 bis 8: usability 7,5 bis 8, design 7,5, overall um 7,4. Eine 8 braucht das echte Steinschlag-Foto des Betriebs im Start-Satz (heute ein freies Nachtfoto, zeigt Regen, keinen Schaden) und eine Filmschleife.
+
+**Je Abschnitt (Startseite):**
+
+| Abschnitt | Was trägt | Was nicht |
+| --- | --- | --- |
+| Start | Der Satz mit dem Bild darin ist das Plakat, das wir wollten; am Handy (Scheibe / Foto / kaputt?) eine eigene, starke Komposition. | Stützsatz und Knopf am Fuß statt unter der Zeile; 768 Knopf über Text; Trennung „Duisburg- / Obermarxloh“; Foto zeigt Regen, keinen Schaden. |
+| 2-Euro-Test | Echte Regel, echtes Ergebnis, Knopf mit Vorlage, ohne Skript sichtbar; die Antworten als ruhige Tonflächen. | Risse überlaufen Text; Münze klein (336 px statt ~520); drei Spalten mit drei Oberkanten; „2“ unter dem Steinschlag liest sich als Glocke, der Steinschlag als Rad; Tablet: Ergebnis rechts, linke Hälfte leer; Handy: Legende belegt eine Rasterzelle. |
+| Kosten | Stärkster Abschnitt: „Mit Teilkasko / meistens [0 €].“ auf der Fläche, das Logofeld als Preis. Logos ruhig, ohne Kacheln. | Logo-Reihe bricht im Inspector um, „Provinzial“ allein in Zeile 2; HUK und Generali optisch halb so groß. |
+| Leistungen | Tabelle lesbar (19 px), ganze Zeile ist WhatsApp-Link, das Hallenfoto mit roter Tür ist echtes Material. | Überschrift zu klein für die Fläche, rechte obere Hälfte leer; Foto weich (Screenshot-Auflösung), bleibt Platzhalter bis zum Shooting. |
+| Ablauf | Die Sätze im Ton der Werkstatt mit Chat-Blasen darunter: die Idee ist hier am deutlichsten. | Treppe zu flach, rechts leer; drei rote Blasen machen Rot zum Muster statt zum Signal (Rot jetzt an 9 Stellen); Handschlag am Desktop hochkant, der Kunde bis auf Bart und Ärmel abgeschnitten. |
+| Stimmen | Desktop: große Stimme über zwei Zeilen versetzt, Liste ohne Karten, gut. | ≤ 768 fällt die große Stimme auf 17 bis 20 px, kleiner als die Liste darunter; WARN statement-length (Theorist 4 Zeilen bei 30 px). |
+| Standorte | Karte, Prüfer und „Duisburger Str. 150“ als Anzeigezeile: eigen, nur dieser Betrieb. | Nebensatz „50 Kilometer …“ in Grau klein; sonst nichts. |
+| Shop-Band | Fotos um die Überschrift, eine Bildfamilie (Glas, Regen, Frost), bewusste Ruhe. | Untere Fotos laufen weit aus und erzeugen mit dem FAQ-Kopf den leeren Bildschirm 11. |
+| Fragen | Alle Antworten offen, Fragen groß, Antworten 19 px in voller Tinte. | Überschrift „Jeden Tag gefragt“ grau in Fragengröße, liest sich nicht als Überschrift; Antwortspalte bei x 847, eine vierte linke Kante. |
+| Schluss | Rotes Feld, Frage an beiden Kanten, zwei klare Knöpfe. | „Rückmeldung innerhalb von 24 Stunden“ ist nicht belegt (siehe 3). |
+| Fuß | Einladung mit Adresse, Kontakte, Bildnachweis vollständig, Logo in voller Breite und unbeschnitten. | Nichts Wesentliches. |
+
+### Shop
+
+```
+ROUND 1 (Shop, .taste-skill/after-shop)
+Seen in one second: „Wischer und Winterkram.“ riesig links unten, das Nachtfoto der Startseite rechts.
+Idea (one sentence): Der Shop kommt aus der Werkstatt: Wischer nach Fahrzeugschein (Feld 2.1/2.2) im roten Feld, Winterpaket „Morgens um sieben. Minus vier.“, Mitbringen zum Termin.
+Live thing: Wischer-Finder mit HSN/TSN; Korb.
+Layout words by section: start=split / finder=farbfeld-formular / sortiment=raster (13 Karten) / winterpaket=inverses-feld-split / termin=satz-knopf / fuss=fuß-mit-name.
+Scores: design 6.5 · usability 7 · creativity 6.5 · content 7 → overall 6.7
+Caps applied: keiner bindend (0 FAIL, 14 echte Bilder). WARN grey-body (5,1:1) und no-footage.
+Top three problems: Start (gleiches Foto wie die Startseite, Stützsatz unter dem Rand, Knopf verloren rechts unter dem Bild, linke obere 40 % leer); Sortiment (grauer Fließtext, am Handy 13 Karten einspaltig = 12 Bildschirme, Korb-Symbol fehlt am Handy); Bildmischung der Karten (Herbstwald, Spiegelstraße, Autoschlüssel auf lila Pullover passen nicht zur Familie Glas/Regen/Frost). Fix: Korrekturen 10 bis 12.
+```
+
+| Abschnitt | Was trägt | Was nicht |
+| --- | --- | --- |
+| Start | Große Zeile, klare Aussage, Entwurfsleiste nennt Beispielpreise. | Foto doppelt zur Startseite; Satz unter dem Rand bei 900 px; Knopf weit vom Satz; oben links leer. |
+| Wischer-Finder | Rotes Feld mit den echten Feldern aus dem Fahrzeugschein: der eigene Moment des Shops. | Hinweistexte darin 14 bis 15 px; darf bleiben, ist das eine große Rotfeld des Shops. |
+| Sortiment | Echte Preise mit Grundpreis, Montage inklusive, ruhige Knöpfe, Filter als Tonflächen. | Grauer Text; drei Bilder aus fremder Familie; Handy sehr lang; Gutscheine mit Stockfotos. |
+| Winterpaket | Bestes Stück des Shops: Eisfoto groß, Preis groß, Inhalt als Tabelle. | Nichts Wesentliches. |
+| Termin-Band | „Hast eh einen Termin? Bringen wir mit.“ im Ton. | Leere rechte Mitte am Desktop, vertretbar. |
+| Fuß | Wie Startseite. | Navigation im Kopf mittig statt rechts wie auf der Startseite (klein). |
+
+### Korrekturliste für den frontend-bauer (nach Wirkung, höchstens 12)
+
+1. **2-Euro-Test · Risse überlaufen Text.** Ab 26 mm und bei „Da läuft schon ein Riss“ laufen die Risslinien über die Ergebnis-Überschrift, „Wie groß?“, den Regler, den Hilfetext und am Handy über den Bildschirmrand. Tun: Zeichnung auf ihre Bühne begrenzen (`.test svg { overflow: hidden }` oder `clipPath` auf das viewBox-Rechteck); im Skript die Risslänge auf höchstens 0,95 × halbe viewBox kappen und die viewBox so wählen, dass die Münze etwa 66 % davon einnimmt, damit das Brechen über den Münzrand sichtbar bleibt. Ergebnis-Überschrift „Die Scheibe muss neu.“ in `--tinte` statt Rot (der Knopf darunter ist das Rot). Warum: Linien über einer Überschrift deckeln Usability bei 6, und genau das Ergebnis, das zum Anruf führen soll, sieht kaputt aus.
+2. **Start · Satz und Knopf an die Zeile, keine Überdeckung.** Desktop: Stützsatz und Knopf hängen 200 px unter der h1 am Fuß (Füllgrad 0,28). 768: der Knopf liegt über dem Stützsatz. 390: die feste Aktionsleiste deckt den Start-Knopf halb ab. Tun: h1, Stützsatz und Knopf als eine Gruppe vertikal zentrieren, Stützsatz 40 px unter der h1 (ab Spalte 6 wie geplant), Knopf auf seiner Grundlinie rechts; die Passepartout-Zeilen (offen/Adresse, anrufen) bleiben unten. Bei ≤ 1024 px Stützsatz Spalten 1–8, Knopf darunter (stapeln, nicht nebeneinander). „Duisburg‑Obermarxloh“ mit geschütztem Bindestrich (`&#8209;`). Mobile Aktionsleiste erst zeigen, wenn der Start-Knopf den Bildschirm verlassen hat (IntersectionObserver; ohne Skript sichtbar lassen und `.start` unten um die Leistenhöhe polstern). Warum: Skill §5, der Stützsatz gehört direkt unter die Überschrift; Überdeckung ist ein Usability-Deckel; der erste Bildschirm ist das, was der Kunde zuerst sieht.
+3. **Texte · unbelegte Zusagen entfernen (texter).** „Rückmeldung innerhalb von 24 Stunden“ (Schluss und vorausgefüllter WhatsApp-Text im Test), „Oft noch am selben Tag …“ (Test-Ergebnis Tausch) und „oft holst du dein Auto am selben Tag wieder ab“ (FAQ) stehen nicht in `ENTWURF-NOTIZEN.md` und sind in §6.6 ausdrücklich als ungeklärt markiert. Tun: streichen oder auf Belegtes zurückführen (Kundenstimmen: „nach nicht einmal 3 Stunden“, „innerhalb zwei Stunden“ → „Meist ein paar Stunden.“); „Fester Preis vorab am Telefon“ ebenfalls beim Kunden bestätigen lassen; die Fragen in `ENTWURF-NOTIZEN.md` „Offen“ ergänzen. Warum: CLAUDE.md Regel 2; der Kunde liest jede Zeile als Versprechen in seinem Namen.
+4. **Stimmen · große Stimme auf Tablet und Handy.** Bei 768 und 390 fällt „Ich musste mich um nichts kümmern / mit der Versicherung.“ auf 17 bis 20 px, kleiner als die Liste. Tun: bei 768 in Barlow Condensed 700 eingepasst auf zwei Zeilen (~48 px); bei 390 Aussagegröße 24 px, Barlow 500, linksbündig, bis vier Zeilen. Listzitate am Desktop 26 px statt 30 px (behebt WARN statement-length, ohne Zitate zu kürzen). Warum: die eine echte Stimme ist der Beweis des Abschnitts; heute kippt die Hierarchie.
+5. **2-Euro-Test · Komposition und Zeichnung.** Münze sichtbar nur ~336 px (37 vh), drei Spalten mit drei Oberkanten, 150 px Luft unter der h2; die „2“ liest sich unter dem Steinschlag als Glocke, der Steinschlag mit gleich langen dicken Speichen und weißem Ring als Rad. Tun: Münze ~520 px (56–64 vh); Antwortliste unten bündig mit der Münz-Unterkante, Ergebnis oben bündig mit der Münz-Oberkante; „2“ als Barlow Condensed 700 auf ~70 % der Kernhöhe; Steinschlag als unregelmäßiger Stern (5–7 dünne Strahlen ungleicher Länge, kleiner dunkler Krater, ohne Ring), auf dem Kern rechts oben, damit die „2“ frei bleibt. Tablet: Ergebnis volle Breite unter dem Regler (heute rechte Hälfte, linke leer). Handy: `legend` über die ganze Rasterbreite (`grid-column: 1 / -1`), damit die vier Antworten ein sauberes 2×2 bilden (heute steht „Da läuft schon ein Riss“ allein). Warum: das eine interaktive Element ist, was Juroren und der Kunde zuerst ausprobieren.
+6. **Ablauf · Treppe öffnen, Rot zurücknehmen, Foto quer.** Einzug je Stufe ~116 px, rechts 40 % leer (0,31); drei rote Werkstatt-Blasen; Handschlag hochkant mit abgeschnittenem Kunden. Tun: Stufen auf Spalte 1, 3, 5, 7 (≈ 0 / 240 / 480 / 720 px bei 1440), sodass „Papierkram? Machen wir.“ bis zum rechten Rand reicht; `.blase--werkstatt` in `--tinte` mit `--auf-dunkel`, Kundenblase bleibt `--flaeche`; Handschlag am Desktop `aspect-ratio: 5/4`, Breite 3 Spalten, Ausschnitt mit beiden Personen (Bildplan §6.4). Warum: Rot steht heute an 9 Stellen und verliert die Bedeutung „hier drücken“; die leere rechte Hälfte ist ein Loch, kein Ruhepunkt.
+7. **Leistungen · Überschrift trägt die Breite.** „Alles rund um / die Scheibe.“ in 76 px nimmt 360 px ein, rechts oben leer (0,29). Tun: `.leistungen__titel` auf `--step-display` (13 Zeichen je Zeile, passt zweizeilig auch bei 390), erste Zeile 3vw eingerückt wie im Blatt; Tabelle unverändert ab Spalte 7. Warum: jeder Bildschirm ein Plakat mit einem dominanten Ding.
+8. **Fragen · echte Überschrift, kein leerer Bildschirm.** Bildschirm 11 Füllgrad 0,10: Shop-Band läuft unten lang aus, FAQ beginnt mit grauer 30-px-Zeile. Tun: `.fragen__titel` in `--step-head`, `--tinte`; Abstand Shop-Band → Fragen auf den normalen Abschnittsabstand (≤ 200 px), untere Shop-Fotos höchstens 120 px unter „Zum Shop“; Antwortspalte auf Spalte 7 (x ≈ 730, dieselbe Kante wie Leistungen-Tabelle und Stimmen-Spalte 2). Warum: Abschnitt ohne lesbare Überschrift, Loch im Seitenfluss, eine Kante weniger.
+9. **Kosten · Logo-Reihe als festes Raster.** Bei 1440 mit Scrollleiste bricht „Provinzial“ allein in Zeile 2; HUK, Generali und AXA wirken deutlich kleiner als R+V, HDI, DEVK. Tun: `.kosten__logos { display: grid; grid-template-columns: repeat(12, 1fr); }`, Tablet `repeat(6, 1fr)`, Handy `repeat(3, 1fr)`; Höhen je Logo optisch angleichen (HUK, Generali, AXA etwa +30 %), Farben und Proportionen unverändert. Warum: ein einzelnes umgebrochenes Logo sieht für den Kunden wie ein Fehler bei seinen eigenen Partnern aus.
+10. **Shop · erster Bildschirm.** Gleiches Nachtfoto wie die Startseite; Stützsatz unter dem Bildrand (y 885); „Zum Sortiment“ verloren rechts unter dem Bild; linke obere 40 % leer (0,46). Tun: anderes Bild, z. B. `assets/img/shop/w-premium.jpg` (Wischer mit Tropfen, ChadCooperPhotos, CC BY 2.0) im 4:5 rechts; h1 nach oben (Oberkante ≈ 180 px), Stützsatz 40 px darunter, Knopf „Zum Sortiment“ und Textlink „Wischer nach Fahrzeugschein finden“ direkt unter dem Satz links. Warum: zwei Seiten mit demselben Startbild wirken wie eine Vorlage; die Handlung muss bei der Aussage stehen.
+11. **Shop · Sortiment lesbar und kürzer am Handy.** Beschreibungen grau (5,1:1, WARN grey-body); am Handy 13 Karten einspaltig = 12 Bildschirme; Korb-Symbol fehlt am Handy (nur ein Punkt neben „Korb“). Tun: Beschreibung in `--tinte`, nur Grundpreis/Einheit in `--tinte-2`; unter 560 px `grid-template-columns: 1fr 1fr` (Bild 1:1, Knopf volle Kartenbreite); `.korb-knopf svg` am Handy feste Breite und Höhe (20 px). Warum: Fließtext in voller Tinte; ein Shop, durch den man am Daumen 12 Bildschirme scrollt, verliert Leute.
+12. **Shop · Bildfamilie halten.** „Sommer-Konzentrat“ (Straße im Spiegel), „Gutschein Herbstcheck“ (Herbstwald) und „Geschenkgutschein“ (Autoschlüssel auf lila Pullover) fallen aus der Familie Glas, Regen, Frost. Tun: Sommer-Konzentrat mit einem Bild aus derselben Familie (z. B. `p-versiegelung.jpg`-Ausschnitt mit Tropfen auf Glas), die zwei Gutscheine ohne Foto als Fläche in `--tinte` mit dem Betrag in Barlow Condensed 700 („50 €“, „19,90 €“) in `--auf-dunkel`. Warum: eine Bildbehandlung, ein Licht; ein Gutschein ist ein Betrag, kein Stockfoto.
+
+**WARNs, die bleiben dürfen:** no-footage (die Filmsuche fand keine saubere freie Schleife; vor Livegang ein 10-Sekunden-Handyclip aus der Halle anfragen), measure (nur die einzeilige Entwurfsleiste läuft breit). statement-length verschwindet mit Korrektur 4.
+
+**Weiter offen beim Kunden:** echtes Steinschlag-Foto für den Start-Satz und die Chat-Blase, kurzer Clip aus der Halle, Einverständnis der Personen in den Reels, die Punkte aus §6.6.

@@ -31,25 +31,39 @@ Technik nebenbei: Logo als scharfe Vektordatei nachgebaut (bisher nur JPG), Schr
 - Adresse, Telefon, WhatsApp, E-Mail, Öffnungszeiten Mo bis Sa 9:30 bis 18:00: aktuelle Website autoglaszentrum-aydin.de
 - Leistungen, 30 Jahre Garantie auf Dichtigkeit, Kamera-Kalibrierung, 50 km mobiler Service, 2-Euro-Regel, Klebeband-Tipp: aktuelle Website
 - Kundenstimmen (Guido B., Mira S., Gabi M., Karl H., Niklas F., Theorist): wörtlich gekürzt von der aktuellen Website
+  Volltexte, aus denen gekürzt wurde (aktuelle Website, abgerufen 03.11.2026):
+  - Gabi M.: „Nur zu empfehlen. Sehr freundlich, persönlich. Ich musste mich um nichts kümmern mit der Versicherung. Gehörte alles mit zum Service. Termin hab ich auch sehr schnell bekommen“
+  - Guido B.: „Toller Service. Bin ohne Termin hingefahren, eine halbe Stunde später war der Steinschlag ausgebessert. Dabei freundlicher Service und ein gutes Gefühl. Sehr zu empfehlen.“
+  - Mira S.: „Ich hatte einen kaputte Windschutzscheibe und bekam von heute auf morgen einen Termin zum Wechsel. Mir wurde unglaublich schnell geholfen und hatte nach nicht einmal 3 Stunden mein Auto wieder und dazu noch sehr nette Mitarbeiter als Kontakt. Kann ich mit bestem Gewissen weiterempfehlen und werde das auch tun :)“
+  - Karl H.: „Scheibe vom Wohnmobil wurde schnellstens ersetzt. Bester Service, bester Preis.“
+  - Niklas F.: „Wurde eine neue Scheibe eingebaut. Gute Arbeit und innerhalb zwei Stunden konnte das Auto wieder abgeholt werden. Preis absolut in Ordnung, deutlich billiger als bekannte Alternativen... Kann ich nur empfehlen.“ (Preisvergleich auf der Seite weggelassen)
+  - Theorist: „Sehr gute, ordentliche Arbeit. Von Anruf bis zur installierten Windschutzscheibe vergeht nicht viel Zeit. Das Team ist sehr nett und in der Nähe gibt es viele Restaurants / Cafés, falls man sich den spannenden Prozess nicht anschauen möchte.“
+- „Alle Marken & Modelle“, „Wir arbeiten mit allen gängigen Versicherungen“, „Versicherungsbeitrag steigt nicht“, Herbstcheck: eigene Instagram-Posts (`assets/img/ig-post-*.jpg`)
+- Ortsteil Obermarxloh: Eintrag im Branchenverzeichnis nochoffen.de (Adresse …/obermarxloh-autoglas-zentrum-aydin-inh-melin), Postleitzahl 47166
 - Fahrzeugtypen „PKW, LKW, Wohnmobile und US-Cars“ sowie „LKW · Transporter · Wohnmobile · US-Cars · Seiten- & Heckscheiben“: eigene Instagram-Posts des Betriebs (@autoglaszentrumaydin, Screenshot vom 03.11.2026). Auf der alten Website nur Wohnmobile und Firmenkunden
 - Steinschlagreparatur mit Teilkasko „in der Regel 100 % kostenlos“, Austausch nur Selbstbeteiligung „z. B. 150 €“, kein Schadenfreiheitsverlust: Instagram-Post „Scheibenschaden? Kein Problem!“
 - Versichererliste und Versicherer-Logos (HUK-COBURG, Allianz, ERGO, AXA, Generali, R+V, DEVK, HDI, VHV, LVM, Württembergische, Provinzial): aktuelle Website, freigestellt und optisch gleich groß gemacht, Farben und Proportionen unverändert
 - Instagram-Bilder: aus dem Screenshot geschnitten (niedrige Auflösung, nur für den Entwurf)
-- Shop-Fotos: freie Fotos über Openverse (Flickr, rawpixel), Lizenzen CC BY, CC0 und Public Domain. Fotografen und Lizenzen stehen auf der Shop-Seite unter „Bildnachweise“. Für den Livegang durch eigene Produktfotos aus der Werkstatt ersetzen
+- Shop-Fotos: freie Fotos über Openverse (Flickr, rawpixel), Lizenzen CC BY und CC0. Die Gutscheine sind bewusst ohne Foto, als Fläche mit dem Betrag. Fotografen und Lizenzen stehen auf der Shop-Seite unter „Bildnachweise“. Für den Livegang durch eigene Produktfotos aus der Werkstatt ersetzen
 - Koordinaten der Werkstatt: strukturierte Daten der aktuellen Website. Flüsse und Autobahnen: Natural Earth (gemeinfrei)
 
 ## Offen, vor dem Livegang mit dem Kunden klären
 
-1. **Essen**: Adresse und Öffnungszeiten fehlen (im Entwurf „[Adresse folgt]“).
+Was auf der Seite noch nicht belegt war, ist im Entwurf vorsichtig formuliert oder weggelassen. Diese Fragen braucht es vom Betrieb:
+
+1. **Essen**: Adresse, Öffnungszeiten, Termine nach Absprache? (Im Entwurf „Adresse folgt“.)
 2. **Gummersbach**: Eröffnungsdatum oder grober Zeitraum.
 3. **Telefon**: Verzeichnisse nennen teils 0203 36989837, die Website 0203 36989833. Im Entwurf steht …833.
-4. **Öffnungszeiten**: ein Verzeichnis nennt 6:30, die Website 9:30. Im Entwurf steht 9:30.
-5. **Shop**: Sortiment und Preise sind Beispiele. „Wischer-Montage inklusive“ und „Versand in ganz Deutschland“ sind Vorschläge, keine Zusagen des Kunden.
-6. **Fotos**: Für den Livegang ein Shooting in der Werkstatt (Team, Halle, echte Scheiben). Die Instagram-Ausschnitte sind nur Platzhalter.
-7. **Bewertungen**: Google-Bewertungen live einbinden, wenn gewünscht (dann mit Cookie-Hinweis).
-8. **SEO**: Die bestehenden Stadtseiten (Autoglas Oberhausen, Moers, Dinslaken, Essen, Bottrop, Krefeld, Voerde, Rheinberg, Kamp-Lintfort, Neukirchen-Vluyn, Aachen, Düren, Mülheim) und die Unterseiten `/windschutzscheibe-wechseln-duisburg` und `/steinschlag-reparatur-duisburg` müssen übernommen oder per Weiterleitung umgezogen werden, sonst gehen Rankings verloren.
-9. **Rechtliches**: Impressum, Datenschutz, für den Shop zusätzlich AGB, Widerruf, Versandbedingungen.
-10. **Shop-Technik**: Shopify, WooCommerce oder Shopware anbinden (Zahlung, Bestände, Rechnungen). Im Entwurf ist die Kasse nur angedeutet.
+4. **Öffnungszeiten**: Ein Verzeichnis nennt 6:30, die Website 9:30. Im Entwurf steht 9:30. An Feiertagen geschlossen? Bis dahin zeigt der Live-Status an Feiertagen nur die festen Zeiten.
+5. **Mobiler Radius**: 50 km (Startseite) oder 100 km (alte Stadtseite Aachen)? Im Einzelfall weiter?
+6. **Dauer**: Reparatur meist eine halbe Stunde? Ohne Termin möglich? Tausch am selben Tag oder in wenigen Stunden? Im Entwurf steht nur „sagen wir dir nach dem Foto“, die Kundenstimmen zeigen die Erfahrung.
+7. **Preis ohne Teilkasko**: Nennt ihr vorab einen festen Preis? Rückmeldung per WhatsApp innerhalb von 24 Stunden (stand auf der alten Startseite), soll das wieder rein?
+8. **Leistungen**: Seiten- und Heckscheibe auch nach Einbruch? Mobiler Service auch auf Firmenhöfen?
+9. **Shop**: Sortiment, Preise, Wischer-Montage beim Abholen, Versand (Dienstleister, Preis), Zahlarten, Gutscheine (Herbstcheck, Geschenkgutschein). Alles im Entwurf als Vorschlag gekennzeichnet. Technik: Shopify, WooCommerce oder Shopware.
+10. **Kundenstimmen**: Freigabe der Kürzungen. Google-Bewertungen live einbinden, wenn gewünscht (dann mit Cookie-Hinweis).
+11. **Fotos**: Einverständnis der Personen aus den Reels; wer ist auf dem Handschlag-Foto? Für den Livegang ein Shooting in der Werkstatt (Team, Halle, echte Scheiben, ein echtes Steinschlag-Foto für den Start) und ein kurzer Clip aus der Halle als bewegtes Bild.
+12. **SEO**: Die bestehenden Stadtseiten (Autoglas Oberhausen, Moers, Dinslaken, Essen, Bottrop, Krefeld, Voerde, Rheinberg, Kamp-Lintfort, Neukirchen-Vluyn, Aachen, Düren, Mülheim) und die Unterseiten `/windschutzscheibe-wechseln-duisburg` und `/steinschlag-reparatur-duisburg` übernehmen oder per Weiterleitung umziehen (Tabelle in `.taste-skill/seo-befunde.md`), sonst gehen Rankings verloren.
+13. **Rechtliches**: Impressum, Datenschutz, für den Shop zusätzlich AGB, Widerruf, Versandbedingungen.
 
 ## Dateien
 
@@ -61,4 +75,5 @@ assets/js/            site.js (Interaktionen), shop.js, map-data.js (Kartengrund
 assets/fonts/         Barlow und Barlow Condensed (lokal, SIL Open Font License)
 assets/img/           Logo als SVG, Icon-Sprite, Instagram-Ausschnitte
 vorschau/             Screenshots für Präsentation oder WhatsApp an den Kunden
+vorschau-einzeldatei/ Startseite und Shop als je eine Datei zum Verschicken
 ```

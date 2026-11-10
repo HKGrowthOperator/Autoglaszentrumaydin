@@ -25,13 +25,28 @@
     const tage = { Mo: 1, Di: 2, Mi: 3, Do: 4, Fr: 5, Sa: 6, So: 0 };
     const tag = tage[get('weekday').replace('.', '').slice(0, 2)];
     const min = (parseInt(get('hour'), 10) % 24) * 60 + parseInt(get('minute'), 10);
+    const datum = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+    // An Feiertagen und am Tag davor steht nur die feste Zeile, bis die Werkstatt ihre Feiertagszeiten nennt
+    const morgen = new Date(Date.parse(datum + 'T12:00:00Z') + 864e5).toISOString().slice(0, 10);
+    if (feiertag(datum) || feiertag(morgen)) { box.textContent = 'Mo bis Sa 9:30 bis 18:00'; return; }
     const werktag = tag >= 1 && tag <= 6;
     let text;
-    if (werktag && min >= 570 && min < 1080) text = 'Heute bis 18 Uhr offen';
-    else if (werktag && min < 570) text = 'Heute ab 9:30 offen';
-    else if (tag >= 1 && tag <= 5) text = 'Morgen ab 9:30 offen';
-    else text = 'Montag ab 9:30 offen';
+    if (werktag && min >= 570 && min < 1080) text = 'Heute offen bis 18:00';
+    else if (werktag && min < 570) text = 'Öffnet heute um 9:30';
+    else if (tag >= 1 && tag <= 5) text = 'Öffnet morgen um 9:30';
+    else text = 'Öffnet Montag um 9:30';
     box.textContent = text;
+  }
+  // Gesetzliche Feiertage NRW (Ostern nach Gauß/Meeus)
+  function feiertag(iso) {
+    const j = +iso.slice(0, 4);
+    const a = j % 19, b = Math.floor(j / 100), c = j % 100, d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3);
+    const h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451);
+    const monat = Math.floor((h + l - 7 * m + 114) / 31), tagO = ((h + l - 7 * m + 114) % 31) + 1;
+    const ostern = Date.UTC(j, monat - 1, tagO);
+    const plus = (n) => new Date(ostern + n * 864e5).toISOString().slice(0, 10);
+    const fest = ['01-01', '05-01', '10-03', '11-01', '12-25', '12-26'].map((md) => j + '-' + md);
+    return fest.concat([-2, 1, 39, 50, 60].map(plus)).includes(iso);
   }
 
   /* 2 · Menü am Handy */
@@ -61,12 +76,11 @@
     const box = $('[data-ergebnis]', root);
     const MM = 200 / 25.75;
     const R = rng(7);
-    const beine = Array.from({ length: 9 }, (_, i) => ({ a: (i / 9) * Math.PI * 2 + (R() - 0.5) * 0.5, l: 0.72 + R() * 0.3 }));
-    const risse = [
-      { a: -0.5, knick: [0.35, -0.25, 0.3] },
-      { a: 2.45, knick: [-0.3, 0.2, -0.35] },
-      { a: 1.35, knick: [0.25, 0.3, -0.2] }
-    ];
+    const MX = 34, MY = -30; // Lage des Steinschlags auf dem Kern, die „2“ bleibt frei
+    const beine = Array.from({ length: 7 }, (_, i) => ({ a: (i / 7) * Math.PI * 2 + (R() - 0.5) * 0.7, l: 0.42 + R() * 0.58, k: (R() - 0.5) * 0.5 }));
+    const krater = Array.from({ length: 7 }, (_, i) => ({ a: (i / 7) * Math.PI * 2, l: 0.65 + R() * 0.5 }));
+    const risse = [-0.6, 0.55, 2.2, 3.6].map((a) => ({ a, knicke: Array.from({ length: 30 }, () => (R() - 0.5) * 0.7) }));
+    const GRENZE = 124; // Risse enden kurz vor dem Rand der Zeichnung
     // zwölf Sterne wie auf der Münze, flach
     const stern = (cx, cy, r) => {
       let d = '';
@@ -78,23 +92,32 @@
       el('path', { d: stern(Math.cos(a) * 84.5, Math.sin(a) * 84.5, 6) }, sterne);
     }
 
+    const P = (x, y) => `${(MX + x).toFixed(1)} ${(MY + y).toFixed(1)}`;
     function zeichne(d, laeuft) {
       chipG.textContent = '';
       const r = (d / 2) * MM;
-      const kern = Math.max(2.2, r * 0.26);
-      el('circle', { r: kern.toFixed(2), class: 'chip__kern' }, chipG);
+      // Strahlen ungleicher Länge mit leichtem Knick
       let pd = '';
-      for (const b of beine) pd += `M${(Math.cos(b.a) * kern).toFixed(2)} ${(Math.sin(b.a) * kern).toFixed(2)}L${(Math.cos(b.a) * r * b.l).toFixed(2)} ${(Math.sin(b.a) * r * b.l).toFixed(2)}`;
-      el('path', { d: pd, class: 'chip__beine', 'stroke-width': clamp(r / 16, 1.6, 4).toFixed(2) }, chipG);
-      if (r > 8) el('circle', { r: (r * 0.94).toFixed(2), class: 'chip__hof', 'stroke-width': clamp(r / 30, 1.2, 2.4).toFixed(2) }, chipG);
+      for (const b of beine) {
+        const l = r * b.l, m = l * 0.55;
+        pd += `M${P(Math.cos(b.a) * r * 0.08, Math.sin(b.a) * r * 0.08)}L${P(Math.cos(b.a) * m, Math.sin(b.a) * m)}L${P(Math.cos(b.a + b.k) * l, Math.sin(b.a + b.k) * l)}`;
+      }
+      el('path', { d: pd, class: 'chip__beine', 'stroke-width': clamp(r / 22, 1.1, 2.6).toFixed(2) }, chipG);
+      // kleiner dunkler Krater
+      const kr = Math.max(1.6, r * 0.14);
+      el('path', { d: 'M' + krater.map((k) => P(Math.cos(k.a) * kr * k.l, Math.sin(k.a) * kr * k.l)).join('L') + 'Z', class: 'chip__krater' }, chipG);
       if (!laeuft) return;
-      // Risse brechen über den Münzrand hinaus
+      // Risse laufen über den Münzrand und enden vor dem Rand der Zeichnung
       let rd = '';
       for (const s of risse) {
-        let x = Math.cos(s.a) * r * 0.8, y = Math.sin(s.a) * r * 0.8, a = s.a;
+        let x = MX + Math.cos(s.a) * r * 0.6, y = MY + Math.sin(s.a) * r * 0.6, a = s.a;
         rd += `M${x.toFixed(1)} ${y.toFixed(1)}`;
-        const schritt = Math.max(150, 175 - r * 0.4) / s.knick.length;
-        for (const k of s.knick) { a += k; x += Math.cos(a) * schritt; y += Math.sin(a) * schritt; rd += `L${x.toFixed(1)} ${y.toFixed(1)}`; }
+        for (const k of s.knicke) {
+          a += k * 0.5;
+          const nx = x + Math.cos(a) * 14, ny = y + Math.sin(a) * 14;
+          if (Math.hypot(nx, ny) > GRENZE) break;
+          x = nx; y = ny; rd += `L${x.toFixed(1)} ${y.toFixed(1)}`;
+        }
       }
       el('path', { d: rd, class: 'chip__riss' }, chipG);
     }
@@ -103,12 +126,12 @@
       reparatur: {
         satz: 'Das reparieren wir.',
         kosten: 'Mit Teilkasko kostet dich das in der Regel nichts.',
-        dauer: 'Oft in einer halben Stunde erledigt, in Duisburg oder mobil bei dir.'
+        dauer: 'Wie lange es dauert, sagen wir dir nach dem Foto. In Duisburg oder mobil bei dir.'
       },
       tausch: {
         satz: 'Die Scheibe muss neu.',
-        kosten: 'Mit Teilkasko zahlst du nur deine Selbstbeteiligung. Ohne Teilkasko: fester Preis vorab am Telefon.',
-        dauer: 'Oft noch am selben Tag, das Auto meist nach ein paar Stunden zurück.'
+        kosten: 'Mit Teilkasko zahlst du nur deine Selbstbeteiligung. Ohne Teilkasko: Ruf an, dann nennen wir dir den Preis.',
+        dauer: 'Wann die Scheibe da ist und wie lange es dauert, sagen wir dir nach dem Foto.'
       }
     };
     const LAGE = { beifahrer: 'auf der Beifahrerseite', fahrer: 'direkt vor dem Fahrer', rand: 'am Rand', riss: 'mit Riss' };
@@ -117,7 +140,7 @@
     function auswerten() {
       const d = parseInt(range.value, 10);
       const lage = ($('input[name="lage"]:checked', root) || {}).value || 'beifahrer';
-      wert.textContent = d + ' mm';
+      wert.textContent = d + '\u00a0mm';
       let art = 'reparatur', grund;
       if (lage === 'riss') { art = 'tausch'; grund = 'Sobald ein Riss rausläuft, hält keine Reparatur mehr.'; }
       else if (d > 25.75) { art = 'tausch'; grund = `${d} mm ist größer als die Münze. Das lässt sich nicht mehr sauber füllen.`; }
@@ -125,12 +148,13 @@
       else if (lage === 'rand') { art = 'tausch'; grund = 'So nah am Rand steht das Glas unter Spannung. Eine Reparatur hält dort meistens nicht.'; }
       else if (d >= 22) grund = 'Knapp an der Grenze. Schick ein Foto, dann sagen wir dir genau, ob es noch geht.';
       else grund = 'Klein und nicht im Sichtfeld: Das füllen wir mit Harz, die Scheibe bleibt drin.';
+      const grenzfall = art === 'reparatur' && d >= 22;
       zeichne(d, lage === 'riss' || d > 25.75);
       const t = TEXTE[art];
       if (art !== letzteArt && !ruhig) { box.classList.add('wechselt'); setTimeout(() => box.classList.remove('wechselt'), 180); }
       letzteArt = art;
       box.dataset.art = art;
-      $('[data-ergebnis-satz]', box).textContent = t.satz;
+      $('[data-ergebnis-satz]', box).textContent = grenzfall ? 'Wahrscheinlich reparieren wir das.' : t.satz;
       $('[data-ergebnis-grund]', box).textContent = grund;
       $('[data-ergebnis-kosten]', box).textContent = t.kosten;
       $('[data-ergebnis-dauer]', box).textContent = t.dauer;
@@ -212,7 +236,7 @@
       const t = el('text', { x: x + ox, y: y + oy, 'text-anchor': anc }, g); t.textContent = label;
     };
     marke(WERKSTATT.lat, WERKSTATT.lon, 'Werkstatt Duisburg', 'haupt', [18, -16, 'start']);
-    marke(51.4556, 7.0116, 'Essen', 'haupt', [18, 30, 'start']);
+    marke(51.4556, 7.0116, 'Essen, Adresse folgt', 'bald', [18, 32, 'start']);
     marke(51.0266, 7.5646, 'Gummersbach, bald', 'bald', [-16, -18, 'end']);
 
     // Prüfer
@@ -225,8 +249,8 @@
       const d = Math.max(1, Math.round(kmZwischen(WERKSTATT, { lat, lon })));
       const zuGummersbach = kmZwischen({ lat: 51.0266, lon: 7.5646 }, { lat, lon });
       if (d <= 50) sag(`${name}: rund ${d} km Luftlinie. Wir kommen zu dir, oder du kommst vorbei.`);
-      else if (zuGummersbach < 28) sag(`${name}: rund ${d} km. Bald bist du näher dran, in Gummersbach eröffnen wir demnächst.`);
-      else sag(`${name}: rund ${d} km, außerhalb vom mobilen Radius. Ruf kurz an, oft finden wir trotzdem einen Weg.`);
+      else if (zuGummersbach < 28) sag(`${name}: rund ${d} km. In Gummersbach eröffnen wir bald, dann bist du näher dran.`);
+      else sag(`${name}: rund ${d} km, das ist weiter als unsere 50 km. Komm in die Werkstatt nach Duisburg oder ruf kurz an.`);
       ziel.textContent = '';
       const [x, y] = P(lat, lon);
       if (x < -20 || y < -20 || x > M.w + 20 || y > M.h + 20) return;
@@ -246,7 +270,7 @@
     const knopf = $('[data-standort]');
     if (knopf) knopf.addEventListener('click', () => {
       if (!navigator.geolocation) { sag('Dein Browser gibt keinen Standort raus. Gib einfach deine Stadt ein.'); return; }
-      sag('Suche deinen Standort …');
+      sag('Wir suchen deinen Standort …');
       navigator.geolocation.getCurrentPosition(
         (pos) => zeige('Dein Standort', pos.coords.latitude, pos.coords.longitude),
         () => sag('Standort nicht verfügbar. Gib einfach deine Stadt ein.'),
@@ -288,15 +312,19 @@
   /* 7 · Schnellkontakt am Handy: weicht beim Lesen nach unten aus, kommt beim Hochscrollen zurück */
   function leiste() {
     const l = $('.aktionsleiste'); if (!l) return;
-    let letzte = scrollY, tick = false;
+    let letzte = scrollY, tick = false, startSichtbar = false;
+    const startKnopf = $('.start .knopf');
     const setze = () => {
       tick = false;
       const y = scrollY;
-      if (y < innerHeight * 0.5) l.classList.remove('weg');
+      if (startSichtbar) l.classList.add('weg');
       else if (y > letzte + 6) l.classList.add('weg');
       else if (y < letzte - 6) l.classList.remove('weg');
       letzte = y;
     };
+    if (startKnopf && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => { startSichtbar = e.isIntersecting; if (startSichtbar) l.classList.add('weg'); else l.classList.remove('weg'); }).observe(startKnopf);
+    }
     addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(setze); } }, { passive: true });
   }
 
