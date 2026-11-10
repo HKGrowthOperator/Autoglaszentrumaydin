@@ -29,6 +29,8 @@ Technik nebenbei: Logo als scharfe Vektordatei nachgebaut (bisher nur JPG), Schr
 - Adresse, Telefon, WhatsApp, E-Mail, Öffnungszeiten Mo bis Sa 9:30 bis 18:00: aktuelle Website autoglaszentrum-aydin.de
 - Leistungen, 30 Jahre Garantie auf Dichtigkeit, Kamera-Kalibrierung, 50 km mobiler Service, 2-Euro-Regel, Klebeband-Tipp: aktuelle Website
 - Kundenstimmen (Guido B., Mira S., Gabi M., Karl H., Niklas F., Theorist): wörtlich gekürzt von der aktuellen Website
+- Fahrzeugtypen „PKW, LKW, Wohnmobile und US-Cars“ sowie „LKW · Transporter · Wohnmobile · US-Cars · Seiten- & Heckscheiben“: eigene Instagram-Posts des Betriebs (@autoglaszentrumaydin, Screenshot vom 03.11.2026). Auf der alten Website nur Wohnmobile und Firmenkunden
+- Steinschlagreparatur mit Teilkasko „in der Regel 100 % kostenlos“, Austausch nur Selbstbeteiligung „z. B. 150 €“, kein Schadenfreiheitsverlust: Instagram-Post „Scheibenschaden? Kein Problem!“
 - Versichererliste und Versicherer-Logos (HUK-COBURG, Allianz, ERGO, AXA, Generali, R+V, DEVK, HDI, VHV, LVM, Württembergische, Provinzial): aktuelle Website, freigestellt und optisch gleich groß gemacht, Farben und Proportionen unverändert
 - Instagram-Bilder: aus dem Screenshot geschnitten (niedrige Auflösung, nur für den Entwurf)
 - Shop-Fotos: freie Fotos über Openverse (Flickr, rawpixel), Lizenzen CC BY, CC0 und Public Domain. Fotografen und Lizenzen stehen auf der Shop-Seite unter „Bildnachweise“. Für den Livegang durch eigene Produktfotos aus der Werkstatt ersetzen
