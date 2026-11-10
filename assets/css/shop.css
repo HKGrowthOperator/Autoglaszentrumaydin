@@ -242,6 +242,6 @@
 .anfrage__kachel { background: var(--rot); color: var(--kreide); padding: 1.4rem 1.25rem; display: grid; gap: .8rem; align-content: end; min-height: 18rem; position: relative; overflow: hidden; }
 .anfrage__kachel::before { content: "?"; position: absolute; right: -.08em; top: -.18em; font-family: var(--f-display); font-style: italic; font-weight: 900; font-size: 14rem; line-height: 1; color: oklch(1 0 0 / .12); }
 .anfrage__titel { font-family: var(--f-display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: 2.6rem; line-height: .9; }
-.anfrage__kachel p:not(.label):not(.anfrage__titel) { font-size: .95rem; color: oklch(0.96 0.025 40); }
+.anfrage__kachel p:not(.anfrage__titel) { font-size: .95rem; color: oklch(0.96 0.025 40); }
 .anfrage__kachel .btn { justify-self: start; }
 @media (max-width: 760px) { .regal > li.anfrage { grid-column: 1 / -1; } .anfrage__kachel { min-height: 0; } }

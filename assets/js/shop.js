@@ -62,7 +62,7 @@
       regal.appendChild(li);
     });
     const extra = document.createElement('li'); extra.className = 'anfrage';
-    extra.innerHTML = `<div class="anfrage__kachel"><p class="label">Nicht dabei?</p><p class="anfrage__titel">Wir besorgen's.</p><p>Spezielle Wischer, Pflege oder Zubehör für dein Modell. Kurz schreiben, wir sagen dir Preis und Termin.</p><a class="btn btn--schwarz" href="${WA + encodeURIComponent('Hallo, ich suche folgendes Zubehör: ')}"><span>Per WhatsApp fragen</span></a></div>`;
+    extra.innerHTML = `<div class="anfrage__kachel"><p class="anfrage__titel">Wir besorgen's.</p><p>Spezielle Wischer, Pflege oder Zubehör für dein Modell. Kurz schreiben, wir sagen dir Preis und Termin.</p><a class="btn btn--schwarz" href="${WA + encodeURIComponent('Hallo, ich suche folgendes Zubehör: ')}"><span>Per WhatsApp fragen</span></a></div>`;
     regal.appendChild(extra);
     knoepfeMarkieren();
   }
