@@ -269,7 +269,7 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .hero {
   position: relative; overflow: hidden;
   background: var(--rot); color: var(--kreide);
-  min-height: min(calc(100svh - var(--kopf-h) - 2.35rem - 3.25rem), 60rem);
+  min-height: min(calc(100svh - var(--kopf-h) - 2.35rem), 60rem);
   isolation: isolate;
 }
 .hero .wrap {
@@ -345,27 +345,6 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
   .hero__aktion .btn { width: 100%; }
 }
 
-/* Versicherer-Laufband */
-.laufband {
-  background: var(--asphalt); color: var(--kreide-3);
-  overflow: hidden; position: relative;
-  border-top: 1px solid oklch(1 0 0 / .05);
-}
-.laufband__inner { display: flex; align-items: center; min-height: 3.25rem; }
-.laufband__label {
-  flex: none; padding: 0 1.25rem 0 var(--rand); color: var(--kreide);
-  position: relative; z-index: 2; background: var(--asphalt);
-  box-shadow: 1.5rem 0 1.5rem -.5rem var(--asphalt);
-}
-.laufband__spur { display: flex; width: max-content; animation: lauf 48s linear infinite; }
-.laufband__spur ul { display: flex; list-style: none; margin: 0; padding: 0; }
-.laufband__spur li {
-  font-family: var(--f-cond); font-weight: 700; font-size: 1.05rem; letter-spacing: .03em; white-space: nowrap;
-  padding: 0 1.4rem; display: flex; align-items: center; gap: 1.4rem;
-}
-.laufband__spur li.laufband__text::after { content: ""; width: .35rem; height: .35rem; background: var(--rot); transform: skewX(-13deg); }
-.laufband__inner { min-height: 4.4rem; }
-
 /* Versicherer-Logos auf hellen Kacheln (Originalfarben, nie verzerrt).
    Feste Breite und Hoehe je Logo (--w/--h aus dem HTML), damit kein Browser
    die Groesse aus verschachtelten Flex-Boxen raten muss (Safari rechnet dort anders). */
@@ -378,7 +357,6 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
   display: block; flex: 0 0 auto; max-width: none;
   width: calc(var(--w) * var(--k) * 1px); height: calc(var(--h) * var(--k) * 1px);
 }
-.laufband__spur li.kachel { flex: 0 0 auto; display: flex; height: 3.15rem; padding: 0 1.1rem; margin: 0 .3rem; --k: .72; }
 .versicherer { margin-top: clamp(1.5rem, 3vw, 2.5rem); display: grid; gap: .9rem; }
 .versicherer__wand { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
 .versicherer__wand .kachel { --k: .8; height: 4.6rem; padding: .6rem; min-width: 0; }
@@ -386,8 +364,6 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .versicherer__fuss { font-family: var(--f-cond); font-weight: 700; font-size: .95rem; color: oklch(0.96 0.025 40); }
 @media (max-width: 1080px) { .versicherer__wand { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 640px) { .versicherer__wand { grid-template-columns: repeat(3, 1fr); } .versicherer__wand .kachel { --k: .62; height: 3.8rem; } }
-@keyframes lauf { to { transform: translateX(-50%); } }
-.laufband:hover .laufband__spur { animation-play-state: paused; }
 
 /* ==========================================================================
    2-Euro-Test
@@ -880,5 +856,4 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .js [data-auftritt], .js .hero__titel span { opacity: 1; translate: none; }
-  .laufband__spur { animation: none; }
 }

@@ -501,12 +501,8 @@
   }
 
   /* ------------------------------------------------------------------
-     8 · Laufband, Einblendungen, Start
+     8 · Einblendungen, Start
   ------------------------------------------------------------------ */
-  function laufband() {
-    const s = $('[data-laufband]'); if (!s) return;
-    const kopie = s.firstElementChild.cloneNode(true); kopie.setAttribute('aria-hidden', 'true'); s.appendChild(kopie);
-  }
   function auftritte() {
     const els = $$('[data-auftritt]');
     if (ruhig || !('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('is-sichtbar')); return; }
@@ -515,7 +511,7 @@
   }
 
   const sicher = (fn) => { try { fn(); } catch (err) { console.error('[Entwurf]', fn.name, err); } };
-  [oeffnung, kopf, regen, test, riss, chat, karte, laufband, auftritte].forEach(sicher);
+  [oeffnung, kopf, regen, test, riss, chat, karte, auftritte].forEach(sicher);
   setInterval(() => sicher(oeffnung), 60000);
   const fertig = () => document.documentElement.classList.add('is-geladen');
   (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(fertig));
