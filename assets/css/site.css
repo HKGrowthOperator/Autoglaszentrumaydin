@@ -615,22 +615,8 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 .ablauf__kopf { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.25rem; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); align-items: end; }
 .ablauf__kopf .h2 { grid-column: 1 / span 8; }
 .ablauf__kopf p { grid-column: 9 / -1; color: var(--kreide-3); max-width: 32ch; }
-.telefon {
-  grid-column: 1 / span 5;
-  justify-self: center;
-  width: min(100%, 23rem);
-  background: oklch(0.12 0.008 28);
-  border-radius: 2.6rem; padding: .7rem;
-  box-shadow: 0 0 0 1px oklch(1 0 0 / .08), 0 2rem 4rem -1.5rem oklch(0 0 0 / .8);
-  transform: rotate(-3deg);
-}
-.telefon__screen { background: var(--asphalt-2); border-radius: 2rem; overflow: hidden; display: grid; grid-template-rows: auto 1fr auto; height: 40rem; }
-.telefon__kopf { display: flex; align-items: center; gap: .75rem; padding: 1.4rem 1rem .9rem; background: var(--asphalt-3); }
-.telefon__avatar { width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--logo-rot); display: grid; place-items: center; flex: none; }
-.telefon__avatar svg { width: 80%; color: var(--kreide); }
-.telefon__kopf b { display: block; font-family: var(--f-cond); font-weight: 780; font-size: 1rem; line-height: 1.1; }
-.telefon__kopf small { font-size: .78rem; color: var(--gruen); }
-.chat { padding: .9rem .8rem; display: flex; flex-direction: column; gap: .45rem; overflow: hidden; justify-content: flex-end; }
+.verlauf { grid-column: 1 / span 5; justify-self: center; width: min(100%, 26rem); }
+.chat { display: flex; flex-direction: column; gap: .5rem; }
 .blase {
   max-width: 84%; padding: .5rem .7rem .4rem; font-size: .9rem; line-height: 1.32;
   border-radius: 1rem; position: relative;
@@ -648,7 +634,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 .tippt i { width: .45rem; height: .45rem; border-radius: 50%; background: var(--kreide-3); animation: tippen 1s infinite; }
 .tippt i:nth-child(2) { animation-delay: .15s; } .tippt i:nth-child(3) { animation-delay: .3s; }
 @keyframes tippen { 0%, 60%, 100% { transform: none; opacity: .45; } 30% { transform: translateY(-3px); opacity: 1; } }
-.telefon__eingabe { margin: .6rem; padding: .75rem 1rem; border-radius: 2rem; background: var(--asphalt-3); color: var(--kreide-3); font-size: .9rem; }
 
 .schritte { grid-column: 7 / -1; list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; }
 .schritte li { display: grid; gap: 1.25rem; padding: 1.4rem 0; }
@@ -657,11 +642,10 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 .schritte p a { color: var(--kreide); }
 @media (max-width: 960px) {
   .ablauf__kopf .h2, .ablauf__kopf p { grid-column: 1 / -1; }
-  .telefon, .schritte { grid-column: 1 / -1; }
+  .verlauf, .schritte { grid-column: 1 / -1; }
   .schritte { margin-top: 3rem; }
 }
 @media (max-width: 480px) {
-  .telefon__screen { height: 40rem; }
   .blase--foto { width: 50%; }
 }
 
