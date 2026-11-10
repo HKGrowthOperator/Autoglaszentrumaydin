@@ -118,7 +118,7 @@
 .korb-knopf svg { flex: none; }
 .schublade .schublade__liste { padding: .25rem 1.5rem; }
 @media (max-width: 960px) { .kopf .wrap { gap: 1rem; } }
-.entwurf-marke { justify-self: start; font-family: var(--f-cond); font-size: .78rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; box-shadow: inset 0 0 0 1.5px currentColor; padding: .3rem .6rem; transform: skewX(-13deg); }
+.entwurf-hinweis { font-family: var(--f-cond); font-weight: 700; font-size: 1.0625rem; color: var(--kreide-3); }
 
 /* ---------- Shop-Hero mit Foto ---------- */
 .shop-hero { position: relative; background: var(--asphalt); color: var(--kreide); overflow: hidden; isolation: isolate; min-height: min(78svh, 46rem); display: grid; grid-template-rows: 1fr auto; }
@@ -163,9 +163,6 @@
 .produkt__bild { position: relative; overflow: hidden; aspect-ratio: 4 / 3; background: var(--asphalt-3); margin: 0; }
 .produkt__bild img { width: 100%; height: 100%; object-fit: cover; transition: scale 1.2s var(--ease-out); }
 .produkt:hover .produkt__bild img { scale: 1.05; }
-.produkt__bild::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, oklch(0.15 0.01 28 / .35) 0%, transparent 32%); pointer-events: none; }
-.produkt__kat { position: absolute; left: .75rem; top: .75rem; z-index: 1; background: var(--asphalt); color: var(--kreide); font-family: var(--f-cond); font-weight: 800; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .55rem; transform: skewX(-13deg); }
-.produkt__marke { position: absolute; right: .75rem; top: .75rem; z-index: 1; background: var(--rot); color: var(--kreide); font-family: var(--f-cond); font-weight: 800; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .55rem; transform: skewX(-13deg); }
 .produkt__info { display: grid; grid-template-rows: auto auto 1fr auto auto; gap: .35rem; padding: 1rem 1rem 1.1rem; }
 .produkt__name { font-family: var(--f-cond); font-weight: 800; font-size: 1.15rem; line-height: 1.12; }
 .produkt__spec { font-size: .9rem; color: var(--grau); line-height: 1.35; }
@@ -203,7 +200,6 @@
   .produkt__preis { flex-direction: column; align-items: flex-start; gap: .2rem; }
   .produkt__grund { text-align: left; }
   .produkt__korb { font-size: .9rem; min-height: 2.6rem; padding: 0 .5rem; }
-  .produkt__kat, .produkt__marke { font-size: .62rem; }
 }
 .sortiment__fuss { margin-top: 2.5rem; font-size: .85rem; color: var(--grau); }
 .regal__leer { padding: 3rem 0; font-family: var(--f-cond); font-size: 1.2rem; }

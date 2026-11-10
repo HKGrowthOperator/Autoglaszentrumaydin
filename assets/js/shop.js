@@ -9,24 +9,23 @@
 
   // Beispielsortiment (Preise im Entwurf frei angenommen)
   const ARTIKEL = [
-    { id: 'w-satz', kat: 'wischer', name: 'Flachbalken-Wischer, Satz vorne', spec: 'passend nach Fahrzeugschein, mit Adapter', preis: 24.9, ab: true, bild: 'w-satz', alt: 'Wischerarm auf rotem Lack vor der Windschutzscheibe', grund: 'Montage inklusive', marke: 'Bestseller', gross: true,
+    { id: 'w-satz', kat: 'wischer', name: 'Flachbalken-Wischer, Satz vorne', spec: 'passend nach Fahrzeugschein, mit Adapter', preis: 24.9, ab: true, bild: 'w-satz', alt: 'Wischerarm auf rotem Lack vor der Windschutzscheibe', grund: 'Montage inklusive', gross: true,
       punkte: ['nach HSN/TSN zugeordnet', 'beim Abholen direkt montiert', 'leise und streifenfrei'] },
     { id: 'w-premium', kat: 'wischer', name: 'Hybrid-Wischer Premium, Satz', spec: 'leise, streifenfrei, für Autos mit Kamera', preis: 34.9, ab: true, bild: 'w-premium', alt: 'Wischerblatt mit Regentropfen in Nahaufnahme', grund: 'Montage inklusive' },
     { id: 'w-heck', kat: 'wischer', name: 'Heckwischer', spec: 'für Kombi, SUV und Kleinwagen', preis: 9.9, ab: true, bild: 'w-heck', alt: 'Scheibe voller Regentropfen mit Wischern', grund: 'Montage inklusive' },
-    { id: 'p-winter5', kat: 'winter', name: 'Winter-Scheibenreiniger 5 L', spec: 'gebrauchsfertig bis −20 °C', preis: 12.9, bild: 'p-winter5', alt: 'Behälter für Scheibenwaschwasser im Motorraum mit gelbem Deckel', grund: '2,58 € / L', marke: 'Saison' },
+    { id: 'p-winter5', kat: 'winter', name: 'Winter-Scheibenreiniger 5 L', spec: 'gebrauchsfertig bis −20 °C', preis: 12.9, bild: 'p-winter5', alt: 'Behälter für Scheibenwaschwasser im Motorraum mit gelbem Deckel', grund: '2,58 € / L' },
     { id: 'p-sommer', kat: 'pflege', name: 'Sommer-Konzentrat 1 L', spec: 'ergibt bis zu 100 L Waschwasser', preis: 6.9, bild: 'p-sommer', alt: 'Außenspiegel mit Landstraße im Sommer', grund: '6,90 € / L' },
     { id: 'p-insekt', kat: 'pflege', name: 'Insektenentferner 500 ml', spec: 'löst Rückstände ohne Kratzen', preis: 5.9, bild: 'p-insekt', alt: 'Hand wäscht roten Lack mit einem Schwamm', grund: '11,80 € / L' },
     { id: 'p-versiegelung', kat: 'pflege', name: 'Scheibenversiegelung 100 ml', spec: 'Regen perlt ab, bessere Sicht nachts', preis: 14.9, bild: 'p-versiegelung', alt: 'Wassertropfen perlen auf Glas', grund: '149,00 € / L' },
     { id: 'p-enteiser', kat: 'winter', name: 'Enteiser-Spray 500 ml', spec: 'wirkt in Sekunden, schont Gummis', preis: 5.9, bild: 'p-enteiser', alt: 'Eisblumen auf einer Autoscheibe', grund: '11,80 € / L' },
     { id: 'p-kratzer', kat: 'winter', name: 'Eiskratzer mit Handschuh', spec: 'warme Hand, Messinglippe', preis: 7.9, bild: 'p-kratzer', alt: 'Eiskratzer mit kariertem Handschuh auf einem Tisch', grund: 'Stück' },
     { id: 'p-abdeckung', kat: 'winter', name: 'Frontscheiben-Abdeckung', spec: 'gegen Eis und Schnee, mit Magneten', preis: 14.9, bild: 'p-abdeckung', alt: 'Rotes Auto mit Schnee auf dem Dach', grund: 'Stück' },
-    { id: 'g-check', kat: 'gutschein', name: 'Gutschein Herbstcheck', spec: 'Scheibe, Wischer, Wasser, Frostschutz', preis: 19.9, bild: 'g-check', alt: 'Landstraße durch einen bunten Herbstwald', grund: 'einlösbar in Duisburg', marke: 'Geschenk' },
+    { id: 'g-check', kat: 'gutschein', name: 'Gutschein Herbstcheck', spec: 'Scheibe, Wischer, Wasser, Frostschutz', preis: 19.9, bild: 'g-check', alt: 'Landstraße durch einen bunten Herbstwald', grund: 'einlösbar in Duisburg' },
     { id: 'paket-winter', kat: 'winter', versteckt: true, name: 'Winterpaket', spec: 'Reiniger 5 L, Enteiser, Eiskratzer, Abdeckung', preis: 34.9, bild: 'winter', alt: '', grund: 'Paket' },
     { id: 'g-50', kat: 'gutschein', name: 'Geschenkgutschein 50 €', spec: 'für Reparatur, Tausch oder Shop', preis: 50, bild: 'g-50', alt: 'Hand hält einen Autoschlüssel', grund: 'per Mail oder gedruckt' }
   ];
   // Einzeldatei-Vorschau legt eingebettete Bilder in window.AZA_BILDER ab
   const bildUrl = (n) => (window.AZA_BILDER && window.AZA_BILDER[n]) || 'assets/img/shop/' + n + '.jpg';
-  const KAT = { wischer: 'Wischer', pflege: 'Pflege', winter: 'Winter', gutschein: 'Gutschein' };
 
   /* ---------- Speicher (nur Komfort, darf fehlen) ---------- */
   const lesen = () => { try { return JSON.parse(localStorage.getItem('aza-korb') || '{}'); } catch (e) { return {}; } };
@@ -48,8 +47,6 @@
         <article class="produkt${gross ? ' produkt--gross' : ''}" aria-labelledby="t-${a.id}">
           <figure class="produkt__bild">
             <img src="${bildUrl(a.bild)}" alt="${a.alt}" width="800" height="600" loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async">
-            <span class="produkt__kat">${KAT[a.kat]}</span>
-            ${a.marke ? `<span class="produkt__marke">${a.marke}</span>` : ''}
           </figure>
           <div class="produkt__info">
             <h3 class="produkt__name" id="t-${a.id}">${a.name}</h3>
