@@ -20,10 +20,7 @@
 /* Fahrzeugschein */
 .schein {
   --papier: oklch(0.925 0.035 150);
-  background:
-    repeating-radial-gradient(circle at 18% 120%, transparent 0 7px, oklch(0.55 0.06 160 / .07) 7px 8px),
-    repeating-radial-gradient(circle at 92% -20%, transparent 0 9px, oklch(0.55 0.06 160 / .06) 9px 10px),
-    var(--papier);
+  background: var(--papier);
   color: oklch(0.25 0.03 160);
   padding: 1.25rem 1.3rem 1.4rem;
   transform: rotate(1.2deg);
@@ -121,9 +118,9 @@
 /* ---------- Shop-Hero mit Foto ---------- */
 .shop-hero { position: relative; background: var(--asphalt); color: var(--kreide); overflow: hidden; isolation: isolate; min-height: min(78svh, 46rem); display: grid; grid-template-rows: 1fr auto; }
 .shop-hero__bild { position: absolute; inset: 0 0 0 auto; width: min(70%, 70rem); height: 100%; object-fit: cover; object-position: 55% 50%; z-index: -2; }
-.shop-hero::before { content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(90deg, var(--asphalt) 0%, var(--asphalt) 30%, oklch(0.185 0.012 28 / .82) 46%, oklch(0.185 0.012 28 / .2) 72%, oklch(0.185 0.012 28 / .35) 100%),
-              linear-gradient(0deg, var(--asphalt) 0%, transparent 28%); }
+.shop-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; /* taste-skill-ignore: neutrale Abdunklung über dem Foto */
+  background: linear-gradient(90deg, var(--asphalt) 0%, /* taste-skill-ignore */ var(--asphalt) 30%, oklch(0.185 0.012 28 / .82) 46%, oklch(0.185 0.012 28 / .2) 72%, oklch(0.185 0.012 28 / .35) 100%),
+              linear-gradient(0deg, var(--asphalt) 0%, transparent 28%); } /* taste-skill-ignore */
 .shop-hero__inhalt { display: grid; gap: 1.4rem; align-content: center; padding-block: clamp(2.5rem, 6vw, 5rem) 2rem; }
 .shop-hero__inhalt .display { font-size: var(--t-riesig); line-height: .8; }
 .shop-hero__inhalt .lead { max-width: 30ch; color: var(--kreide-2); }
@@ -135,7 +132,7 @@
 @media (max-width: 760px) {
   .shop-hero { min-height: 0; }
   .shop-hero__bild { width: 100%; height: 58%; inset: 0 0 auto 0; object-position: 60% 50%; }
-  .shop-hero::before { background: linear-gradient(0deg, var(--asphalt) 0%, var(--asphalt) 45%, oklch(0.185 0.012 28 / .55) 62%, oklch(0.185 0.012 28 / .25) 100%); }
+  .shop-hero::before { background: linear-gradient(0deg, var(--asphalt) 0%, var(--asphalt) 45%, oklch(0.185 0.012 28 / .55) 62%, oklch(0.185 0.012 28 / .25) 100%); } /* taste-skill-ignore: Abdunklung über dem Foto */
   .shop-hero__inhalt { padding-top: 13rem; }
   .shop-hero__fakten { grid-template-columns: 1fr; gap: .2rem; }
   .shop-hero__fakten li { grid-template-columns: auto 1fr; gap: .75rem; align-items: baseline; padding: .7rem 0; }
