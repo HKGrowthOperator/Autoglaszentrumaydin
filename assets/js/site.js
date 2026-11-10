@@ -241,8 +241,8 @@
       $('[data-urteil-betrag]', urteil).innerHTML = art === 'reparatur' ? '0 €<small>mit Teilkasko, bei den meisten Versicherern</small>' : 'SB<small>nur deine Selbstbeteiligung mit Teilkasko</small>';
       $('[data-urteil-wort]', urteil).innerHTML = art === 'reparatur' ? '<span>Reparatur.</span>' : '<span>Neue</span><span>Scheibe.</span>';
       $('[data-urteil-grund]', urteil).textContent = grund;
-      $('[data-urteil-kosten]', urteil).textContent = art === 'reparatur' ? 'Mit Teilkasko bei den meisten Versicherern 0 €.' : 'Mit Teilkasko nur deine Selbstbeteiligung. Ohne Teilkasko: Festpreis vorab am Telefon.';
-      $('[data-urteil-dauer]', urteil).textContent = art === 'reparatur' ? 'Oft in einer halben Stunde erledigt.' : 'Oft noch am selben Tag, das Auto meist nach wenigen Stunden zurück.';
+      $('[data-urteil-kosten]', urteil).textContent = art === 'reparatur' ? 'Mit Teilkasko bei den meisten Versicherern 0 €.' : 'Mit Teilkasko nur deine Selbstbeteiligung. Ohne Teilkasko bekommst du nach einem Foto einen Preis.';
+      $('[data-urteil-dauer]', urteil).textContent = art === 'reparatur' ? 'Oft in einer halben Stunde erledigt.' : 'In den Bewertungen unserer Kunden zwei bis drei Stunden.';
       const t = art === 'reparatur' ? `Hallo, ich habe einen Steinschlag (ca. ${d} mm). Kann man das reparieren?` : `Hallo, ich brauche wahrscheinlich eine neue Scheibe (Schaden ca. ${d} mm${riss ? ', mit Riss' : ''}).`;
       $('[data-urteil-link]', urteil).href = 'https://wa.me/4917620908479?text=' + encodeURIComponent(t);
     }
@@ -448,7 +448,7 @@
     };
     marke(WERKSTATT.lat, WERKSTATT.lon, 'WERKSTATT DUISBURG', 'DUISBURGER STR. 150', 'haupt', [40, -92, 'start']);
     marke(51.4556, 7.0116, 'ESSEN', 'STANDORT', 'haupt', [20, 4, 'start']);
-    marke(51.0266, 7.5646, 'GUMMERSBACH', 'BALD', 'bald', [-18, -6, 'end']);
+    marke(51.0266, 7.5646, 'GUMMERSBACH', 'GEPLANT', 'bald', [-18, -6, 'end']);
     // mobil: Karte auf die Werkstatt zentrieren
     const fig = svg.closest('.karte');
     if (fig && fig.scrollWidth > fig.clientWidth) fig.scrollLeft = (wx / M.w) * fig.scrollWidth - fig.clientWidth / 2;
@@ -471,14 +471,14 @@
       out.dataset.in = String(drin);
       let txt;
       if (drin) txt = `${name} liegt rund ${dr} km Luftlinie von der Werkstatt. Wir kommen mobil zu dir, oder du kommst vorbei.`;
-      else if (dg < 28) txt = `${name} ist ${dr} km entfernt. Bald bist du näher dran: In Gummersbach eröffnen wir demnächst.`;
-      else txt = `${name} ist ${dr} km entfernt, außerhalb unseres mobilen Radius. Ruf kurz an, oft finden wir trotzdem einen Weg.`;
+      else if (dg < 28) txt = `${name} ist ${dr} km entfernt. In Gummersbach ist ein Standort geplant, dann bist du näher dran.`;
+      else txt = `${name} ist ${dr} km entfernt, außerhalb unseres mobilen Radius. Ruf kurz an, dann klären wir, was geht.`;
       out.innerHTML = `<b class="zahl">${dr} km</b><p></p>`; $('p', out).textContent = txt;
       ziel.textContent = '';
       const [x, y] = P(lat, lon);
       el('path', { class: 'linie-ziel', d: `M${wx} ${wy}L${x} ${y}` }, ziel);
       const g = el('g', { class: 'stadt ziel' }, ziel); el('circle', { cx: x, cy: y, r: 6 }, g);
-      const t = el('text', { x: x + 12, y: y - 12, 'font-size': 19, 'font-weight': 800, stroke: 'oklch(0.225 0.013 28)', 'stroke-width': 6, 'paint-order': 'stroke', 'stroke-linejoin': 'round' }, g); t.textContent = `${name} · ${dr} km`;
+      const t = el('text', { x: x + 12, y: y - 12, 'font-size': 19, 'font-weight': 800, stroke: 'oklch(0.225 0.013 28)', 'stroke-width': 6, 'paint-order': 'stroke', 'stroke-linejoin': 'round' }, g); t.textContent = `${name}, ${dr} km`;
       if (x > M.w - 220) { t.setAttribute('x', x - 12); t.setAttribute('text-anchor', 'end'); }
     }
     form.addEventListener('submit', (e) => {

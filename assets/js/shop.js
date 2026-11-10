@@ -9,10 +9,10 @@
 
   // Beispielsortiment (Preise im Entwurf frei angenommen)
   const ARTIKEL = [
-    { id: 'w-satz', kat: 'wischer', name: 'Flachbalken-Wischer, Satz vorne', spec: 'passend nach Fahrzeugschein, mit Adapter', preis: 24.9, ab: true, bild: 'w-satz', alt: 'Wischerarm auf rotem Lack vor der Windschutzscheibe', grund: 'Montage inklusive', gross: true,
-      punkte: ['nach HSN/TSN zugeordnet', 'beim Abholen direkt montiert', 'leise und streifenfrei'] },
-    { id: 'w-premium', kat: 'wischer', name: 'Hybrid-Wischer Premium, Satz', spec: 'leise, streifenfrei, für Autos mit Kamera', preis: 34.9, ab: true, bild: 'w-premium', alt: 'Wischerblatt mit Regentropfen in Nahaufnahme', grund: 'Montage inklusive' },
-    { id: 'w-heck', kat: 'wischer', name: 'Heckwischer', spec: 'für Kombi, SUV und Kleinwagen', preis: 9.9, ab: true, bild: 'w-heck', alt: 'Scheibe voller Regentropfen mit Wischern', grund: 'Montage inklusive' },
+    { id: 'w-satz', kat: 'wischer', name: 'Flachbalken-Wischer, Satz vorne', spec: 'passend nach Fahrzeugschein, mit Adapter', preis: 24.9, ab: true, bild: 'w-satz', alt: 'Wischerarm auf rotem Lack vor der Windschutzscheibe', grund: 'Montage: Vorschlag', gross: true,
+      punkte: ['nach HSN/TSN zugeordnet', 'Montage beim Abholen (Vorschlag)', 'leise und streifenfrei'] },
+    { id: 'w-premium', kat: 'wischer', name: 'Hybrid-Wischer Premium, Satz', spec: 'leise, streifenfrei, für Autos mit Kamera', preis: 34.9, ab: true, bild: 'w-premium', alt: 'Wischerblatt mit Regentropfen in Nahaufnahme', grund: 'Montage: Vorschlag' },
+    { id: 'w-heck', kat: 'wischer', name: 'Heckwischer', spec: 'für Kombi, SUV und Kleinwagen', preis: 9.9, ab: true, bild: 'w-heck', alt: 'Scheibe voller Regentropfen mit Wischern', grund: 'Montage: Vorschlag' },
     { id: 'p-winter5', kat: 'winter', name: 'Winter-Scheibenreiniger 5 L', spec: 'gebrauchsfertig bis −20 °C', preis: 12.9, bild: 'p-winter5', alt: 'Behälter für Scheibenwaschwasser im Motorraum mit gelbem Deckel', grund: '2,58 € / L' },
     { id: 'p-sommer', kat: 'pflege', name: 'Sommer-Konzentrat 1 L', spec: 'ergibt bis zu 100 L Waschwasser', preis: 6.9, bild: 'p-sommer', alt: 'Außenspiegel mit Landstraße im Sommer', grund: '6,90 € / L' },
     { id: 'p-insekt', kat: 'pflege', name: 'Insektenentferner 500 ml', spec: 'löst Rückstände ohne Kratzen', preis: 5.9, bild: 'p-insekt', alt: 'Hand wäscht roten Lack mit einem Schwamm', grund: '11,80 € / L' },
