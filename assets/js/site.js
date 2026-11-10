@@ -97,20 +97,23 @@
       chipG.textContent = '';
       const r = (d / 2) * MM;
       // Strahlen ungleicher Länge mit leichtem Knick
+      // Länge bis zum Rand der Bühne: Strahl ab (MX, MY) in Richtung a endet spätestens bei GRENZE
+      const bisRand = (a) => { const ux = Math.cos(a), uy = Math.sin(a), b = MX * ux + MY * uy; return -b + Math.sqrt(b * b - (MX * MX + MY * MY - GRENZE * GRENZE)); };
       let pd = '';
       for (const b of beine) {
-        const l = r * b.l, m = l * 0.55;
+        const l = Math.min(r * b.l, bisRand(b.a + b.k)), m = Math.min(l * 0.55, bisRand(b.a));
         pd += `M${P(Math.cos(b.a) * r * 0.08, Math.sin(b.a) * r * 0.08)}L${P(Math.cos(b.a) * m, Math.sin(b.a) * m)}L${P(Math.cos(b.a + b.k) * l, Math.sin(b.a + b.k) * l)}`;
       }
       el('path', { d: pd, class: 'chip__beine', 'stroke-width': clamp(r / 22, 1.1, 2.6).toFixed(2) }, chipG);
-      // kleiner dunkler Krater
-      const kr = Math.max(1.6, r * 0.14);
+      // kleiner dunkler Krater, wächst nur wenig mit
+      const kr = clamp(r * 0.14, 1.6, 6);
       el('path', { d: 'M' + krater.map((k) => P(Math.cos(k.a) * kr * k.l, Math.sin(k.a) * kr * k.l)).join('L') + 'Z', class: 'chip__krater' }, chipG);
       if (!laeuft) return;
       // Risse laufen über den Münzrand und enden vor dem Rand der Zeichnung
       let rd = '';
       for (const s of risse) {
-        let x = MX + Math.cos(s.a) * r * 0.6, y = MY + Math.sin(s.a) * r * 0.6, a = s.a;
+        const r0 = kr * 1.4; // Risse gehen vom Einschlag aus
+        let x = MX + Math.cos(s.a) * r0, y = MY + Math.sin(s.a) * r0, a = s.a;
         rd += `M${x.toFixed(1)} ${y.toFixed(1)}`;
         for (const k of s.knicke) {
           a += k * 0.5;
