@@ -250,91 +250,6 @@
   }
 
   /* ------------------------------------------------------------------
-     5 · Der Riss wächst beim Scrollen
-  ------------------------------------------------------------------ */
-  function riss() {
-    const sek = $('[data-riss]'); if (!sek) return;
-    const svg = $('[data-riss-svg]', sek); const fahrt = $('.riss__fahrt', sek);
-    const stufen = $$('[data-stufe]', sek); const km = $('[data-tacho-km]', sek); const temp = $('[data-tacho-temp]', sek);
-    const leiste = $('[data-riss-leiste]', sek);
-    let pfade = [];
-    if (ruhig) sek.classList.add('riss--statisch');
-
-    function bauen() {
-      const b = svg.getBoundingClientRect();
-      const VH = 900, VW = Math.round(VH * (b.width / Math.max(1, b.height))) || 1600;
-      svg.setAttribute('viewBox', `0 0 ${VW} ${VH}`);
-      svg.textContent = '';
-      const R = rng(1984);
-      const breit = VW > VH;
-      const ix = VW * (breit ? 0.64 : 0.6), iy = VH * (breit ? 0.4 : 0.42);
-      const g = el('g', { fill: 'none', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, svg);
-      pfade = [];
-      const linie = (pts, von, bis, w, alpha = 0.9) => {
-        const d = 'M' + pts.map((p) => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join('L');
-        const glanz = el('path', { d, stroke: 'oklch(0.95 0.03 185)', 'stroke-width': w + 2.2, opacity: 0.1, transform: 'translate(1.4 1.4)' }, g);
-        const p = el('path', { d, stroke: `oklch(0.97 0.01 90 / ${alpha})`, 'stroke-width': w }, g);
-        pfade.push({ els: [glanz, p], von, bis, len: 0 });
-      };
-      const lauf = (x, y, a, laenge, schritt, drift) => {
-        const pts = [[x, y]]; let l = 0;
-        while (l < laenge) {
-          const st = schritt[0] + R() * (schritt[1] - schritt[0]);
-          a += (R() - 0.5) * drift; x += Math.cos(a) * st; y += Math.sin(a) * st; l += st;
-          pts.push([x, y]);
-          if (x < -40 || x > VW + 40 || y < -40 || y > VH + 40) break;
-        }
-        return pts;
-      };
-      // Einschlag: Stern + Bullseye
-      el('circle', { cx: ix, cy: iy, r: 9, fill: 'oklch(0.97 0.01 90 / .28)', stroke: 'oklch(0.97 0.01 90 / .9)', 'stroke-width': 1.6 }, g);
-      el('circle', { cx: ix - 2.5, cy: iy - 2.5, r: 3, fill: 'oklch(1 0 0 / .7)' }, g);
-      for (let i = 0; i < 11; i++) {
-        const a = (i / 11) * Math.PI * 2 + (R() - 0.5) * 0.4;
-        linie(lauf(ix + Math.cos(a) * 8, iy + Math.sin(a) * 8, a, 16 + R() * 30, [4, 9], 0.5), -0.2, 0.001, 1.5);
-      }
-      // Hauptrisse
-      const ast = (pts, von, bis, n) => {
-        for (let k = 0; k < n; k++) {
-          const i = Math.floor(pts.length * (0.25 + R() * 0.6)); const [x, y] = pts[i];
-          const [x0, y0] = pts[Math.max(0, i - 1)]; const a = Math.atan2(y - y0, x - x0) + (R() < 0.5 ? -1 : 1) * (0.5 + R() * 0.6);
-          linie(lauf(x, y, a, 120 + R() * 260, [14, 34], 0.5), lerp(von, bis, 0.45), bis, 1.4, 0.75);
-        }
-      };
-      const c4 = lauf(ix, iy, -2.1, 260, [14, 30], 0.42); linie(c4, 0.3, 0.46, 2);
-      const c1 = lauf(ix, iy, Math.PI - 0.22, VW * 0.9, [18, 40], 0.36); linie(c1, 0.36, 0.76, 2.4); ast(c1, 0.5, 0.95, 3);
-      const c3 = lauf(ix, iy, 1.75, VH * 0.8, [16, 36], 0.4); linie(c3, 0.5, 0.82, 2.1); ast(c3, 0.66, 1, 2);
-      const c2 = lauf(ix, iy, -0.42, VW * 0.6, [16, 38], 0.38); linie(c2, 0.62, 0.96, 2.2); ast(c2, 0.74, 1, 2);
-      for (const p of pfade) { p.len = p.els[1].getTotalLength(); for (const e of p.els) { e.style.strokeDasharray = p.len + ' ' + p.len; } }
-      zeichnen();
-    }
-    const kurve = (stuetz, p) => {
-      for (let i = 1; i < stuetz.length; i++) { const [p0, v0] = stuetz[i - 1], [p1, v1] = stuetz[i]; if (p <= p1) return lerp(v0, v1, (p - p0) / (p1 - p0)); }
-      return stuetz[stuetz.length - 1][1];
-    };
-    const fmt = new Intl.NumberFormat('de-DE');
-    let letzteStufe = -1;
-    function zeichnen() {
-      let p = 1;
-      if (!ruhig) { const r = fahrt.getBoundingClientRect(); p = clamp(-r.top / Math.max(1, r.height - innerHeight), 0, 1); }
-      for (const f of pfade) {
-        const q = clamp((p - f.von) / (f.bis - f.von), 0, 1);
-        for (const e of f.els) e.style.strokeDashoffset = String(f.len * (1 - q));
-      }
-      leiste.style.setProperty('--p', p.toFixed(4));
-      km.textContent = fmt.format(Math.round(kurve([[0, 12], [0.3, 240], [0.62, 980], [1, 1840]], p) / 2) * 2) + ' km';
-      const tc = Math.round(kurve([[0, 18], [0.3, 9], [0.46, -4], [0.62, -2], [1, 7]], p));
-      temp.textContent = (tc < 0 ? '−' + Math.abs(tc) : tc) + ' °C';
-      const st = ruhig ? -1 : p < 0.3 ? 0 : p < 0.62 ? 1 : 2;
-      if (st !== letzteStufe) { letzteStufe = st; stufen.forEach((s, i) => s.classList.toggle('is-aktiv', ruhig || i === st)); }
-    }
-    bauen();
-    let tick = false;
-    addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(() => { tick = false; zeichnen(); }); } }, { passive: true });
-    let rt; new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(bauen, 120); }).observe(svg);
-  }
-
-  /* ------------------------------------------------------------------
      6 · Chat spielt sich ab
   ------------------------------------------------------------------ */
   function chat() {
@@ -512,7 +427,7 @@
   }
 
   const sicher = (fn) => { try { fn(); } catch (err) { console.error('[Entwurf]', fn.name, err); } };
-  [oeffnung, kopf, regen, test, riss, chat, karte, auftritte].forEach(sicher);
+  [oeffnung, kopf, regen, test, chat, karte, auftritte].forEach(sicher);
   setInterval(() => sicher(oeffnung), 60000);
   const fertig = () => document.documentElement.classList.add('is-geladen');
   (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(fertig));

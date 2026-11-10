@@ -437,50 +437,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 }
 
 /* ==========================================================================
-   Riss-Geschichte (scroll)
-   ========================================================================== */
-.riss { background: var(--glas); color: var(--kreide); position: relative; }
-.riss__fahrt { height: 180vh; position: relative; }
-.riss__buehne { position: sticky; top: 0; height: 100svh; overflow: hidden; }
-.riss__glas { position: absolute; inset: 0; }
-.riss__glas svg { width: 100%; height: 100%; }
-.riss__glas::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background:
-    linear-gradient(115deg, transparent 0 38%, oklch(1 0 0 / .045) 38% 47%, transparent 47% 58%, oklch(1 0 0 / .03) 58% 61%, transparent 61%),
-    radial-gradient(120% 90% at 50% 120%, oklch(0.12 0.02 210 / .8), transparent 60%);
-}
-.riss__text {
-  position: absolute; left: var(--rand); bottom: clamp(2rem, 7vh, 5rem);
-  width: min(38rem, calc(100% - 2 * var(--rand)));
-  z-index: 2;
-}
-.stufe { position: absolute; left: 0; right: 0; bottom: 0; opacity: 0; transform: translateY(1.5rem); transition: opacity .5s, transform .7s var(--ease-out); }
-.stufe.is-aktiv { opacity: 1; transform: none; }
-.stufe .h2 { font-size: var(--t-gross); margin-bottom: 1.1rem; }
-.stufe p { font-size: var(--t-lead); max-width: 38ch; color: oklch(0.9 0.015 190); }
-.stufe .btn { margin-top: 1.5rem; }
-.riss__platzhalter { visibility: hidden; position: relative !important; }
-.riss__tacho {
-  position: absolute; right: var(--rand); top: calc(var(--kopf-h) + clamp(1rem, 4vh, 2.5rem)); z-index: 2;
-  display: grid; gap: .9rem; text-align: right;
-  font-family: var(--f-cond);
-}
-.riss__tacho div { display: grid; }
-.riss__tacho span { font-size: var(--t-klein); font-weight: 750; color: var(--glas-kante); }
-.riss__tacho b { font-family: var(--f-display); font-style: italic; font-weight: 880; font-size: var(--t-mittel); line-height: 1; }
-.riss__leiste { position: absolute; left: 0; bottom: 0; height: 4px; width: 100%; background: oklch(1 0 0 / .08); z-index: 2; }
-.riss__leiste i { display: block; height: 100%; background: var(--rot); transform-origin: left; transform: scaleX(var(--p, 0)); }
-@media (max-width: 700px) {
-  .riss__tacho { top: calc(var(--kopf-h) + .75rem); gap: .5rem; }
-  .riss__text { bottom: calc(5rem + env(safe-area-inset-bottom)); }
-}
-.riss--statisch .riss__fahrt { height: auto; }
-.riss--statisch .riss__buehne { position: relative; height: auto; min-height: 100svh; }
-.riss--statisch .riss__text { position: relative; left: auto; bottom: auto; padding: 8rem var(--rand) 4rem; display: grid; gap: 3rem; }
-.riss--statisch .stufe { position: relative; opacity: 1; transform: none; }
-
-/* ==========================================================================
    Leistungen
    ========================================================================== */
 .leistungen .wrap { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.25rem; }
@@ -795,7 +751,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
    ========================================================================== */
 @media (max-width: 700px) {
   :root { --sektion: 3rem; }
-  .riss__fahrt { height: 150vh; }
   /* Start: Überschrift, Scheibe und WhatsApp-Knopf auf dem ersten Bildschirm */
   .hero .wrap { padding-bottom: 2rem; }
   .hero__titel { font-size: clamp(4.2rem, 23vw, 7rem); }
