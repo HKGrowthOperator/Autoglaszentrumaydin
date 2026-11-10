@@ -72,7 +72,7 @@
   function test() {
     const root = $('[data-test]'); if (!root) return;
     const range = $('[data-groesse]', root); const wert = $('[data-groesse-wert]', root);
-    const chipG = $('[data-chip]', root); const sterne = $('[data-sterne]', root);
+    const chipG = $('[data-chip]', root);
     const box = $('[data-ergebnis]', root);
     const MM = 200 / 25.75;
     const R = rng(7);
@@ -81,16 +81,6 @@
     const krater = Array.from({ length: 7 }, (_, i) => ({ a: (i / 7) * Math.PI * 2, l: 0.65 + R() * 0.5 }));
     const risse = [-0.6, 0.55, 2.2, 3.6].map((a) => ({ a, knicke: Array.from({ length: 30 }, () => (R() - 0.5) * 0.7) }));
     const GRENZE = 124; // Risse enden kurz vor dem Rand der Zeichnung
-    // zwölf Sterne wie auf der Münze, flach
-    const stern = (cx, cy, r) => {
-      let d = '';
-      for (let i = 0; i < 10; i++) { const a = (i / 10) * Math.PI * 2 - Math.PI / 2; const rr = i % 2 ? r * 0.45 : r; d += (i ? 'L' : 'M') + (cx + Math.cos(a) * rr).toFixed(2) + ' ' + (cy + Math.sin(a) * rr).toFixed(2); }
-      return d + 'Z';
-    };
-    for (let i = 0; i < 12; i++) {
-      const a = (i / 12) * Math.PI * 2 - Math.PI / 2;
-      el('path', { d: stern(Math.cos(a) * 84.5, Math.sin(a) * 84.5, 6) }, sterne);
-    }
 
     const P = (x, y) => `${(MX + x).toFixed(1)} ${(MY + y).toFixed(1)}`;
     function zeichne(d, laeuft) {

@@ -77,7 +77,6 @@ h1, h2 { text-wrap: balance; hyphens: none; }
   text-decoration: none; white-space: nowrap;
   transition: transform 0.35s var(--ease), background-color 0.2s, color 0.2s;
 }
-.knopf svg { width: 1.25em; height: 1.25em; flex: none; }
 .knopf:hover { transform: translateY(-2px); }
 .knopf:active { transform: translateY(1px); }
 .knopf--rot { background: var(--rot); color: var(--auf-rot); }
@@ -162,7 +161,6 @@ h1, h2 { text-wrap: balance; hyphens: none; }
 .test__muenze svg { grid-column: 4 / span 5; grid-row: 2; justify-self: center; width: min(72vh, 100%); height: auto; aspect-ratio: 1; overflow: hidden; }
 .muenze__ring { fill: var(--silber); }
 .muenze__kern { fill: var(--gold); }
-.muenze__sterne { fill: oklch(0.7 0.01 250); }
 .muenze__zwei { font-family: var(--f-anzeige); font-weight: 700; font-size: 124px; fill: var(--gold-tief); }
 .muenze__chip { fill: none; stroke: var(--tinte); stroke-linecap: round; stroke-linejoin: round; }
 .chip__krater { fill: var(--tinte); stroke: none; }
@@ -401,9 +399,8 @@ input[type="range"]::-moz-range-thumb { width: 1.6rem; height: 1.6rem; backgroun
 .aktionsleiste { display: none; }
 @media (max-width: 760px) {
   .aktionsleiste { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; transition: transform 0.3s var(--ease); display: grid; grid-template-columns: repeat(3, 1fr); background: var(--tinte); color: var(--grund); padding-bottom: env(safe-area-inset-bottom); }
-  .aktionsleiste a { display: grid; justify-items: center; gap: 0.2rem; padding: 0.55rem 0 0.5rem; text-decoration: none; font-size: var(--step-small); font-weight: 500; }
+  .aktionsleiste a { display: grid; place-items: center; min-height: 3.25rem; padding: 0.5rem 0; text-decoration: none; font-size: var(--step-body); font-weight: 500; }
   .aktionsleiste a:nth-child(2) { background: var(--rot); color: var(--auf-rot); }
-  .aktionsleiste svg { width: 1.35rem; height: 1.35rem; }
   .aktionsleiste.weg { transform: translateY(100%); }
   body { padding-bottom: 4.25rem; }
 }
