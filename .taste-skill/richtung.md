@@ -1,11 +1,11 @@
 # DIRECTION SHEET — The sentence is the layout
-seed 304284749 · drawn 2026-11-10 · redraws: 4 · sector other
+seed 304284749 · drawn 2026-11-10 · redraws: 5 · sector other
 Brief: Autoglas-Werkstatt in Duisburg-Obermarxloh: Steinschlag reparieren, Scheiben tauschen, direkt mit der Versicherung abrechnen, Foto per WhatsApp
 
 | | |
 | --- | --- |
 | Direction | The sentence is the layout |
-| Hero | Title in the sky, line on the horizon |
+| Hero | Photograph for a letter |
 | Type | Barlow Condensed / Barlow |
 | Colour | kept from the brand |
 | Sections | showcase (Object on a disc) → pricing (One plan as a sentence) → list (Statement, table pushed right) → how-it-works (Lines that step across) → testimonial (Quotation spread edge to edge) → contact (The email as display type) → gallery (Photographs gathered round a heading) → faq (Large questions, answers beside) → cta (Question at both edges) → footer (Invitation over a cropped name) |
@@ -84,14 +84,15 @@ The last two path numbers are width and height: request the exact crop you rende
 add `?grayscale` to desaturate. Use three to six of them, not all eight. Always set `width`, `height`, `alt` and `loading="lazy"` (not on the hero image).
 Other sets that fit this brief: fog-and-quiet, mountain, forest, water — `node draw.mjs --photos <set>` prints one in full; `--photos list` shows all sets. Taking photographs from another set is your call and is not a redraw; keep them to one light and one treatment.
 
-## 6. Hero — Title in the sky, line on the horizon
-One wide photograph or render fills the viewport, chosen with the subject in the lower 55% and open sky, fog or a plain wall above it. The headline is centred in that empty upper zone: two lines at clamp(72px, 7.2vw, 112px), leading 0.9, its cap line 72px from the top, the first line short and the second longer so the block widens towards the subject. On the horizon, with its baseline at 52% of the height, one supporting sentence is split into two halves at 22px: the first half right-aligned to end at column 5, the second left-aligned from column 8, so the subject shows through the 260px gap between them. Wordmark top-left on a 32px margin; up to three text links from column 9; the single action top-right as a solid rectangle in the paper colour. All type is in one ink chosen against the sky; on a pale sky use the photograph's darkest tone rather than black. Nothing else crosses the lower half.
+## 6. Hero — Photograph for a letter
+A flat white or pale ground, about 85% empty. The name sits on one line at the exact vertical centre, bold, at clamp(96px, 10.5vw, 168px), tracking -0.04em, spanning 78–88% of the width with equal side margins. One photograph is set into the line as if it were a glyph. Either it fills the word space between first and last name (a landscape frame one x-height tall and about 1.6em wide, resting on the baseline), or it replaces one round letter of a short name (a square frame exactly one cap-height tall). Build the line as an inline-flex row with `align-items: baseline` and size the frame in em so it scales with the type; square corners, `object-fit: cover`. Navigation is small and pushed to the edges: a 15px wordmark or monogram top-left at a 24px margin and up to five text links at 14px spread evenly across the right half of the top edge. Along the bottom edge, on the same margin: one supporting sentence at 16px starting at column 6, and the single action as an underlined text link flush right.
 
-On a phone: The picture is re-cropped to portrait with the subject in the lower 45%. The headline sits centred in the sky at 11vw on two lines, 96px down, and the two halves of the sentence become two centred lines at 17px directly under it. The action is a full-width button 24px above the bottom edge on a neutral scrim band 96px tall. Wordmark top-left and a menu word top-right.
-Headline: Two lines, the second the longer, at most about 14 characters per line: the name of the place, or a 3–5 word claim about it.
+On a phone: The name stacks on two centred lines at 19vw with line-height 0.9. The photograph leaves the line and becomes a 3:2 frame at full width minus 16px margins between the two lines, so the screen reads word, picture, word. A single short name keeps the square frame inline at cap height instead. The supporting sentence and action sit under the block at 16px; the links collapse to one word top-right.
+Headline: The name on one line with a photograph in its word space or in place of one letter, up to about 16 characters at 10.5vw, splitting into two lines on a phone.
 
 Adjusted for this page:
-- It names colours (black): map them onto this palette's roles (ground `--bg`, panels `--surface` and the fields, text `--ink`/`--muted`, the accent `--accent` on the primary action only).
+- It names colours (white): map them onto this palette's roles (ground `--bg`, panels `--surface` and the fields, text `--ink`/`--muted`, the accent `--accent` on the primary action only).
+- Its action is a text link: the primary action on the first screen is a real button (filled or solid-bordered, 44px or taller), placed where the blueprint puts the link. A second action may stay a link.
 - Its vw sizes assume a face of normal width: with this condensed display face, size the words to fill the measure the blueprint gives them instead of copying the vw value.
 
 ## 7. Sections, in order
@@ -204,3 +205,24 @@ section huddled on one side with the other half empty, no blank stretch over hal
 `inspect.mjs` measures all of it.
 
 Saved to /home/user/autoglaszentrumaydin/.taste-skill/direction.json · reprint with `node draw.mjs --show`
+
+---
+
+## Nachtrag Art-Direktor (10.11.2026): Redraws und Abweichungen
+
+Ausgabe oben unverändert aus `draw.mjs --show`. Gezogen mit
+`--sector other --brief "Autoglas-Werkstatt in Duisburg-Obermarxloh: …" --sections showcase,pricing,list,how-it-works,testimonial,contact,gallery,faq,cta,footer --keep palette --direction sentence-as-layout`, Seed 304284749.
+
+| Redraw | Vorher | Nachher | Grund |
+| --- | --- | --- | --- |
+| type | Erode (Fontshare) | Barlow Condensed / Barlow (Google Fonts, SIL OFL) | Auftrag verlangt eine lokal hostbare Google-Fonts-Familie; Erode („für Galerien, Kanzleien“) widerspricht zudem der Werkstatt und der Montserrat-Wortmarke. |
+| section:how-it-works | One verb at a time | Lines that step across | Braucht 3 bis 5 bildschirmfüllende Fotos der Arbeitsschritte, die es noch nicht gibt (Shooting offen); gepinnte Wörter über Bildern wiederholen den covered-text-Fehler der Vorher-Messung. |
+| section:gallery | Prints dropped on the headline | Photographs gathered round a heading | Legt Fotos über die Überschrift (Hausregel: nichts liegt auf einer Überschrift) und rahmt sie mit weißem Rand (imagery §5: keine Rahmen). |
+| section:showcase | Object in front of type | Object on a disc (geliehen) | Der 2-Euro-Test braucht Platz für Auswahl, Regler und Ergebnis; die Scheibe der Blaupause ist hier die 2-Euro-Münze selbst, die Liste sind die Antworten des Tests. Die ausgeteilte Blaupause legt das Objekt über Buchstaben der Überschrift. |
+| hero | Title in the sky, line on the horizon | Photograph for a letter | Braucht ein breites, bildschirmfüllendes Foto (≥ 2400 px) aus der Welt der Werkstatt mit Himmel darüber; es gibt keins (größtes eigenes oder freies Glasfoto: 1024 px, Suchen ohne passenden Treffer). |
+
+Nicht übernommen, mit Grund (Details in `notizen.md`, Bauanweisung):
+- Rolle `contact` (E-Mail als Displayzeile): Geometrie übernommen für den Abschnitt Standorte, aber mit Karte und Umkreisprüfer, weil beides bleiben muss. Displayzeile ist die Adresse „Duisburger Str. 150“.
+- `cta` „im dunkelsten Ton“: als Feld in Logorot, weil der Fuß direkt danach Asphalt ist.
+- `footer`: Wortmarke nicht beschnitten (Markenregel: Wortmarke unverändert), sondern ganz, als rotes Logofeld in voller Breite.
+- Fotos aus dem Satz „Coast“: nicht verwendet (Meer, keine Verbindung zu Duisburg).

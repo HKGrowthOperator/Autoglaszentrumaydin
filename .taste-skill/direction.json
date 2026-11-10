@@ -2,7 +2,7 @@
  "version": 1,
  "at": "2026-11-10T10:57:22.019Z",
  "seed": 304284749,
- "redraws": 4,
+ "redraws": 5,
  "input": {
   "brief": "Autoglas-Werkstatt in Duisburg-Obermarxloh: Steinschlag reparieren, Scheiben tauschen, direkt mit der Versicherung abrechnen, Foto per WhatsApp",
   "sector": "other",
@@ -86,22 +86,21 @@
   "allow": []
  },
  "hero": {
-  "id": "title-in-the-sky-line-on-the-horizon",
-  "name": "Title in the sky, line on the horizon",
-  "archetype": "fullbleed-media",
+  "id": "photograph-for-a-letter",
+  "name": "Photograph for a letter",
+  "archetype": "giant-wordmark",
   "directions": [
-   "place-carries-it",
-   "hero-object",
+   "name-as-monument",
    "sentence-as-layout"
   ],
   "needs": [],
-  "blueprint": "One wide photograph or render fills the viewport, chosen with the subject in the lower 55% and open sky, fog or a plain wall above it. The headline is centred in that empty upper zone: two lines at clamp(72px, 7.2vw, 112px), leading 0.9, its cap line 72px from the top, the first line short and the second longer so the block widens towards the subject. On the horizon, with its baseline at 52% of the height, one supporting sentence is split into two halves at 22px: the first half right-aligned to end at column 5, the second left-aligned from column 8, so the subject shows through the 260px gap between them. Wordmark top-left on a 32px margin; up to three text links from column 9; the single action top-right as a solid rectangle in the paper colour. All type is in one ink chosen against the sky; on a pale sky use the photograph's darkest tone rather than black. Nothing else crosses the lower half.",
-  "mobile": "The picture is re-cropped to portrait with the subject in the lower 45%. The headline sits centred in the sky at 11vw on two lines, 96px down, and the two halves of the sentence become two centred lines at 17px directly under it. The action is a full-width button 24px above the bottom edge on a neutral scrim band 96px tall. Wordmark top-left and a menu word top-right.",
-  "headline": "Two lines, the second the longer, at most about 14 characters per line: the name of the place, or a 3–5 word claim about it.",
+  "blueprint": "A flat white or pale ground, about 85% empty. The name sits on one line at the exact vertical centre, bold, at clamp(96px, 10.5vw, 168px), tracking -0.04em, spanning 78–88% of the width with equal side margins. One photograph is set into the line as if it were a glyph. Either it fills the word space between first and last name (a landscape frame one x-height tall and about 1.6em wide, resting on the baseline), or it replaces one round letter of a short name (a square frame exactly one cap-height tall). Build the line as an inline-flex row with `align-items: baseline` and size the frame in em so it scales with the type; square corners, `object-fit: cover`. Navigation is small and pushed to the edges: a 15px wordmark or monogram top-left at a 24px margin and up to five text links at 14px spread evenly across the right half of the top edge. Along the bottom edge, on the same margin: one supporting sentence at 16px starting at column 6, and the single action as an underlined text link flush right.",
+  "mobile": "The name stacks on two centred lines at 19vw with line-height 0.9. The photograph leaves the line and becomes a 3:2 frame at full width minus 16px margins between the two lines, so the screen reads word, picture, word. A single short name keeps the square frame inline at cap height instead. The supporting sentence and action sit under the block at 16px; the links collapse to one word top-right.",
+  "headline": "The name on one line with a photograph in its word space or in place of one letter, up to about 16 characters at 10.5vw, splitting into two lines on a phone.",
   "motion": "shutter-image",
   "seenIn": [
-   "aww-era-residence",
-   "aww-vectr"
+   "aww-paul-kalkbrenner",
+   "opl-nia-creative"
   ]
  },
  "type": {
