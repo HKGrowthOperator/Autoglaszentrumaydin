@@ -190,7 +190,7 @@
   .produkt__grund { text-align: left; }
   .produkt__korb { font-size: var(--t-klein); min-height: 2.6rem; padding: 0 .5rem; }
 }
-.sortiment__fuss { margin-top: 2.5rem; font-size: var(--t-klein); color: var(--grau); }
+.sortiment__fuss { margin-top: 2.5rem; font-size: var(--t-klein); color: var(--grau); max-width: 70ch; }
 .regal__leer { padding: 3rem 0; font-family: var(--f-cond); font-size: var(--t-lead); }
 
 /* ---------- Winterpaket ---------- */

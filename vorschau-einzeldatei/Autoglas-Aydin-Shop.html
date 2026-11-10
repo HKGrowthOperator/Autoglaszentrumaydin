@@ -619,6 +619,7 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
   overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem;
   scrollbar-width: thin; scrollbar-color: var(--tinte) transparent;
 }
+@media (min-width: 1081px) { .stimmen__reihe { grid-auto-flow: row; grid-template-columns: repeat(5, 1fr); overflow: visible; } }
 .stimme { scroll-snap-align: start; display: grid; align-content: space-between; gap: 1rem; }
 .stimme p { font-size: var(--t-text); line-height: 1.45; }
 .stimmen__quelle { grid-column: 1 / -1; font-size: var(--t-klein); color: var(--grau); margin-top: .75rem; }
@@ -632,7 +633,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 .gebiet__kopf p { grid-column: 9 / -1; color: var(--kreide-3); max-width: 34ch; }
 .karte { grid-column: 1 / span 7; position: relative; background: var(--asphalt-2); margin: 0; align-self: start; }
 @media (max-width: 700px) {
-  .karte { margin-inline: calc(var(--rand) * -1); }
   .karte .stadt text { font-size: 28px; }
   .karte .stadt.gross text { font-size: 32px; }
 }
@@ -1072,7 +1072,7 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
   .produkt__grund { text-align: left; }
   .produkt__korb { font-size: var(--t-klein); min-height: 2.6rem; padding: 0 .5rem; }
 }
-.sortiment__fuss { margin-top: 2.5rem; font-size: var(--t-klein); color: var(--grau); }
+.sortiment__fuss { margin-top: 2.5rem; font-size: var(--t-klein); color: var(--grau); max-width: 70ch; }
 .regal__leer { padding: 3rem 0; font-family: var(--f-cond); font-size: var(--t-lead); }
 
 /* ---------- Winterpaket ---------- */
