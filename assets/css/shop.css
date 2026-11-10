@@ -113,9 +113,12 @@
   .produkt--gross { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
-  .regal { grid-template-columns: 1fr; }
-  .regal > li.gross { grid-column: auto; }
+  .regal { gap: 2.5rem 0.75rem; }
   .produkt--gross { grid-template-columns: 1fr; row-gap: 1rem; }
+  .produkt { gap: 0.75rem; }
+  .produkt__preis { flex-wrap: wrap; gap: 0.25rem 0.6rem; }
+  .produkt__korb { justify-self: stretch; padding-inline: 0.5rem; }
+  .anfrage { grid-column: 1 / -1; }
 }
 
 /* ==========================================================================
