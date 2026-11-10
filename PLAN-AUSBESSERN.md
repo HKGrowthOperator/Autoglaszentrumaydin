@@ -51,7 +51,8 @@ Gemessen mit dem Prüfer aus `design-taste-frontend` (Startseite und Shop, Stand
 4. Texte prüft der Agent `texter` gegen `ENTWURF-NOTIZEN.md`, die Abnahme macht `qa-abnahme`.
 5. Kein neues Design, keine neuen Abschnitte, keine neuen Farben oder Schriften.
 
-## Offen für dich
+## Entschieden (10. November)
 
-- Kassenbons: flach behalten (Vorschlag) oder ganz raus?
-- Symbole in den Knöpfen (WhatsApp, Telefon, Route) im alten Entwurf: lassen oder raus?
+- Alles umsetzen.
+- Kassenbons bleiben, flach: ohne Schatten, ohne Schräglage, ohne Barcode.
+- Symbole in den Knöpfen (WhatsApp, Telefon, Route) bleiben.
