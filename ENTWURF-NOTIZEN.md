@@ -45,6 +45,7 @@ Technik nebenbei: Logo als scharfe Vektordatei nachgebaut (bisher nur JPG), Schr
 - Versichererliste und Versicherer-Logos (HUK-COBURG, Allianz, ERGO, AXA, Generali, R+V, DEVK, HDI, VHV, LVM, Württembergische, Provinzial): aktuelle Website, freigestellt und optisch gleich groß gemacht, Farben und Proportionen unverändert
 - Instagram-Bilder: aus dem Screenshot geschnitten (niedrige Auflösung, nur für den Entwurf)
 - Shop-Fotos: freie Fotos über Openverse (Flickr, rawpixel), Lizenzen CC BY und CC0. Die Gutscheine sind bewusst ohne Foto, als Fläche mit dem Betrag. Fotografen und Lizenzen stehen auf der Shop-Seite unter „Bildnachweise“. Für den Livegang durch eigene Produktfotos aus der Werkstatt ersetzen
+- Orte in `areaServed` (JSON-LD): die Städte der bestehenden Stadtseiten (siehe Offen 12) plus Duisburg, dazu der 50-km-Kreis. Link „Route planen“ (maps.app.goo.gl/vNScVN2UxSXLt74x9): Routenlink auf der aktuellen Website, abgerufen 03.11.2026
 - Koordinaten der Werkstatt: strukturierte Daten der aktuellen Website. Flüsse und Autobahnen: Natural Earth (gemeinfrei)
 
 ## Offen, vor dem Livegang mit dem Kunden klären

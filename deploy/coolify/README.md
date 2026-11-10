@@ -32,7 +32,7 @@ falls bei hk-growthoperator.de kein Wildcard-Eintrag besteht.
 
 - Jede Antwort trägt `X-Robots-Tag: noindex, nofollow, noarchive`, `robots.txt` sperrt alles.
   So rankt der Entwurf nicht neben der echten Seite autoglaszentrum-aydin.de.
-- Für den Livegang die Zeile `X-Robots-Tag` (dreimal) und den Block `robots.txt` in
+- Für den Livegang die Zeile `X-Robots-Tag` (einmal) und den Block `robots.txt` in
   `nginx.conf` entfernen.
 - WhatsApp- und Telefonlinks zeigen auf die echten Nummern des Betriebs.
 
