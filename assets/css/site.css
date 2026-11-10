@@ -633,13 +633,10 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 .gebiet__kopf .h2 { grid-column: 1 / span 8; }
 .gebiet__kopf p { grid-column: 9 / -1; color: var(--kreide-3); max-width: 34ch; }
 .karte { grid-column: 1 / span 7; position: relative; background: var(--asphalt-2); margin: 0; align-self: start; }
-.karte__hinweis { display: none; grid-column: 1 / -1; }
 @media (max-width: 700px) {
-  .karte { margin-inline: calc(var(--rand) * -1); overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  .karte::-webkit-scrollbar { display: none; }
-  .gebiet .karte svg { width: 760px; max-width: none; }
-  .karte__quelle { position: sticky; left: .6rem; display: block; padding: .4rem .6rem; }
-  .karte__hinweis { display: block; font-family: var(--f-cond); font-size: var(--t-klein); color: var(--kreide-3); margin-top: .6rem; }
+  .karte { margin-inline: calc(var(--rand) * -1); }
+  .karte .stadt text { font-size: 28px; }
+  .karte .stadt.gross text { font-size: 32px; }
 }
 .karte svg { width: 100%; height: auto; }
 .karte__quelle { position: absolute; right: .6rem; bottom: .5rem; font-size: var(--t-klein); color: var(--asphalt-4); font-family: var(--f-cond); }
@@ -807,6 +804,69 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 .aktionsleiste a:nth-child(2) { background: var(--rot); }
 .aktionsleiste svg { width: 1.35rem; height: 1.35rem; }
 @media (max-width: 760px) { .aktionsleiste { display: grid; } body { padding-bottom: 4rem; } }
+
+/* ==========================================================================
+   Handy: gleiche Abschnitte, dichter gesetzt
+   ========================================================================== */
+@media (max-width: 700px) {
+  :root { --sektion: 3rem; }
+  .riss__fahrt { height: 150vh; }
+  /* Start: Überschrift, Scheibe und WhatsApp-Knopf auf dem ersten Bildschirm */
+  .hero .wrap { padding-bottom: 2rem; }
+  .hero__titel { font-size: clamp(4.2rem, 23vw, 7rem); }
+  .scheibe { margin-top: -1rem; }
+  .hero__unten { margin-top: 0; gap: 1.1rem; }
+  .hero__aktion { order: -1; }
+  /* 2-Euro-Test */
+  .test { margin-top: 1.75rem; gap: .75rem; }
+  .test__buehne { gap: 1.25rem; }
+  .groesse { grid-template-columns: 5.5rem 1fr; gap: .9rem; }
+  .muenze-vergleich { width: 5.5rem; height: 5.5rem; }
+  .urteil { gap: 1.25rem; }
+  .urteil__betrag { display: none; }
+  .urteil dl { margin-top: .75rem; }
+  .urteil dl div { padding: .3rem 0; }
+  /* Leistungen als kompakte Liste */
+  .leistungen__kopf > div { gap: 1rem; margin-bottom: .5rem; }
+  .liste a { padding: .8rem 0 .85rem; gap: .2rem; }
+  /* Kosten: Bons untereinander und kleiner */
+  .kosten__kopf { gap: 1rem; padding-top: 0; }
+  .kosten__kopf > p:not(.lead) { display: none; }
+  .versicherer { margin-top: .75rem; gap: .6rem; }
+  .versicherer__wand { grid-template-columns: repeat(4, 1fr); gap: .3rem; }
+  .versicherer__wand .kachel { --k: .48; height: 3rem; padding: .25rem; }
+  .kosten__bons { margin-top: 1.75rem; gap: 1rem; }
+  .bon { padding: 1rem 1.1rem 1.1rem; }
+  .bon__kopf { padding-bottom: .6rem; }
+  .bon__kopf svg { width: 46%; margin-bottom: .2rem; }
+  .bon__titel { margin: .7rem 0 .3rem; }
+  .bon__zeile { padding: .15rem 0; }
+  .bon__summe { margin-top: .6rem; padding-top: .6rem; }
+  .bon__fuss { display: none; }
+  .kosten__fuss { margin-top: 1.5rem; gap: 1rem; }
+  /* Ablauf */
+  .ablauf__kopf { margin-bottom: 1.75rem; }
+  .schritte { margin-top: 1.5rem; }
+  .schritte li { padding: .7rem 0; gap: .4rem; }
+  .schritte h3 { margin-bottom: .2rem; }
+  /* Stimmen, Standorte, Instagram, Shop, Fragen */
+  .stimmen__gross .zwischentitel { margin-bottom: 1rem; }
+  .stimmen__gross blockquote p { font-size: var(--t-mittel); }
+  .stimmen__reihe { margin-top: 2rem; }
+  .gebiet__kopf { margin-bottom: 1.25rem; }
+  .gebiet__seite { gap: 1.25rem; margin-top: 1.25rem; }
+  .pruefer__ergebnis { min-height: 0; }
+  .ort { padding: .5rem 0; }
+  .insta__raster .post { display: none; }
+  .teaser__regal { display: none; }
+  .faq__kopf { margin-bottom: .75rem; }
+  .faq summary { padding: .8rem 0; }
+  .schluss { padding-block: 3rem; }
+  .schluss__unten { margin-top: 1.5rem; }
+  .fuss { padding-block: 2.5rem 1.5rem; }
+  .fuss__raster { gap: 1.5rem 1rem; }
+  .fuss__unten { margin-top: 2rem; }
+}
 
 /* ==========================================================================
    Einblendungen (nur mit JS)

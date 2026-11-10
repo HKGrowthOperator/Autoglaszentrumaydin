@@ -449,9 +449,10 @@
     marke(WERKSTATT.lat, WERKSTATT.lon, 'WERKSTATT DUISBURG', 'DUISBURGER STR. 150', 'haupt', [40, -92, 'start']);
     marke(51.4556, 7.0116, 'ESSEN', 'STANDORT', 'haupt', [20, 4, 'start']);
     marke(51.0266, 7.5646, 'GUMMERSBACH', 'GEPLANT', 'bald', [-18, -6, 'end']);
-    // mobil: Karte auf die Werkstatt zentrieren
-    const fig = svg.closest('.karte');
-    if (fig && fig.scrollWidth > fig.clientWidth) fig.scrollLeft = (wx / M.w) * fig.scrollWidth - fig.clientWidth / 2;
+    // mobil: Ausschnitt mit Umkreis und Gummersbach, damit nichts seitlich gewischt werden muss
+    const schmal = matchMedia('(max-width: 700px)');
+    const ausschnitt = () => svg.setAttribute('viewBox', schmal.matches ? '40 10 900 850' : `0 0 ${M.w} ${M.h}`);
+    ausschnitt(); schmal.addEventListener('change', ausschnitt);
     // Maßstab + Nordpfeil
     const ms = el('g', { transform: `translate(26 ${M.h - 34})`, fill: 'oklch(0.86 0.012 70)', 'font-size': 12, 'font-weight': 700 }, root);
     el('rect', { width: 10 * U, height: 6, fill: 'oklch(0.86 0.012 70)' }, ms); el('rect', { x: 10 * U, width: 10 * U, height: 6, fill: 'none', stroke: 'oklch(0.86 0.012 70)', 'stroke-width': 1.5 }, ms);
