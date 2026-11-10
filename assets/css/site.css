@@ -455,7 +455,7 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
    Riss-Geschichte (scroll)
    ========================================================================== */
 .riss { background: var(--glas); color: var(--kreide); position: relative; }
-.riss__fahrt { height: 340vh; position: relative; }
+.riss__fahrt { height: 180vh; position: relative; }
 .riss__buehne { position: sticky; top: 0; height: 100svh; overflow: hidden; }
 .riss__glas { position: absolute; inset: 0; }
 .riss__glas svg { width: 100%; height: 100%; }
