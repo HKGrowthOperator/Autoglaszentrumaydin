@@ -80,7 +80,7 @@
   regal.addEventListener('click', (e) => {
     const b = e.target.closest('[data-rein]'); if (!b) return;
     rein(b.dataset.rein, 1);
-    b.classList.add('is-drin'); $('span', b).textContent = 'Im Korb ✓';
+    b.classList.add('is-drin'); $('span', b).textContent = 'Im Korb';
     setTimeout(() => { b.classList.remove('is-drin'); knoepfeMarkieren(); }, 1400);
   });
   function knoepfeMarkieren() {
@@ -144,7 +144,7 @@
   const paket = $('[data-paket]');
   if (paket) paket.addEventListener('click', () => {
     rein('paket-winter', 1);
-    $('span', paket).textContent = 'Im Korb ✓'; setTimeout(() => { $('span', paket).textContent = 'Paket in den Korb'; }, 1600);
+    $('span', paket).textContent = 'Im Korb'; setTimeout(() => { $('span', paket).textContent = 'Paket in den Korb'; }, 1600);
     oeffnen(true);
   });
   zeichnen();
