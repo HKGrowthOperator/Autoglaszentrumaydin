@@ -240,7 +240,7 @@
     };
     marke(WERKSTATT.lat, WERKSTATT.lon, 'Werkstatt Duisburg', 'haupt', [18, -16, 'start']);
     marke(51.4556, 7.0116, 'Essen, Adresse folgt', 'bald', [18, 32, 'start']);
-    marke(51.0266, 7.5646, 'Gummersbach, bald', 'bald', [-16, -18, 'end']);
+    marke(51.0266, 7.5646, 'Gummersbach, geplant', 'bald', [-16, -18, 'end']);
 
     // Prüfer
     const form = $('[data-pruefer]'); const input = $('[data-ort-eingabe]'); const out = $('[data-ergebnis-ort]'); const dl = $('[data-orte-liste]');
@@ -252,7 +252,7 @@
       const d = Math.max(1, Math.round(kmZwischen(WERKSTATT, { lat, lon })));
       const zuGummersbach = kmZwischen({ lat: 51.0266, lon: 7.5646 }, { lat, lon });
       if (d <= 50) sag(`${name}: rund ${d} km Luftlinie. Wir kommen zu dir, oder du kommst vorbei.`);
-      else if (zuGummersbach < 28) sag(`${name}: rund ${d} km. In Gummersbach eröffnen wir bald, dann bist du näher dran.`);
+      else if (zuGummersbach < 28) sag(`${name}: rund ${d} km. In Gummersbach ist ein Standort geplant, dann bist du näher dran.`);
       else sag(`${name}: rund ${d} km, das ist weiter als unsere 50 km. Komm in die Werkstatt nach Duisburg oder ruf kurz an.`);
       ziel.textContent = '';
       const [x, y] = P(lat, lon);

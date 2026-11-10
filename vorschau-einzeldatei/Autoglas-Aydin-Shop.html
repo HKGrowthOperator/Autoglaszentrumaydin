@@ -763,7 +763,7 @@ details.fuss__nachweis p { margin-top: 0.6rem; font-size: var(--step-body); }
 <section class="shopstart rand" aria-labelledby="shop-titel">
   <div class="shopstart__text">
     <h1 class="shopstart__titel" id="shop-titel"><span>Wischer und</span> <span>Winterkram.</span></h1>
-    <p class="shopstart__stuetze">Online bestellen, in Duisburg abholen. Wischer bauen wir dir beim Abholen direkt ein.</p>
+    <p class="shopstart__stuetze">Online bestellen und in der Werkstatt in Duisburg abholen.</p>
     <div class="shopstart__aktion">
       <a class="knopf knopf--rot" href="#sortiment">Zum Sortiment</a>
       <a class="textlink" href="#finder">Wischer nach Fahrzeugschein finden</a>
@@ -839,7 +839,7 @@ details.fuss__nachweis p { margin-top: 0.6rem; font-size: var(--step-body); }
 <section class="montage rand" aria-labelledby="montage-titel">
   <h2 id="montage-titel" data-auftritt><span>Hast eh einen Termin?</span> <span>Legen wir dazu.</span></h2>
   <div class="montage__text" data-auftritt>
-    <p>Neue Wischer oder Winterreiniger zum Termin? Schreib es in die WhatsApp. Wir legen alles bereit, Wischer bauen wir direkt ein.</p>
+    <p>Neue Wischer oder Winterreiniger zum Termin? Schreib es in die WhatsApp, wir legen alles bereit.</p>
     <a class="knopf knopf--rot" href="https://wa.me/4917620908479?text=Hallo%2C%20ich%20habe%20einen%20Termin%20und%20m%C3%B6chte%20Zubeh%C3%B6r%20dazu." data-wa><svg aria-hidden="true"><use href="#i-chat"/></svg>Zum Termin dazulegen</a>
   </div>
 </section>
@@ -1132,7 +1132,7 @@ details.fuss__nachweis p { margin-top: 0.6rem; font-size: var(--step-body); }
     };
     marke(WERKSTATT.lat, WERKSTATT.lon, 'Werkstatt Duisburg', 'haupt', [18, -16, 'start']);
     marke(51.4556, 7.0116, 'Essen, Adresse folgt', 'bald', [18, 32, 'start']);
-    marke(51.0266, 7.5646, 'Gummersbach, bald', 'bald', [-16, -18, 'end']);
+    marke(51.0266, 7.5646, 'Gummersbach, geplant', 'bald', [-16, -18, 'end']);
 
     // Prüfer
     const form = $('[data-pruefer]'); const input = $('[data-ort-eingabe]'); const out = $('[data-ergebnis-ort]'); const dl = $('[data-orte-liste]');
@@ -1144,7 +1144,7 @@ details.fuss__nachweis p { margin-top: 0.6rem; font-size: var(--step-body); }
       const d = Math.max(1, Math.round(kmZwischen(WERKSTATT, { lat, lon })));
       const zuGummersbach = kmZwischen({ lat: 51.0266, lon: 7.5646 }, { lat, lon });
       if (d <= 50) sag(`${name}: rund ${d} km Luftlinie. Wir kommen zu dir, oder du kommst vorbei.`);
-      else if (zuGummersbach < 28) sag(`${name}: rund ${d} km. In Gummersbach eröffnen wir bald, dann bist du näher dran.`);
+      else if (zuGummersbach < 28) sag(`${name}: rund ${d} km. In Gummersbach ist ein Standort geplant, dann bist du näher dran.`);
       else sag(`${name}: rund ${d} km, das ist weiter als unsere 50 km. Komm in die Werkstatt nach Duisburg oder ruf kurz an.`);
       ziel.textContent = '';
       const [x, y] = P(lat, lon);
@@ -1292,7 +1292,7 @@ details.fuss__nachweis p { margin-top: 0.6rem; font-size: var(--step-body); }
       regal.appendChild(li);
     });
     const extra = document.createElement('li'); extra.className = 'anfrage';
-    extra.innerHTML = `<h3>Nicht dabei? Wir besorgen es.</h3><p>Spezielle Wischer, Pflege oder Zubehör für dein Modell. Kurz schreiben, wir sagen dir Preis und Termin.</p><a class="knopf knopf--rot" href="${WA + encodeURIComponent('Hallo, ich suche folgendes Zubehör: ')}" data-wa>Per WhatsApp fragen</a>`;
+    extra.innerHTML = `<h3>Nicht dabei? Schreib uns, was du suchst.</h3><p>Spezielle Wischer, Pflege oder Zubehör für dein Modell. Kurz schreiben, wir sagen dir Preis und Termin.</p><a class="knopf knopf--rot" href="${WA + encodeURIComponent('Hallo, ich suche folgendes Zubehör: ')}" data-wa>Per WhatsApp fragen</a>`;
     regal.appendChild(extra);
     knoepfeMarkieren();
     auftritt();
