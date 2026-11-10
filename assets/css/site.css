@@ -162,7 +162,7 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .btn--kreide { --b-bg: var(--kreide); --b-fg: var(--tinte); }
 .btn--kreide:hover { --b-bg: oklch(1 0 0 / .92); }
 .btn--schwarz:hover { --b-bg: oklch(0.12 0.01 28); }
-.btn--rahmen { --b-bg: transparent; --b-fg: currentColor; box-shadow: inset 0 0 0 2px currentColor; }
+.btn--rahmen { --b-bg: transparent; --b-fg: currentColor; border: 2px solid currentColor; }
 .btn--klein { min-height: 2.75rem; padding: 0 1.1rem; font-size: 1rem; }
 
 .textlink {
@@ -203,12 +203,12 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .kopf {
   position: sticky; top: 0; z-index: 50;
   background: var(--rot); color: var(--kreide);
-  transition: background-color .3s, box-shadow .3s;
+  transition: background-color .3s;
 }
 .kopf .wrap {
   display: flex; align-items: center; gap: 2rem; height: var(--kopf-h);
 }
-.kopf.is-kompakt { background: var(--asphalt); box-shadow: 0 1px 0 oklch(1 0 0 / .06); }
+.kopf.is-kompakt { background: var(--asphalt); }
 .logo { display: block; width: clamp(10.5rem, 17vw, 15rem); color: var(--kreide); flex: none; }
 .logo svg { width: 100%; height: auto; }
 .kopf.is-kompakt .logo { color: var(--kreide); }
@@ -373,7 +373,6 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
   --k: 1;
   display: flex; align-items: center; justify-content: center;
   background: #fbf9f6; background: oklch(0.985 0.004 75);
-  box-shadow: inset 0 0 0 1px rgba(30, 24, 22, .06);
 }
 .kachel img {
   display: block; flex: 0 0 auto; max-width: none;
@@ -382,7 +381,7 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .laufband__spur li.kachel { flex: 0 0 auto; display: flex; height: 3.15rem; padding: 0 1.1rem; margin: 0 .3rem; --k: .72; }
 .versicherer { margin-top: clamp(1.5rem, 3vw, 2.5rem); display: grid; gap: .9rem; }
 .versicherer__wand { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
-.versicherer__wand .kachel { --k: .8; height: 4.6rem; padding: .6rem; min-width: 0; box-shadow: 0 .6rem 1.2rem -.8rem rgba(80, 10, 8, .55); }
+.versicherer__wand .kachel { --k: .8; height: 4.6rem; padding: .6rem; min-width: 0; }
 .versicherer__satz { font-family: var(--f-cond); font-weight: 750; font-size: 1.0625rem; }
 .versicherer__fuss { font-family: var(--f-cond); font-weight: 700; font-size: .95rem; color: oklch(0.96 0.025 40); }
 @media (max-width: 1080px) { .versicherer__wand { grid-template-columns: repeat(4, 1fr); } }
@@ -808,7 +807,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 /* Regal-Etikett (gemeinsam mit Shop) */
 .etikett {
   background: var(--kreide); color: var(--tinte); display: grid; position: relative;
-  box-shadow: 0 1rem 2rem -1rem oklch(0.2 0.1 27 / .5);
 }
 .etikett__bild { aspect-ratio: 4 / 3; display: grid; place-items: center; background: var(--kreide-2); padding: 1rem; }
 .etikett__bild svg { width: 78%; height: 78%; color: var(--tinte); overflow: visible; }

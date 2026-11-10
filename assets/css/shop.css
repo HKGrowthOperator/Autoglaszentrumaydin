@@ -26,7 +26,6 @@
     var(--papier);
   color: oklch(0.25 0.03 160);
   padding: 1.25rem 1.3rem 1.4rem;
-  box-shadow: 0 2rem 3rem -1.5rem oklch(0.2 0.1 27 / .7), 0 .2rem .5rem oklch(0.2 0.1 27 / .35);
   transform: rotate(1.2deg);
   font-family: var(--f-cond);
 }
@@ -42,13 +41,13 @@
 .feld--aktiv { position: relative; }
 .feld--aktiv .feld__nr { color: var(--rot-tief); opacity: 1; }
 .feld--aktiv input {
-  width: 100%; border: 0; border-radius: 0; background: oklch(1 0 0 / .65);
-  box-shadow: inset 0 0 0 2.5px var(--rot); padding: .55rem .6rem; font-family: var(--f-cond); font-weight: 800; font-size: 1.35rem; letter-spacing: .14em;
+  width: 100%; border: 2.5px solid var(--rot); border-radius: 0; background: oklch(1 0 0 / .65);
+  padding: .55rem .6rem; font-family: var(--f-cond); font-weight: 800; font-size: 1.35rem; letter-spacing: .14em;
   text-transform: uppercase; color: var(--tinte);
 }
 .feld--aktiv input::placeholder { color: oklch(0.45 0.03 160 / .55); letter-spacing: .06em; font-weight: 600; font-size: 1rem; }
 .feld--aktiv input:focus-visible { outline: 3px solid var(--tinte); outline-offset: 2px; }
-.feld--aktiv[data-fehler="true"] input { box-shadow: inset 0 0 0 2.5px var(--tinte); background: oklch(0.95 0.05 30); }
+.feld--aktiv[data-fehler="true"] input { border-color: var(--tinte); background: oklch(0.95 0.05 30); }
 .schein__hinweis { grid-column: 1 / -1; font-size: .82rem; color: oklch(0.3 0.03 160 / .85); margin-top: .3rem; }
 .finder__aktion { display: flex; flex-wrap: wrap; gap: 1rem 1.4rem; align-items: center; margin-top: 1.6rem; }
 .finder__antwort { color: var(--kreide); font-size: 1rem; max-width: 40ch; min-height: 1.5em; }
@@ -63,7 +62,7 @@
 .sortiment__kopf { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem 2rem; flex-wrap: wrap; margin-bottom: clamp(2rem, 4vw, 3rem); }
 .filter { display: flex; flex-wrap: wrap; gap: .5rem; }
 .filter button {
-  border: 0; cursor: pointer; background: transparent; box-shadow: inset 0 0 0 2px var(--tinte); color: var(--tinte);
+  border: 2px solid var(--tinte); cursor: pointer; background: transparent; color: var(--tinte);
   padding: .6rem 1rem; font-family: var(--f-cond); font-weight: 780; font-size: 1rem; transform: skewX(-13deg);
   transition: background-color .2s, color .2s;
 }
@@ -78,7 +77,6 @@
   position: fixed; top: 0; right: 0; bottom: 0; z-index: 96; width: min(28rem, 100%);
   background: var(--kreide); color: var(--tinte); display: grid; grid-template-rows: auto 1fr auto;
   transform: translateX(102%); transition: transform .55s var(--ease-out); visibility: hidden;
-  box-shadow: -2rem 0 4rem -2rem oklch(0.12 0.01 28 / .5);
 }
 .schublade.is-offen { transform: none; visibility: visible; }
 .schublade__kopf { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; background: var(--asphalt); color: var(--kreide); }
@@ -90,7 +88,7 @@
 .posten__bild img { width: 100%; height: 100%; object-fit: cover; }
 .posten b { font-family: var(--f-cond); font-weight: 800; display: block; line-height: 1.15; }
 .posten small { color: var(--grau); font-size: .82rem; }
-.menge { display: inline-flex; align-items: center; margin-top: .4rem; box-shadow: inset 0 0 0 1.5px oklch(0.2 0.012 28 / .3); }
+.menge { display: inline-flex; align-items: center; margin-top: .4rem; border: 1.5px solid oklch(0.2 0.012 28 / .3); }
 .menge button { width: 2rem; height: 2rem; border: 0; background: none; cursor: pointer; font-weight: 800; font-size: 1.1rem; }
 .menge button:hover { background: oklch(0.2 0.012 28 / .07); }
 .menge output { min-width: 1.8rem; text-align: center; font-family: var(--f-cond); font-weight: 800; }
@@ -101,8 +99,8 @@
 .schublade__fuss { padding: 1.25rem 1.5rem 1.5rem; display: grid; gap: .9rem; background: var(--kreide-2); }
 .liefer { display: grid; gap: .35rem; border: 0; padding: 0; margin: 0; }
 .liefer legend { font-family: var(--f-cond); font-weight: 800; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .3rem; }
-.liefer label { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: .55rem .75rem; box-shadow: inset 0 0 0 1.5px oklch(0.2 0.012 28 / .2); cursor: pointer; font-size: .95rem; }
-.liefer label:has(input:checked) { box-shadow: inset 0 0 0 2px var(--tinte); background: var(--kreide); }
+.liefer label { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: .55rem .75rem; border: 1.5px solid oklch(0.2 0.012 28 / .2); cursor: pointer; font-size: .95rem; }
+.liefer label:has(input:checked) { border-color: var(--tinte); background: var(--kreide); }
 .liefer input { accent-color: var(--rot); margin-right: .55rem; }
 .liefer span { display: flex; align-items: center; }
 .summe { display: flex; justify-content: space-between; align-items: baseline; }
@@ -157,9 +155,7 @@
 .sortiment__kopf .h2 { font-size: clamp(2.8rem, 6vw, 5.6rem); }
 .regal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.25rem 1.25rem; list-style: none; margin: 0; padding: 0; grid-auto-flow: dense; }
 .regal > li { display: grid; }
-.produkt { display: grid; grid-template-rows: auto 1fr; background: oklch(0.985 0.004 75); position: relative; isolation: isolate;
-  box-shadow: 0 0 0 1px oklch(0.2 0.012 28 / .08); transition: box-shadow .45s var(--ease-out), translate .45s var(--ease-out); }
-.produkt:hover { translate: 0 -.3rem; box-shadow: 0 0 0 1px oklch(0.2 0.012 28 / .08), 0 1.6rem 2.6rem -1.6rem oklch(0.2 0.012 28 / .55); }
+.produkt { display: grid; grid-template-rows: auto 1fr; background: oklch(0.985 0.004 75); position: relative; isolation: isolate; }
 .produkt__bild { position: relative; overflow: hidden; aspect-ratio: 4 / 3; background: var(--asphalt-3); margin: 0; }
 .produkt__bild img { width: 100%; height: 100%; object-fit: cover; transition: scale 1.2s var(--ease-out); }
 .produkt:hover .produkt__bild img { scale: 1.05; }
@@ -177,7 +173,7 @@
 
 /* Hauptprodukt gross */
 .regal > li.gross { grid-column: span 2; grid-row: span 2; }
-.produkt--gross { background: var(--asphalt); color: var(--kreide); box-shadow: none; }
+.produkt--gross { background: var(--asphalt); color: var(--kreide); }
 .produkt--gross .produkt__bild { aspect-ratio: auto; min-height: 22rem; }
 .produkt--gross .produkt__info { padding: 1.4rem 1.5rem 1.6rem; }
 .produkt--gross .produkt__name { font-family: var(--f-display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: clamp(2.2rem, 3.4vw, 3.2rem); line-height: .92; }
