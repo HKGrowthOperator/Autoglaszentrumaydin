@@ -28,10 +28,10 @@
     const min = (parseInt(get('hour'), 10) % 24) * 60 + parseInt(get('minute'), 10);
     const auf = 570, zu = 1080;
     let offen = false, text;
-    if (tag >= 1 && tag <= 6 && min >= auf && min < zu) { offen = true; text = 'Duisburg: jetzt geöffnet, bis 18:00'; }
-    else if (tag >= 1 && tag <= 6 && min < auf) text = 'Duisburg: öffnet heute um 9:30';
-    else if (tag >= 1 && tag <= 5) text = 'Duisburg: geschlossen, morgen ab 9:30';
-    else text = 'Duisburg: geschlossen, Montag ab 9:30';
+    if (tag >= 1 && tag <= 6 && min >= auf && min < zu) { offen = true; text = 'Heute offen bis 18:00'; }
+    else if (tag >= 1 && tag <= 6 && min < auf) text = 'Heute offen ab 9:30';
+    else if (tag >= 1 && tag <= 5) text = 'Jetzt zu, morgen ab 9:30 offen';
+    else text = 'Jetzt zu, Montag ab 9:30 offen';
     box.dataset.offen = String(offen);
     $('[data-status-text]', box).textContent = text;
   }

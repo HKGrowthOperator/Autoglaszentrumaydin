@@ -184,21 +184,11 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   min-height: 2.35rem;
 }
-.status { display: inline-flex; align-items: center; gap: .55rem; color: var(--kreide); }
-.status__zusatz { color: var(--kreide-3); }
-@media (max-width: 700px) { .status__zusatz { display: none; } }
-.status__punkt {
-  width: .55rem; height: .55rem; border-radius: 50%; background: var(--asphalt-4); flex: none;
-}
-.status[data-offen="true"] .status__zusatz { color: var(--kreide-3); }
-@media (max-width: 700px) { .status__zusatz { display: none; } }
-.status__punkt { background: var(--gruen); box-shadow: 0 0 0 0 oklch(0.78 0.17 150 / .6); animation: puls 2.4s var(--ease-out) infinite; }
-@keyframes puls { 0% { box-shadow: 0 0 0 0 oklch(0.78 0.17 150 / .55); } 70%, 100% { box-shadow: 0 0 0 .55rem oklch(0.78 0.17 150 / 0); } }
+.status { color: var(--kreide); }
 .statusbar__rechts { display: flex; gap: 1.5rem; align-items: center; }
 .statusbar a { text-decoration: none; color: var(--kreide-3); }
 .statusbar a:hover { color: var(--kreide); }
-.statusbar__orte { color: var(--asphalt-4); }
-.statusbar__orte b { color: var(--kreide-3); font-weight: 600; }
+.statusbar__entwurf { color: var(--kreide-3); }
 
 .kopf {
   position: sticky; top: 0; z-index: 50;
@@ -232,7 +222,7 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .menu-knopf { display: none; }
 
 @media (max-width: 960px) {
-  .nav, .kopf .btn--kopf, .statusbar__orte { display: none; }
+  .nav, .kopf .btn--kopf { display: none; }
   .menu-knopf {
     display: inline-flex; margin-left: auto; align-items: center; gap: .6rem;
     background: none; border: 0; padding: .6rem 0; cursor: pointer;
