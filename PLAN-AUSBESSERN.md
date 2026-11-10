@@ -51,6 +51,10 @@ Gemessen mit dem Prüfer aus `design-taste-frontend` (Startseite und Shop, Stand
 4. Texte prüft der Agent `texter` gegen `ENTWURF-NOTIZEN.md`, die Abnahme macht `qa-abnahme`.
 5. Kein neues Design, keine neuen Abschnitte, keine neuen Farben oder Schriften.
 
+## Stand: umgesetzt am 10. November
+
+Alle 13 Punkte, die Texte und die Handy-Fassung sind umgesetzt, jeder Schritt als eigener Commit. Zusätzlich auf Wunsch raus: Beschriftung im Startbild, Riss-Animation. Prüfer: 0 Befunde (vorher 69). Startseite Desktop 14,0 statt 18,6 Bildschirme, Handy 17 statt 29.
+
 ## Entschieden (10. November)
 
 - Alles umsetzen.

@@ -72,3 +72,15 @@ Die Seite ist auf den Entwurf vom 5. November zurückgesetzt. Bei einer Überarb
   - Theorist: „Sehr gute, ordentliche Arbeit. Von Anruf bis zur installierten Windschutzscheibe vergeht nicht viel Zeit. Das Team ist sehr nett und in der Nähe gibt es viele Restaurants / Cafés, falls man sich den spannenden Prozess nicht anschauen möchte.“
 - Belegt durch die aktuelle Website: „wir garantieren eine Rückmeldung innerhalb von 24 Stunden“ (alte Startseite, abgerufen 10.11.2026).
 - Nicht belegt und vor dem Versand mit dem Betrieb zu klären, weil der Entwurf sie nennt: Dauer „am selben Tag“, Festpreis ohne Teilkasko, Montage beim Abholen, Versand und Zahlarten im Shop (PayPal, Klarna usw.), Gummersbach „bald“ (belegt ist nur „geplant“), Adresse und Zeiten in Essen.
+
+## Stand 10. November 2026, nach der Ausbesserung
+
+Grundlage bleibt der Entwurf vom 5. November. Umgesetzt ist `PLAN-AUSBESSERN.md` (Etiketten, Nummern, Abzeichen, Linien, Schatten, Verläufe, Handy-Attrappe, Laufband, Formen-Abschnitt raus, Bons flach, Statusleiste schlicht, sechs Schriftgrößen). Auf Wunsch zusätzlich raus: die Beschriftung „Steinschlag 4 mm reparierbar“ im Startbild und die Riss-Animation beim Scrollen. Deren Kernaussage steht als Frage in den FAQ.
+
+Unbelegte Aussagen aus dem Nachtrag oben sind entfernt oder im Shop als Vorschlag gekennzeichnet. Der Chat im Ablauf ist sichtbar als Beispiel markiert.
+
+Noch mit dem Betrieb zu klären:
+
+- Leistung „Firmen & Fuhrparks“ und „auch für US-Cars“: stehen im Entwurf, eine Quelle dafür ist hier nicht notiert.
+- 50 km mobiler Service: Luftlinie oder Fahrstrecke? Der Prüfer auf der Karte rechnet Luftlinie.
+- Feiertage: Die Anzeige „Heute offen bis 18:00“ kennt keine Feiertage.
