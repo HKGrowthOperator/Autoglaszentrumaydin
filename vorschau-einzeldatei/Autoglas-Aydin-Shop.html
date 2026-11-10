@@ -267,7 +267,7 @@ input[type="range"]::-moz-range-thumb { width: 1.6rem; height: 1.6rem; backgroun
 .leistungen__titel span { display: block; }
 .leistungen__titel span:first-child { padding-left: 1em; }
 .leistungen__bild { grid-column: 1 / span 4; grid-row: 2; align-self: end; background: var(--flaeche); }
-.leistungen__bild img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.leistungen__bild img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
 .tabelle { grid-column: 7 / -1; grid-row: 2; margin-top: 6rem; }
 .tabelle a { display: grid; grid-template-columns: 7rem 1fr auto; gap: 1rem; padding: 0.8rem 0.6rem; text-decoration: none; transition: background-color 0.2s, transform 0.35s var(--ease); }
 .tabelle a:hover { background: var(--flaeche); transform: translateX(4px); }
@@ -478,6 +478,66 @@ input[type="range"]::-moz-range-thumb { width: 1.6rem; height: 1.6rem; backgroun
 }
 
 /* ==========================================================================
+   Handy (bis 700 px): kompakt, ein Gedanke pro Bildschirm,
+   Hauptknopf auf dem ersten Bildschirm, keine Einrückungen, keine Streuung
+   ========================================================================== */
+@media (max-width: 700px) {
+  :root { --abstand: 4.5rem; }
+  .entwurf__lang { display: none; }
+
+  /* Start: Satz, Bild, Stützsatz und Knopf passen auf den ersten Bildschirm */
+  .start { padding-top: 1.25rem; }
+  .start__satz { font-size: var(--step-display); gap: 0.08em; }
+  .start__bild { aspect-ratio: 2 / 1; }
+  .start__unten { padding-top: 1.25rem; gap: 1rem; }
+  .start__ecken { padding-block: 1.75rem 0.5rem; gap: 0.5rem; }
+
+  /* 2-Euro-Test: erst die Lage, dann Münze und Regler, dann das Ergebnis */
+  .test { row-gap: 1.75rem; }
+  .test__liste { grid-row: 2; }
+  .test__muenze svg { grid-row: 3; width: 78%; }
+  .regler { grid-row: 4; }
+  .ergebnis { grid-row: 5; margin-top: 0.5rem; }
+
+  /* Kosten */
+  .versicherer { margin-top: 3rem; }
+
+  /* Leistungen: eine Zeile je Leistung, Foto quer */
+  .tabelle { margin-top: 2rem; }
+  .tabelle a { padding-block: 0.75rem; }
+  .tabelle span:first-child { display: none; }
+  .tabelle .gruppe { margin-top: 1.25rem; }
+  .leistungen__bild { grid-column: 1 / -1; margin-top: 2rem; }
+  .leistungen__bild img { aspect-ratio: 3 / 2; object-position: 50% 35%; }
+
+  /* Ablauf: alle Stufen an einer Kante */
+  .stufe:nth-child(n) { margin-left: 0; }
+  .treppe { gap: 2.25rem; }
+  [data-ui] .blase { max-width: 88%; }
+  .ablauf__bild { grid-column: 1 / -1; margin-top: 2.5rem; }
+  .ablauf__bild img { aspect-ratio: 3 / 2; }
+
+  /* Stimmen, Standorte, Fragen: Abstände halbieren */
+  .stimmen__liste { margin-top: 5.5rem; gap: 2.25rem; }
+  .karte { margin-top: 2rem; }
+  .standorte__adresse { margin-top: 2.5rem; }
+  .fragen__liste { margin-top: 2rem; gap: 2rem; }
+
+  /* Shop-Band: sechs Fotos als ruhiges Raster, darunter der Satz */
+  .shopband { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; align-items: stretch; }
+  .shopband .schwebt { display: block; grid-column: auto; grid-row: auto; margin: 0; aspect-ratio: 1; height: auto; }
+  .shopband .s7 { display: none; }
+  .shopband__mitte { grid-column: 1 / -1; grid-row: 3; padding: 1.75rem 0 0; }
+
+  /* Schluss: Frage als eine Überschrift, Knöpfe darunter */
+  .schluss { min-height: 0; padding-block: var(--abstand); display: grid; gap: 2rem; place-items: stretch; }
+  .schluss__frage { position: static; inset: auto; display: block; text-align: left; font-size: var(--step-head); line-height: 0.98; }
+  .schluss__frage span { display: block; }
+  .schluss__mitte { justify-items: stretch; text-align: left; }
+  .schluss__knoepfe span { text-align: center; }
+}
+
+/* ==========================================================================
    Bewegung: Signatur Shutter auf dem Bild im Satz, Auftritte je Abschnitt
    ========================================================================== */
 @media (prefers-reduced-motion: no-preference) {
@@ -597,7 +657,7 @@ input[type="range"]::-moz-range-thumb { width: 1.6rem; height: 1.6rem; backgroun
 .produkt:hover .produkt__bild--flaeche { background: var(--rot); }
 .posten__flaeche { display: block; width: 4rem; height: 4rem; background: var(--tinte); }
 .produkt:hover .produkt__bild img { transform: scale(1.03); }
-.produkt__info { display: grid; gap: 0.35rem; align-content: start; }
+.produkt__info { display: flex; flex-direction: column; gap: 0.35rem; }
 .produkt__name { font-family: var(--f-text); font-weight: 500; font-size: var(--step-body); line-height: 1.3; }
 .produkt__spec { color: var(--tinte); }
 .produkt__punkte { display: grid; gap: 0.2rem; margin-top: 0.4rem; }
@@ -605,7 +665,8 @@ input[type="range"]::-moz-range-thumb { width: 1.6rem; height: 1.6rem; backgroun
 .produkt__preis { display: flex; align-items: baseline; gap: 0.75rem; margin-top: 0.6rem; }
 .preis { font-family: var(--f-anzeige); font-weight: 700; font-size: var(--step-lead); line-height: 1; font-variant-numeric: tabular-nums; }
 .produkt__grund { color: var(--tinte-2); }
-.produkt__korb { justify-self: start; margin-top: 0.8rem; }
+.produkt__korb { align-self: flex-start; }
+.produkt__info .produkt__preis { margin-top: auto; padding-top: 0.6rem; margin-bottom: 0.8rem; }
 .produkt__korb.is-drin { background: var(--rot); }
 /* der große Artikel: Bild links, Text rechts */
 .produkt--gross { grid-template-columns: 3fr 2fr; grid-template-rows: none; column-gap: var(--gutter); align-items: end; }
@@ -623,7 +684,7 @@ input[type="range"]::-moz-range-thumb { width: 1.6rem; height: 1.6rem; backgroun
   .produkt--gross { grid-template-columns: 1fr; row-gap: 1rem; }
   .produkt { gap: 0.75rem; }
   .produkt__preis { flex-wrap: wrap; gap: 0.25rem 0.6rem; }
-  .produkt__korb { justify-self: stretch; padding-inline: 0.5rem; }
+  .produkt__korb { align-self: stretch; padding-inline: 0.5rem; }
   .anfrage { grid-column: 1 / -1; }
 }
 
@@ -726,7 +787,7 @@ details.fuss__nachweis p { margin-top: 0.6rem; font-size: var(--step-body); }
 </svg>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
-<p class="entwurf">Entwurf von HK Growth Operator für Autoglas Zentrum Aydin · Stand 10. November 2026 · Sortiment, Preise, Montage und Versand sind Vorschläge · nicht öffentlich</p>
+<p class="entwurf">Entwurf von HK Growth Operator<span class="entwurf__lang"> für Autoglas Zentrum Aydin · Stand 10. November 2026</span> · Sortiment, Preise, Montage und Versand sind Vorschläge · nicht öffentlich</p>
 
 <header class="kopf rand" data-kopf>
   <a class="logo" href="Autoglas-Aydin-Startseite.html" aria-label="Autoglas Zentrum Aydin, Startseite"><svg viewBox="-2 0 903 104" aria-hidden="true"><use href="#wortmarke"/></svg></a>
@@ -1207,18 +1268,19 @@ details.fuss__nachweis p { margin-top: 0.6rem; font-size: var(--step-body); }
   /* 7 · Schnellkontakt am Handy: weicht beim Lesen nach unten aus, kommt beim Hochscrollen zurück */
   function leiste() {
     const l = $('.aktionsleiste'); if (!l) return;
-    let letzte = scrollY, tick = false, startSichtbar = false;
+    let letzte = scrollY, tick = false, startSichtbar = false, runter = false;
     const startKnopf = $('.start .knopf');
     const setze = () => {
       tick = false;
       const y = scrollY;
+      if (Math.abs(y - letzte) > 6) runter = y > letzte;
       if (startSichtbar) l.classList.add('weg');
       else if (y > letzte + 6) l.classList.add('weg');
       else if (y < letzte - 6) l.classList.remove('weg');
       letzte = y;
     };
     if (startKnopf && 'IntersectionObserver' in window) {
-      new IntersectionObserver(([e]) => { startSichtbar = e.isIntersecting; if (startSichtbar) l.classList.add('weg'); else l.classList.remove('weg'); }).observe(startKnopf);
+      new IntersectionObserver(([e]) => { startSichtbar = e.isIntersecting; if (startSichtbar) l.classList.add('weg'); else if (!runter) l.classList.remove('weg'); }).observe(startKnopf);
     }
     addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(setze); } }, { passive: true });
   }
@@ -1255,7 +1317,7 @@ details.fuss__nachweis p { margin-top: 0.6rem; font-size: var(--step-body); }
     { id: 'p-abdeckung', kat: 'winter', name: 'Frontscheiben-Abdeckung', spec: 'gegen Eis und Schnee, mit Magneten', preis: 14.9, bild: 'p-abdeckung', alt: 'Rotes Auto mit Schnee auf dem Dach', grund: 'Stück' },
     { id: 'g-check', kat: 'gutschein', name: 'Gutschein Herbstcheck', spec: 'Scheibe, Wischer, Wasser, Frostschutz', preis: 19.9, flaeche: 'Herbst&shy;check', grund: 'einlösbar in Duisburg' },
     { id: 'paket-winter', kat: 'winter', versteckt: true, name: 'Winterpaket', spec: 'Reiniger 5 L, Enteiser, Eiskratzer, Abdeckung', preis: 34.9, bild: 'winter', alt: '', grund: 'Paket' },
-    { id: 'g-50', kat: 'gutschein', name: 'Geschenkgutschein 50 €', spec: 'für Reparatur, Tausch oder Shop', preis: 50, flaeche: '50&nbsp;€', grund: 'per Mail oder gedruckt' }
+    { id: 'g-50', kat: 'gutschein', name: 'Geschenkgutschein 50 €', spec: 'für Reparatur, Tausch oder Shop', preis: 50, flaeche: '50&nbsp;€', grund: 'per Mail oder gedruckt' }
   ];
   // Einzeldatei-Vorschau legt eingebettete Bilder in window.AZA_BILDER ab
   const bildUrl = (n) => (window.AZA_BILDER && window.AZA_BILDER[n]) || 'assets/img/shop/' + n + '.jpg';

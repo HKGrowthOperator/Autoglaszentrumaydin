@@ -315,18 +315,19 @@
   /* 7 · Schnellkontakt am Handy: weicht beim Lesen nach unten aus, kommt beim Hochscrollen zurück */
   function leiste() {
     const l = $('.aktionsleiste'); if (!l) return;
-    let letzte = scrollY, tick = false, startSichtbar = false;
+    let letzte = scrollY, tick = false, startSichtbar = false, runter = false;
     const startKnopf = $('.start .knopf');
     const setze = () => {
       tick = false;
       const y = scrollY;
+      if (Math.abs(y - letzte) > 6) runter = y > letzte;
       if (startSichtbar) l.classList.add('weg');
       else if (y > letzte + 6) l.classList.add('weg');
       else if (y < letzte - 6) l.classList.remove('weg');
       letzte = y;
     };
     if (startKnopf && 'IntersectionObserver' in window) {
-      new IntersectionObserver(([e]) => { startSichtbar = e.isIntersecting; if (startSichtbar) l.classList.add('weg'); else l.classList.remove('weg'); }).observe(startKnopf);
+      new IntersectionObserver(([e]) => { startSichtbar = e.isIntersecting; if (startSichtbar) l.classList.add('weg'); else if (!runter) l.classList.remove('weg'); }).observe(startKnopf);
     }
     addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(setze); } }, { passive: true });
   }

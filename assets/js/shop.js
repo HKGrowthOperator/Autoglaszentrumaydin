@@ -22,7 +22,7 @@
     { id: 'p-abdeckung', kat: 'winter', name: 'Frontscheiben-Abdeckung', spec: 'gegen Eis und Schnee, mit Magneten', preis: 14.9, bild: 'p-abdeckung', alt: 'Rotes Auto mit Schnee auf dem Dach', grund: 'Stück' },
     { id: 'g-check', kat: 'gutschein', name: 'Gutschein Herbstcheck', spec: 'Scheibe, Wischer, Wasser, Frostschutz', preis: 19.9, flaeche: 'Herbst&shy;check', grund: 'einlösbar in Duisburg' },
     { id: 'paket-winter', kat: 'winter', versteckt: true, name: 'Winterpaket', spec: 'Reiniger 5 L, Enteiser, Eiskratzer, Abdeckung', preis: 34.9, bild: 'winter', alt: '', grund: 'Paket' },
-    { id: 'g-50', kat: 'gutschein', name: 'Geschenkgutschein 50 €', spec: 'für Reparatur, Tausch oder Shop', preis: 50, flaeche: '50&nbsp;€', grund: 'per Mail oder gedruckt' }
+    { id: 'g-50', kat: 'gutschein', name: 'Geschenkgutschein 50 €', spec: 'für Reparatur, Tausch oder Shop', preis: 50, flaeche: '50&nbsp;€', grund: 'per Mail oder gedruckt' }
   ];
   // Einzeldatei-Vorschau legt eingebettete Bilder in window.AZA_BILDER ab
   const bildUrl = (n) => (window.AZA_BILDER && window.AZA_BILDER[n]) || 'assets/img/shop/' + n + '.jpg';

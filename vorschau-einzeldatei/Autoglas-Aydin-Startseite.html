@@ -267,7 +267,7 @@ input[type="range"]::-moz-range-thumb { width: 1.6rem; height: 1.6rem; backgroun
 .leistungen__titel span { display: block; }
 .leistungen__titel span:first-child { padding-left: 1em; }
 .leistungen__bild { grid-column: 1 / span 4; grid-row: 2; align-self: end; background: var(--flaeche); }
-.leistungen__bild img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.leistungen__bild img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
 .tabelle { grid-column: 7 / -1; grid-row: 2; margin-top: 6rem; }
 .tabelle a { display: grid; grid-template-columns: 7rem 1fr auto; gap: 1rem; padding: 0.8rem 0.6rem; text-decoration: none; transition: background-color 0.2s, transform 0.35s var(--ease); }
 .tabelle a:hover { background: var(--flaeche); transform: translateX(4px); }
@@ -478,6 +478,66 @@ input[type="range"]::-moz-range-thumb { width: 1.6rem; height: 1.6rem; backgroun
 }
 
 /* ==========================================================================
+   Handy (bis 700 px): kompakt, ein Gedanke pro Bildschirm,
+   Hauptknopf auf dem ersten Bildschirm, keine Einrückungen, keine Streuung
+   ========================================================================== */
+@media (max-width: 700px) {
+  :root { --abstand: 4.5rem; }
+  .entwurf__lang { display: none; }
+
+  /* Start: Satz, Bild, Stützsatz und Knopf passen auf den ersten Bildschirm */
+  .start { padding-top: 1.25rem; }
+  .start__satz { font-size: var(--step-display); gap: 0.08em; }
+  .start__bild { aspect-ratio: 2 / 1; }
+  .start__unten { padding-top: 1.25rem; gap: 1rem; }
+  .start__ecken { padding-block: 1.75rem 0.5rem; gap: 0.5rem; }
+
+  /* 2-Euro-Test: erst die Lage, dann Münze und Regler, dann das Ergebnis */
+  .test { row-gap: 1.75rem; }
+  .test__liste { grid-row: 2; }
+  .test__muenze svg { grid-row: 3; width: 78%; }
+  .regler { grid-row: 4; }
+  .ergebnis { grid-row: 5; margin-top: 0.5rem; }
+
+  /* Kosten */
+  .versicherer { margin-top: 3rem; }
+
+  /* Leistungen: eine Zeile je Leistung, Foto quer */
+  .tabelle { margin-top: 2rem; }
+  .tabelle a { padding-block: 0.75rem; }
+  .tabelle span:first-child { display: none; }
+  .tabelle .gruppe { margin-top: 1.25rem; }
+  .leistungen__bild { grid-column: 1 / -1; margin-top: 2rem; }
+  .leistungen__bild img { aspect-ratio: 3 / 2; object-position: 50% 35%; }
+
+  /* Ablauf: alle Stufen an einer Kante */
+  .stufe:nth-child(n) { margin-left: 0; }
+  .treppe { gap: 2.25rem; }
+  [data-ui] .blase { max-width: 88%; }
+  .ablauf__bild { grid-column: 1 / -1; margin-top: 2.5rem; }
+  .ablauf__bild img { aspect-ratio: 3 / 2; }
+
+  /* Stimmen, Standorte, Fragen: Abstände halbieren */
+  .stimmen__liste { margin-top: 5.5rem; gap: 2.25rem; }
+  .karte { margin-top: 2rem; }
+  .standorte__adresse { margin-top: 2.5rem; }
+  .fragen__liste { margin-top: 2rem; gap: 2rem; }
+
+  /* Shop-Band: sechs Fotos als ruhiges Raster, darunter der Satz */
+  .shopband { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; align-items: stretch; }
+  .shopband .schwebt { display: block; grid-column: auto; grid-row: auto; margin: 0; aspect-ratio: 1; height: auto; }
+  .shopband .s7 { display: none; }
+  .shopband__mitte { grid-column: 1 / -1; grid-row: 3; padding: 1.75rem 0 0; }
+
+  /* Schluss: Frage als eine Überschrift, Knöpfe darunter */
+  .schluss { min-height: 0; padding-block: var(--abstand); display: grid; gap: 2rem; place-items: stretch; }
+  .schluss__frage { position: static; inset: auto; display: block; text-align: left; font-size: var(--step-head); line-height: 0.98; }
+  .schluss__frage span { display: block; }
+  .schluss__mitte { justify-items: stretch; text-align: left; }
+  .schluss__knoepfe span { text-align: center; }
+}
+
+/* ==========================================================================
    Bewegung: Signatur Shutter auf dem Bild im Satz, Auftritte je Abschnitt
    ========================================================================== */
 @media (prefers-reduced-motion: no-preference) {
@@ -561,7 +621,7 @@ input[type="range"]::-moz-range-thumb { width: 1.6rem; height: 1.6rem; backgroun
 </svg>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
-<p class="entwurf">Entwurf von HK Growth Operator für Autoglas Zentrum Aydin · Stand 10. November 2026 · nicht öffentlich</p>
+<p class="entwurf">Entwurf von HK Growth Operator<span class="entwurf__lang"> für Autoglas Zentrum Aydin · Stand 10. November 2026</span> · nicht öffentlich</p>
 
 <header class="kopf rand" data-kopf>
   <a class="logo" href="Autoglas-Aydin-Startseite.html" aria-label="Autoglas Zentrum Aydin, Startseite"><svg viewBox="-2 0 903 104" aria-hidden="true"><use href="#wortmarke"/></svg></a>
@@ -1165,18 +1225,19 @@ window.AZA_MAP = {"bbox":[5.95,7.72,50.95,51.98],"latc":51.45,"kx":69.3743294438
   /* 7 · Schnellkontakt am Handy: weicht beim Lesen nach unten aus, kommt beim Hochscrollen zurück */
   function leiste() {
     const l = $('.aktionsleiste'); if (!l) return;
-    let letzte = scrollY, tick = false, startSichtbar = false;
+    let letzte = scrollY, tick = false, startSichtbar = false, runter = false;
     const startKnopf = $('.start .knopf');
     const setze = () => {
       tick = false;
       const y = scrollY;
+      if (Math.abs(y - letzte) > 6) runter = y > letzte;
       if (startSichtbar) l.classList.add('weg');
       else if (y > letzte + 6) l.classList.add('weg');
       else if (y < letzte - 6) l.classList.remove('weg');
       letzte = y;
     };
     if (startKnopf && 'IntersectionObserver' in window) {
-      new IntersectionObserver(([e]) => { startSichtbar = e.isIntersecting; if (startSichtbar) l.classList.add('weg'); else l.classList.remove('weg'); }).observe(startKnopf);
+      new IntersectionObserver(([e]) => { startSichtbar = e.isIntersecting; if (startSichtbar) l.classList.add('weg'); else if (!runter) l.classList.remove('weg'); }).observe(startKnopf);
     }
     addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(setze); } }, { passive: true });
   }
