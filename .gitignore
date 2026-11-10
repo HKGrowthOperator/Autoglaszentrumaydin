@@ -1,2 +1,5 @@
 .DS_Store
 *.zip
+# Arbeitsdateien der Skills: Screenshots und Messberichte nicht einchecken
+.taste-skill/*/
+!.taste-skill/*.md
