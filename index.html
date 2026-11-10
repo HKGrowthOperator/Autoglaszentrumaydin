@@ -116,7 +116,7 @@
 <section class="start rand" aria-labelledby="start-titel">
   <h1 class="start__satz" id="start-titel">
     <span class="start__wort">Scheibe</span>
-    <span class="start__bild"><img src="assets/img/shop/hero.jpg" alt="" width="911" height="683" fetchpriority="high"></span>
+    <span class="start__bild"><img src="assets/img/scheibe-einbau.jpg" alt="" width="1200" height="760" fetchpriority="high"></span>
     <span class="start__wort">kaputt?</span>
   </h1>
   <div class="start__unten">
@@ -200,7 +200,7 @@
 <section class="leistungen rand" id="leistungen" aria-labelledby="leistungen-titel">
   <h2 class="leistungen__titel" id="leistungen-titel" data-auftritt><span>Alles rund um</span> <span>die Scheibe.</span></h2>
   <figure class="leistungen__bild" data-auftritt>
-    <img src="assets/img/werkstatt-halle.jpg" alt="Mitarbeiter mit rotem Umhängeband in der Werkstatthalle, dahinter Werkzeugwand und rote Tür" width="500" height="625" loading="lazy">
+    <img src="assets/img/scheibe-auto.jpg" alt="Neue Frontscheibe wird mit Saughebern eingesetzt" width="800" height="1000" loading="lazy">
   </figure>
   <ul class="tabelle" role="list" data-auftritt>
     <li><a href="https://wa.me/4917620908479?text=Hallo%2C%20ich%20brauche%3A%20Steinschlag-Reparatur" data-wa><span>Reparatur</span><span>Steinschlag reparieren</span><span>Teilkasko: meist 0 €</span></a></li>
@@ -216,50 +216,42 @@
   </ul>
 </section>
 
-<!-- 5 · Ablauf: vier Sätze als Treppe, darunter der Chat -->
+<!-- 5 · Ablauf: ein Satz, vier Schritte, daneben der Verlauf, so wie er per WhatsApp läuft -->
 <section class="ablauf rand" id="ablauf" aria-labelledby="ablauf-titel">
+  <div class="ablauf__text">
+    <h2 id="ablauf-titel" data-auftritt><span>Ein Foto.</span> <span>Eine Antwort.</span></h2>
+    <ol class="schritte" role="list" data-auftritt>
+      <li><b>Foto schicken.</b> Per WhatsApp an <a href="https://wa.me/4917620908479" data-wa>0176 20908479</a>.</li>
+      <li><b>Antwort bekommen.</b> Wir sagen dir, ob Reparatur oder neue Scheibe.</li>
+      <li><b>Vorbeikommen.</b> Duisburger Str. 150, oder wir kommen zu dir, im Umkreis von 50 km.</li>
+      <li><b>Papierkram? Machen wir.</b> Wir rechnen direkt mit deiner Versicherung ab.</li>
+    </ol>
+  </div>
+  <div class="chat" data-ui data-auftritt aria-label="Beispiel eines WhatsApp-Verlaufs mit der Werkstatt">
+    <p class="blase blase--kunde">Moin, hab nen Steinschlag. Geht das noch?</p>
+    <p class="blase blase--werkstatt">Hi Bruder, alles klar? Schick mal ein Foto.</p>
+    <p class="blase blase--kunde">Kommt.</p>
+    <p class="blase blase--werkstatt">Der ist klein, den reparieren wir. Komm um 14 Uhr vorbei, Duisburger Str. 150.</p>
+    <p class="blase blase--werkstatt">Wir rechnen direkt mit deiner Versicherung ab.</p>
+  </div>
   <figure class="ablauf__bild" data-auftritt>
     <img src="assets/img/werkstatt-handschlag.jpg" alt="Handschlag vor einem Auto, links ein Mitarbeiter mit rotem Umhängeband" width="594" height="475" loading="lazy">
   </figure>
-  <ol class="treppe" role="list">
-    <li class="stufe" data-auftritt>
-      <h2 class="stufe__satz" id="ablauf-titel">Erst schickst du ein Foto.</h2>
-      <p class="stufe__text">Per WhatsApp an <a href="https://wa.me/4917620908479" data-wa>0176 20908479</a>. So sieht das zum Beispiel aus:</p>
-      <div class="chat" data-ui aria-label="Beispiel einer WhatsApp-Nachricht">
-        <p class="blase blase--kunde">Moin, hab nen Steinschlag. Geht das noch? Foto kommt.</p>
-      </div>
-    </li>
-    <li class="stufe" data-auftritt>
-      <p class="stufe__satz">Dann sagen wir, was es ist.</p>
-      <div class="chat" data-ui aria-label="Beispiel einer Antwort der Werkstatt"><p class="blase blase--werkstatt">Hi Bruder, alles klar? Der ist klein, den reparieren wir.</p></div>
-    </li>
-    <li class="stufe" data-auftritt>
-      <p class="stufe__satz">Du kommst vorbei.</p>
-      <div class="chat" data-ui aria-label="Beispiel einer Antwort der Werkstatt"><p class="blase blase--werkstatt">Komm um 14 Uhr vorbei, Duisburger Str. 150.</p></div>
-      <p class="stufe__text">Oder wir kommen zu dir, im Umkreis von 50 km.</p>
-    </li>
-    <li class="stufe" data-auftritt>
-      <p class="stufe__satz">Papierkram? Machen wir.</p>
-      <div class="chat" data-ui aria-label="Beispiel einer Antwort der Werkstatt"><p class="blase blase--werkstatt">Wir rechnen direkt mit deiner Versicherung ab.</p></div>
-    </li>
-  </ol>
 </section>
 
-<!-- 6 · Kundenstimmen: eine Stimme von Rand zu Rand -->
-<section class="stimmen feld-flaeche rand" aria-labelledby="stimmen-titel">
+<!-- 6 · Kundenstimmen: eine Stimme groß auf dem roten Feld, drei daneben -->
+<section class="stimmen feld-rot rand" aria-labelledby="stimmen-titel">
   <figure class="stimme-gross" data-auftritt>
     <blockquote>
       <p><span class="z1">„Ich musste mich um nichts</span> <span class="z2">kümmern</span> <span class="z3">mit der Versicherung.“</span></p>
     </blockquote>
-    <figcaption><span>Gabi M.</span><span>Kundenbewertung</span></figcaption>
+    <figcaption>Gabi M., Kundenbewertung</figcaption>
   </figure>
   <div class="stimmen__liste">
     <h2 id="stimmen-titel" data-auftritt>Was Kunden schreiben</h2>
     <figure data-auftritt><blockquote><p>„Bin ohne Termin hingefahren, eine halbe Stunde später war der Steinschlag ausgebessert.“</p></blockquote><figcaption>Guido B.</figcaption></figure>
     <figure data-auftritt><blockquote><p>„Mir wurde unglaublich schnell geholfen und hatte nach nicht einmal 3 Stunden mein Auto wieder.“</p></blockquote><figcaption>Mira S.</figcaption></figure>
     <figure data-auftritt><blockquote><p>„Scheibe vom Wohnmobil wurde schnellstens ersetzt. Bester Service, bester Preis.“</p></blockquote><figcaption>Karl H.</figcaption></figure>
-    <figure data-auftritt><blockquote><p>„Gute Arbeit und innerhalb zwei Stunden konnte das Auto wieder abgeholt werden. Preis absolut in Ordnung.“</p></blockquote><figcaption>Niklas F.</figcaption></figure>
-    <figure data-auftritt><blockquote><p>„In der Nähe gibt es viele Restaurants / Cafés, falls man sich den spannenden Prozess nicht anschauen möchte.“</p></blockquote><figcaption>Theorist</figcaption></figure>
     <p class="stimmen__quelle">Auszüge aus Kundenbewertungen, gekürzt.</p>
   </div>
 </section>
@@ -303,55 +295,45 @@
   <img class="schwebt s4" src="assets/img/shop/klein/winter.jpg" alt="" width="360" height="400" loading="lazy" data-drift="0.1">
   <img class="schwebt s5" src="assets/img/shop/klein/p-versiegelung.jpg" alt="" width="360" height="400" loading="lazy" data-drift="0.06">
   <img class="schwebt s6" src="assets/img/shop/klein/p-abdeckung.jpg" alt="" width="360" height="400" loading="lazy" data-drift="0.09">
-  <img class="schwebt s7" src="assets/img/shop/klein/w-satz.jpg" alt="" width="360" height="400" loading="lazy" data-drift="0.04">
 </section>
 
-<!-- 9 · Fragen: große Fragen, Antworten daneben, alles offen -->
+<!-- 9 · Fragen: vier, die jeden Tag kommen -->
 <section class="fragen rand" aria-labelledby="fragen-titel">
   <h2 class="fragen__titel" id="fragen-titel">Oft gefragt</h2>
   <dl class="fragen__liste">
-    <div><dt>Kann ich ohne Termin vorbeikommen?</dt><dd>Ruf kurz an, dann sagen wir dir, ob es gerade passt. Für einen Tausch bestellen wir die passende Scheibe vorher.</dd></div>
-    <div><dt>Kann ich mit dem Steinschlag noch warten?</dt><dd>Besser nicht. Kälte, Hitze und Schlaglöcher lassen ihn weiterreißen, dann hilft nur noch eine neue Scheibe. Ein Riss im Sichtfeld kann bei der Hauptuntersuchung zum Problem werden.</dd></div>
+    <div><dt>Kann ich mit dem Steinschlag noch warten?</dt><dd>Besser nicht. Kälte, Hitze und Schlaglöcher lassen ihn weiterreißen, dann hilft nur noch eine neue Scheibe.</dd></div>
     <div><dt>Steigt mein Versicherungsbeitrag?</dt><dd>Nein. Glasschäden laufen über die Teilkasko, und die hat keine Schadenfreiheitsklasse.</dd></div>
     <div><dt>Was passiert mit der Kamera hinter der Scheibe?</dt><dd>Nach dem Tausch kalibrieren wir sie neu. Dann arbeiten Spurhalte- und Notbremsassistent wieder zuverlässig.</dd></div>
-    <div><dt>Wie lange dauert ein Tausch?</dt><dd>Das hängt von Auto und Scheibe ab, wir sagen es dir vorher. In der Nähe gibt es Cafés und Restaurants, falls du nicht zuschauen willst.</dd></div>
-    <div><dt>Auch Wohnmobil, Lkw oder US-Car?</dt><dd>Ja. Ruf an oder schick ein Foto, dann prüfen wir, wann die passende Scheibe da ist.</dd></div>
     <div><dt>Was mache ich bis zum Termin?</dt><dd>Kleb den Steinschlag mit durchsichtigem Klebeband ab. So kommen kein Schmutz und kein Wasser rein.</dd></div>
   </dl>
 </section>
 
-<!-- 10 · Schluss: die Frage an beiden Rändern -->
-<section class="schluss feld-rot rand" aria-labelledby="schluss-titel">
-  <h2 class="schluss__frage" id="schluss-titel"><span>Anrufen</span> <span>oder schreiben?</span></h2>
-  <div class="schluss__mitte">
-    <div class="schluss__knoepfe">
-      <a class="knopf knopf--tinte" href="tel:+4920336989833"><svg aria-hidden="true"><use href="#i-tel"/></svg>0203 36989833</a>
-      <span>oder</span>
-      <a class="knopf knopf--weiss" href="https://wa.me/4917620908479?text=Hallo%2C%20ich%20habe%20einen%20Glasschaden%20und%20schicke%20euch%20ein%20Foto." data-wa><svg aria-hidden="true"><use href="#i-chat"/></svg>Foto per WhatsApp</a>
-    </div>
-    <p>Am Telefon Mo bis Sa 9:30 bis 18:00. Per WhatsApp am besten gleich mit Foto.</p>
-  </div>
-</section>
 
 </main>
 
 <footer class="fuss feld-asphalt rand">
   <div class="fuss__oben">
     <div class="fuss__einladung">
-      <h2><span>Komm vorbei.</span> <span>Duisburger Str. 150.</span></h2>
-      <a class="knopf knopf--hell" href="https://maps.app.goo.gl/vNScVN2UxSXLt74x9" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Route planen</a>
+      <h2><span>Anrufen</span> <span>oder schreiben?</span></h2>
+      <div class="fuss__knoepfe">
+        <a class="knopf knopf--rot" href="https://wa.me/4917620908479?text=Hallo%2C%20ich%20habe%20einen%20Glasschaden%20und%20schicke%20euch%20ein%20Foto." data-wa><svg aria-hidden="true"><use href="#i-chat"/></svg>Foto per WhatsApp</a>
+        <a class="knopf knopf--hell" href="tel:+4920336989833"><svg aria-hidden="true"><use href="#i-tel"/></svg>0203 36989833</a>
+      </div>
+      <p>Am Telefon Mo bis Sa 9:30 bis 18:00. Per WhatsApp am besten gleich mit Foto.</p>
     </div>
-    <ul class="fuss__kontakt" role="list">
-      <li><a href="tel:+4920336989833">0203 36989833</a></li>
-      <li><a href="https://wa.me/4917620908479" data-wa>WhatsApp 0176 20908479</a></li>
-      <li><a href="mailto:Info@AutoglasZentrum-Aydin.de">Info@AutoglasZentrum-Aydin.de</a></li>
-      <li><a href="https://www.instagram.com/autoglaszentrumaydin/" rel="noopener">Instagram</a></li>
-      <li>Klarer Service. Starke Mobilität.</li>
-    </ul>
+    <div class="fuss__adresse">
+      <p class="fuss__ort">Duisburger Str. 150<br>47166 Duisburg-Obermarxloh</p>
+      <a class="textlink" href="https://maps.app.goo.gl/vNScVN2UxSXLt74x9" rel="noopener">Route planen</a>
+      <ul class="fuss__kontakt" role="list">
+        <li><a href="https://wa.me/4917620908479" data-wa>WhatsApp 0176 20908479</a></li>
+        <li><a href="mailto:Info@AutoglasZentrum-Aydin.de">Info@AutoglasZentrum-Aydin.de</a></li>
+        <li><a href="https://www.instagram.com/autoglaszentrumaydin/" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
   </div>
   <div class="fuss__recht">
     <p><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · Entwurf · Stand 10. November 2026</p>
-    <p class="fuss__nachweis">Bilder: Werkstattfotos aus dem Instagram-Kanal der Werkstatt, für den Entwurf ausgeschnitten. Nachtfahrt im Regen: eflon, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>. Shop-Fotos: Ivan Radic, ChadCooperPhotos, jcgoforth, OakleyOriginals, shrff, Steve Snodgrass (alle <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>), freestocks.org (CC0), über Flickr, zugeschnitten. Karte: Natural Earth.</p>
+    <p class="fuss__nachweis">Bilder: Handschlag aus dem Instagram-Kanal der Werkstatt, für den Entwurf ausgeschnitten. Frontscheibe beim Einbau: Andrew Bone, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>, über Flickr, zugeschnitten. Shop-Fotos: Ivan Radic, ChadCooperPhotos, jcgoforth, OakleyOriginals, shrff, Steve Snodgrass (alle <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>), freestocks.org (CC0), über Flickr, zugeschnitten. Karte: Natural Earth.</p>
   </div>
   <a class="fuss__logo" href="#inhalt" aria-label="Nach oben"><svg viewBox="-2 0 903 104" aria-hidden="true"><use href="#wortmarke"/></svg></a>
 </footer>

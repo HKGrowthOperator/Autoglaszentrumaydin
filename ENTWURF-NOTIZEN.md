@@ -43,7 +43,8 @@ Technik nebenbei: Logo als scharfe Vektordatei nachgebaut (bisher nur JPG), Schr
 - Fahrzeugtypen „PKW, LKW, Wohnmobile und US-Cars“ sowie „LKW · Transporter · Wohnmobile · US-Cars · Seiten- & Heckscheiben“: eigene Instagram-Posts des Betriebs (@autoglaszentrumaydin, Screenshot vom 03.11.2026). Auf der alten Website nur Wohnmobile und Firmenkunden
 - Steinschlagreparatur mit Teilkasko „in der Regel 100 % kostenlos“, Austausch nur Selbstbeteiligung „z. B. 150 €“, kein Schadenfreiheitsverlust: Instagram-Post „Scheibenschaden? Kein Problem!“
 - Versichererliste und Versicherer-Logos (HUK-COBURG, Allianz, ERGO, AXA, Generali, R+V, DEVK, HDI, VHV, LVM, Württembergische, Provinzial): aktuelle Website, freigestellt und optisch gleich groß gemacht, Farben und Proportionen unverändert
-- Instagram-Bilder: aus dem Screenshot geschnitten (niedrige Auflösung, nur für den Entwurf)
+- Instagram-Bilder: aus dem Screenshot geschnitten (niedrige Auflösung, nur für den Entwurf). Auf der Startseite nur noch der Handschlag im Ablauf
+- Startbild und Leistungsfoto (neue Frontscheibe mit Saughebern): Andrew Bone, „Jag having new windscreen fitted“, CC BY 2.0, Flickr (Fotos 36982044961 und 36935185746), zugeschnitten, Kennzeichen nicht im Bild. Fremde Fotos, nicht der Betrieb: zum Livegang durch eigene Fotos ersetzen
 - Shop-Fotos: freie Fotos über Openverse (Flickr, rawpixel), Lizenzen CC BY und CC0. Die Gutscheine sind bewusst ohne Foto, als Fläche mit dem Betrag. Fotografen und Lizenzen stehen auf der Shop-Seite unter „Bildnachweise“. Für den Livegang durch eigene Produktfotos aus der Werkstatt ersetzen
 - Orte in `areaServed` (JSON-LD): die Städte der bestehenden Stadtseiten (siehe Offen 12) plus Duisburg, dazu der 50-km-Kreis. Link „Route planen“ (maps.app.goo.gl/vNScVN2UxSXLt74x9): Routenlink auf der aktuellen Website, abgerufen 03.11.2026
 - Koordinaten der Werkstatt: strukturierte Daten der aktuellen Website. Flüsse und Autobahnen: Natural Earth (gemeinfrei)
