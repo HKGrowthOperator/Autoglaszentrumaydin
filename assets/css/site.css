@@ -604,31 +604,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 }
 
 /* ==========================================================================
-   Fahrzeuge
-   ========================================================================== */
-.formen__kopf { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
-.formen__kopf p { max-width: 34ch; color: var(--tinte-2); }
-.formen { list-style: none; margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); border-top: 2px solid var(--tinte); }
-.formen li { padding: 1.5rem 1rem 1.25rem; border-right: 1px solid oklch(0.2 0.012 28 / .16); display: grid; gap: 1rem; align-content: space-between; }
-.formen li:last-child { border-right: 0; }
-.formen svg { width: 100%; height: auto; overflow: visible; }
-.formen svg path { fill: oklch(0.2 0.012 28 / .04); stroke: var(--tinte); stroke-width: 2.5; transition: fill .35s, stroke .35s; }
-.formen li:hover svg path { fill: var(--rot); stroke: var(--rot); }
-.formen b { font-family: var(--f-display); font-style: italic; font-weight: 880; text-transform: uppercase; font-size: 1.6rem; line-height: 1; display: block; }
-.formen small { font-family: var(--f-cond); font-size: .85rem; color: var(--grau); font-weight: 600; }
-@media (max-width: 960px) {
-  .formen { grid-template-columns: repeat(3, 1fr); }
-  .formen li:nth-child(3n) { border-right: 0; }
-  .formen li:nth-child(n+4) { border-top: 1px solid oklch(0.2 0.012 28 / .16); }
-}
-@media (max-width: 520px) {
-  .formen { grid-template-columns: repeat(2, 1fr); }
-  .formen li:nth-child(3n) { border-right: 1px solid oklch(0.2 0.012 28 / .16); }
-  .formen li:nth-child(2n) { border-right: 0; }
-  .formen li:nth-child(n+3) { border-top: 1px solid oklch(0.2 0.012 28 / .16); }
-}
-
-/* ==========================================================================
    Stimmen
    ========================================================================== */
 .stimmen .wrap { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.25rem; }
