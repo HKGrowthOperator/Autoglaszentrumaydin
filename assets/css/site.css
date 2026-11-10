@@ -523,6 +523,7 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 .blase--aza { align-self: flex-start; background: var(--rot); color: var(--kreide); border-bottom-left-radius: .25rem; }
 .blase--foto { padding: .3rem; width: 56%; }
 .blase--foto svg { width: 100%; border-radius: .7rem; }
+.verlauf__hinweis { margin-top: 1rem; font-size: var(--t-klein); color: var(--kreide-3); }
 .tippt { align-self: flex-start; background: var(--asphalt-3); border-radius: 1rem; padding: .7rem .85rem; display: none; gap: .3rem; }
 .tippt.is-da { display: flex; }
 .tippt i { width: .45rem; height: .45rem; border-radius: 50%; background: var(--kreide-3); animation: tippen 1s infinite; }

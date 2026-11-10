@@ -59,7 +59,7 @@
       regal.appendChild(li);
     });
     const extra = document.createElement('li'); extra.className = 'anfrage';
-    extra.innerHTML = `<div class="anfrage__kachel"><p class="anfrage__titel">Wir besorgen's.</p><p>Spezielle Wischer, Pflege oder Zubehör für dein Modell. Kurz schreiben, wir sagen dir Preis und Termin.</p><a class="btn btn--schwarz" href="${WA + encodeURIComponent('Hallo, ich suche folgendes Zubehör: ')}"><span>Per WhatsApp fragen</span></a></div>`;
+    extra.innerHTML = `<div class="anfrage__kachel"><p class="anfrage__titel">Nicht dabei?</p><p>Was Spezielles für dein Modell gesucht? Frag per WhatsApp, ob wir es besorgen können.</p><a class="btn btn--schwarz" href="${WA + encodeURIComponent('Hallo, ich suche folgendes Zubehör: ')}"><span>Per WhatsApp fragen</span></a></div>`;
     regal.appendChild(extra);
     knoepfeMarkieren();
   }
@@ -103,7 +103,7 @@
     zahl.setAttribute('aria-label', `${stueck} Artikel im Korb`);
     posten.textContent = '';
     if (!ids.length) {
-      posten.innerHTML = '<li class="schublade__leer"><p>Noch leer. Fang mit Wischern an, die sind nach einem Winter fast immer durch.</p><a class="btn btn--schwarz" href="#sortiment" data-korb-zu-link><span>Zum Sortiment</span></a></li>';
+      posten.innerHTML = '<li class="schublade__leer"><p>Noch leer. Fang mit Wischern an.</p><a class="btn btn--schwarz" href="#sortiment" data-korb-zu-link><span>Zum Sortiment</span></a></li>';
     }
     let summe = 0;
     ids.forEach((id) => {
@@ -162,7 +162,7 @@
       (!okH ? hsn : tsn).focus(); return;
     }
     const code = `HSN ${hsn.value} / TSN ${tsn.value}`;
-    antwort.innerHTML = `<b>${code}</b> ist notiert. Wir suchen den passenden Satz raus und bestätigen dir Länge und Preis per WhatsApp. <a href="${WA + encodeURIComponent(`Hallo, ich brauche Wischer für ${code}.`)}" style="color:inherit">Direkt schreiben</a>`;
+    antwort.innerHTML = `<b>${code}</b>: Schick uns die Nummer per WhatsApp, dann sagen wir dir Länge und Preis. <a href="${WA + encodeURIComponent(`Hallo, ich brauche Wischer für ${code}.`)}" style="color:inherit">Per WhatsApp schicken</a>`;
     rein('w-satz', 1, `für ${code}`);
     oeffnen(true);
   });
