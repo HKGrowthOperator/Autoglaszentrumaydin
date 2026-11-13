@@ -1,6 +1,5 @@
 /* Hallmark · checked: 2026-11-13 · genre: editorial (inferred: lokale Autoglas-Werkstatt mit Shop)
- * floor: 0 FAIL nach Sweep · fixed: 26a, 34, 38ii, 39b, 40, 48, 50, 55a, 62, 63, 67, F3, F4, F19, F21 · structural: printed (25, 58, 59, 77, F15)
- * waive 80: die gezeichnete Scheibe mit Regen und Wischern ist das Erkennungszeichen der Seite, vom Kunden ausdrücklich behalten (PLAN-AUSBESSERN.md, Wurzel)
+ * floor: 0 FAIL nach Sweep · fixed: 26a, 34, 38ii, 80 (alle gezeichneten Grafiken entfernt), 39b, 40, 48, 50, 55a, 62, 63, 67, F3, F4, F19, F21 · structural: printed (25, 58, 59, 77, F15)
  * waive 49b: Bildnachweise nennen die Originaltitel der Fotos wörtlich, dort darf ein Link umbrechen
  * built: the project · redesign: polish · v2.0.0 */
 /* ==========================================================================
@@ -32,7 +31,6 @@
 .schein__kopf { display: flex; justify-content: space-between; align-items: start; gap: 1rem; border-bottom: 1.5px solid var(--schein-linie); padding-bottom: .7rem; margin-bottom: .9rem; }
 .schein__kopf b { font-size: var(--t-text); font-weight: 700; display: block; }
 .schein__kopf small { font-size: var(--t-klein); opacity: .75; }
-.schein__adler { width: 2.4rem; height: 2.4rem; flex: none; opacity: .5; }
 .schein__raster { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .5rem .9rem; }
 .feld { display: grid; gap: .15rem; grid-column: span 3; min-width: 0; overflow-wrap: anywhere; }
 .feld--2 { grid-column: span 2; } .feld--4 { grid-column: span 4; } .feld--6 { grid-column: span 6; }

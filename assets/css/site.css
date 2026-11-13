@@ -1,6 +1,5 @@
 /* Hallmark · checked: 2026-11-13 · genre: editorial (inferred: lokale Autoglas-Werkstatt mit Shop)
- * floor: 0 FAIL nach Sweep · fixed: 26a, 34, 38ii, 39b, 40, 48, 50, 55a, 62, 63, 67, F3, F4, F19, F21 · structural: printed (25, 58, 59, 77, F15)
- * waive 80: die gezeichnete Scheibe mit Regen und Wischern ist das Erkennungszeichen der Seite, vom Kunden ausdrücklich behalten (PLAN-AUSBESSERN.md, Wurzel)
+ * floor: 0 FAIL nach Sweep · fixed: 26a, 34, 38ii, 80 (alle gezeichneten Grafiken entfernt), 39b, 40, 48, 50, 55a, 62, 63, 67, F3, F4, F19, F21 · structural: printed (25, 58, 59, 77, F15)
  * waive 49b: Bildnachweise nennen die Originaltitel der Fotos wörtlich, dort darf ein Link umbrechen
  * built: the project · redesign: polish · v2.0.0 */
 /* ==========================================================================
@@ -307,12 +306,12 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
   position: relative; display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: 1.25rem;
-  padding-block: clamp(1.25rem, 3.5vw, 3rem) clamp(2.5rem, 5vw, 4.5rem);
+  padding-block: clamp(2.5rem, 6vw, 5rem);
   min-height: inherit;
-  align-content: space-between;
+  align-content: center; align-items: end;
 }
 .hero__titel {
-  grid-column: 1 / span 8; grid-row: 1;
+  grid-column: 1 / span 7; grid-row: 1;
   font-size: var(--t-riesig);
   position: relative; z-index: 3;
   margin-left: -.04em;
@@ -320,10 +319,10 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .hero__titel span { display: block; }
 .hero__titel em { font-style: italic; }
 .hero__unten {
-  grid-column: 1 / span 6; grid-row: 2;
+  grid-column: 8 / -1; grid-row: 1;
   position: relative; z-index: 3;
   display: grid; gap: 1.6rem; align-self: end;
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-bottom: .6em;
 }
 .hero__unten .lead { max-width: 33ch; color: var(--kreide); text-wrap: pretty; }
 .hero__aktion { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem 1.6rem; }
@@ -331,28 +330,15 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .telefon-gross b { font-family: var(--f-display); font-weight: 900; font-size: var(--t-mittel); }
 .telefon-gross:hover b { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px; }
 
-/* Die Scheibe */
-.scheibe {
-  position: absolute; z-index: 2;
-  right: calc(var(--rand) * -1.6);
-  top: clamp(1.5rem, 5vw, 4.5rem);
-  width: min(64vw, 72rem);
-  aspect-ratio: 1000 / 560;
-  pointer-events: none;
-}
-.scheibe svg, .scheibe canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-
 @media (max-width: 1080px) {
   .hero__titel { grid-column: 1 / -1; }
-  .hero__unten { grid-column: 1 / span 9; }
-  .scheibe { width: 80vw; top: clamp(5rem, 11vw, 8rem); bottom: auto; right: -22vw; opacity: .92; }
+  .hero__unten { grid-column: 1 / span 9; grid-row: 2; margin-top: clamp(1.5rem, 4vw, 2.5rem); padding-bottom: 0; }
 }
 @media (max-width: 700px) {
   .hero { min-height: 0; }
   .hero .wrap { padding-top: 1.25rem; }
   .hero__titel { font-size: clamp(4.6rem, 27vw, 8rem); }
-  .scheibe { position: relative; grid-column: 1 / -1; grid-row: 2; width: 128%; right: auto; bottom: auto; top: auto; margin: -.6rem 0 0 -8%; opacity: 1; }
-  .hero__unten { grid-column: 1 / -1; grid-row: 3; margin-top: 1rem; }
+  .hero__unten { grid-column: 1 / -1; grid-row: 2; margin-top: 1.5rem; }
   .hero__aktion .btn { width: 100%; }
 }
 
@@ -395,18 +381,8 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .schritt { display: grid; gap: .8rem; }
 .schritt__kopf { display: flex; align-items: baseline; gap: .8rem; }
 .schritt__titel { font-family: var(--f-cond); font-weight: 700; font-size: var(--t-lead); }
-.mini-scheibe { position: relative; cursor: crosshair; touch-action: manipulation; }
-.mini-scheibe svg { width: 100%; height: auto; }
-.mini-scheibe .zone { transition: fill-opacity .25s, opacity .25s; }
-.mini-scheibe .zone--rand { opacity: .38; }
-.mini-scheibe:hover .zone--rand { opacity: .6; }
-.mini-scheibe:hover .zone, .mini-scheibe:focus-within .zone { fill-opacity: .16; }
-.mini-scheibe__hinweis { font-size: var(--t-klein); color: var(--kreide-3); }
-.mini-scheibe button { position: absolute; inset: 0; opacity: 0; cursor: crosshair; }
 
-.groesse { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.25rem; align-items: center; }
-.muenze-vergleich { width: 9rem; height: 9rem; position: relative; }
-.muenze-vergleich svg { width: 100%; height: 100%; overflow: hidden; }
+.groesse { display: grid; gap: 1.25rem; }
 .regler { display: grid; gap: .4rem; }
 .regler output { font-family: var(--f-display); font-weight: 900; font-size: var(--t-mittel); line-height: 1; }
 .regler output small { font-size: .5em; margin-left: .15em; }
@@ -418,9 +394,9 @@ input[type="range"]::-moz-range-track { height: 6px; background: var(--asphalt-3
 input[type="range"]::-moz-range-progress { height: 6px; background: var(--rot-hell); }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; width: 1.5rem; height: 1.85rem; margin-top: -.8rem; background: var(--kreide); border: 0;
-  clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%);
+ 
 }
-input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; background: var(--kreide); border: 0; border-radius: 0; clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%); }
+input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; background: var(--kreide); border: 0; border-radius: 0; }
 .regler__skala { display: flex; justify-content: space-between; gap: .5rem; text-align: center; font-size: var(--t-klein); color: var(--kreide-3); font-family: var(--f-cond); font-weight: 400; }
 
 .wahl { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border: 2px solid var(--asphalt-3); }
@@ -457,8 +433,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
   .test { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 480px) {
-  .groesse { grid-template-columns: minmax(0, 1fr); }
-  .muenze-vergleich { width: 7.5rem; height: 7.5rem; }
   .urteil dl div { grid-template-columns: minmax(0, 1fr); gap: .2rem; }
 }
 
@@ -550,8 +524,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 .js .blase.is-da { opacity: 1; transform: none; }
 .blase--kunde { align-self: flex-end; background: var(--kreide); color: var(--tinte); border-bottom-right-radius: .25rem; }
 .blase--aza { align-self: flex-start; background: var(--rot); color: var(--kreide); border-bottom-left-radius: .25rem; }
-.blase--foto { padding: .3rem; width: 56%; }
-.blase--foto svg { width: 100%; border-radius: .7rem; }
 .verlauf__hinweis { margin-top: 1rem; font-size: var(--t-klein); color: var(--kreide-3); }
 .tippt { align-self: flex-start; background: var(--asphalt-3); border-radius: 1rem; padding: .7rem .85rem; display: none; gap: .3rem; }
 .tippt.is-da { display: flex; }
@@ -570,7 +542,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
   .schritte { margin-top: 3rem; }
 }
 @media (max-width: 480px) {
-  .blase--foto { width: 50%; }
 }
 
 /* ==========================================================================
@@ -780,14 +751,10 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
   /* Start: Überschrift, Scheibe und WhatsApp-Knopf auf dem ersten Bildschirm */
   .hero .wrap { padding-bottom: 2rem; }
   .hero__titel { font-size: clamp(4.2rem, 23vw, 7rem); }
-  .scheibe { margin-top: -1rem; }
   .hero__unten { margin-top: 0; gap: 1.1rem; }
-  .hero__aktion { order: -1; }
   /* 2-Euro-Test */
   .test { margin-top: 1.75rem; gap: .75rem; }
   .test__buehne { gap: 1.25rem; }
-  .groesse { grid-template-columns: 5.5rem minmax(0, 1fr); gap: .9rem; }
-  .muenze-vergleich { width: 5.5rem; height: 5.5rem; }
   .urteil { gap: 1.25rem; }
   .urteil dl { margin-top: .75rem; }
   .urteil dl div { padding: .3rem 0; }

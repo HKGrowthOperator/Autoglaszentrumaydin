@@ -84,3 +84,7 @@ Noch mit dem Betrieb zu klären:
 - Leistung „Firmen & Fuhrparks“ und „auch für US-Cars“: stehen im Entwurf, eine Quelle dafür ist hier nicht notiert.
 - 50 km mobiler Service: Luftlinie oder Fahrstrecke? Der Prüfer auf der Karte rechnet Luftlinie.
 - Feiertage: Die Anzeige „Heute offen bis 18:00“ kennt keine Feiertage.
+
+## Stand 13. November 2026: Hallmark und keine gezeichneten Grafiken mehr
+
+Geprüft und ausgebessert mit dem Skill `hallmark` (Tiefe: ausbessern). Der Shop steht als erster Menüpunkt im Kopf und als Abschnitt direkt nach dem Startbild. Auf Wunsch sind alle gezeichneten Grafiken entfernt: die Windschutzscheibe mit Regen und Wischern im Startbild, die Mini-Scheibe und die 2-Euro-Münze im Test, das gezeichnete Foto im Chat und das Siegel auf dem Fahrzeugschein. Geblieben sind das Logo, die Bedien-Symbole, die echten Fotos (Instagram, Shop mit Bildnachweis) und die Karte aus Geodaten (Natural Earth).

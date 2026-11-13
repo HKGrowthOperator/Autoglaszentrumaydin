@@ -5,8 +5,6 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-  const lerp = (a, b, t) => a + (b - a) * t;
   const NS = 'http://www.w3.org/2000/svg';
   const el = (tag, attrs = {}, parent) => {
     const n = document.createElementNS(NS, tag);
@@ -14,7 +12,6 @@
     if (parent) parent.appendChild(n);
     return n;
   };
-  const rng = (seed) => () => { seed |= 0; seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 
   /* ------------------------------------------------------------------
      1 · Öffnungsstatus (Europe/Berlin, Mo bis Sa 9:30 bis 18:00)
@@ -67,169 +64,25 @@
   }
 
   /* ------------------------------------------------------------------
-     3 · Hero: Regen auf der Scheibe, zwei Wischer
-  ------------------------------------------------------------------ */
-  function regen() {
-    const box = $('[data-scheibe]'); const cv = $('[data-regen]');
-    if (!box || !cv || !cv.getContext) return;
-    const ctx = cv.getContext('2d');
-    const VW = 1000, VH = 560;
-    const glas = new Path2D('M120 30C380-4 620-4 880 30C905 33 920 48 928 70L994 470C999 500 985 520 955 524C650 560 350 560 45 524C15 520 1 500 6 470L72 70C80 48 95 33 120 30Z');
-    const R = rng(42);
-    const groessen = [1.5, 2.1, 2.8, 3.6, 4.6, 6];
-    let W = 0, H = 0, s = 1, sprites = [];
-    let tropfen = [];
-    const wischer = [
-      { px: 250, py: 552, len: 445, ruhe: 9, oben: 121, alt: 9, a: 9, verz: 0 },
-      { px: 590, py: 552, len: 402, ruhe: 7, oben: 116, alt: 7, a: 7, verz: 0.07 }
-    ];
-
-    function sprite(r) {
-      const d = Math.ceil(r * s * 2 * 1.7) + 4; const c = document.createElement('canvas'); c.width = c.height = d;
-      const g = c.getContext('2d'); const m = d / 2; const rr = r * s;
-      g.fillStyle = 'rgba(0,0,0,0.38)'; g.beginPath(); g.ellipse(m + rr * 0.22, m + rr * 0.34, rr, rr * 0.96, 0, 0, Math.PI * 2); g.fill();
-      const gr = g.createRadialGradient(m - rr * 0.32, m - rr * 0.38, rr * 0.05, m, m, rr * 1.05);
-      gr.addColorStop(0, 'rgba(255,255,255,0.62)'); gr.addColorStop(0.45, 'rgba(190,220,225,0.16)'); gr.addColorStop(1, 'rgba(10,20,24,0.32)');
-      g.fillStyle = gr; g.beginPath(); g.arc(m, m, rr, 0, Math.PI * 2); g.fill();
-      g.strokeStyle = 'rgba(255,255,255,0.4)'; g.lineWidth = Math.max(0.8, rr * 0.16);
-      g.beginPath(); g.arc(m, m, rr * 0.78, 0.15 * Math.PI, 0.62 * Math.PI); g.stroke();
-      g.fillStyle = 'rgba(255,255,255,0.9)'; g.beginPath(); g.arc(m - rr * 0.36, m - rr * 0.4, Math.max(0.6, rr * 0.2), 0, Math.PI * 2); g.fill();
-      return c;
-    }
-    function groesse() {
-      const r = box.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = cv.width = Math.max(1, Math.round(r.width * dpr)); H = cv.height = Math.max(1, Math.round(r.height * dpr));
-      s = W / VW;
-      sprites = groessen.map(sprite);
-    }
-    function neu(n) {
-      for (let i = 0; i < n; i++) {
-        const k = R() < 0.82 ? Math.floor(R() * 4) : 4 + Math.floor(R() * 2);
-        tropfen.push({ x: 60 + R() * 880, y: 40 + R() * 490, k, vy: 0, lauf: k >= 4 && R() < 0.5, w: R() * 6.28 });
-      }
-    }
-    function zeichneWischer(w) {
-      const rad = (w.a * Math.PI) / 180; const dx = Math.cos(rad), dy = -Math.sin(rad);
-      const x1 = w.px + dx * w.len, y1 = w.py + dy * w.len;
-      ctx.lineCap = 'round';
-      ctx.strokeStyle = 'rgba(0,0,0,0.35)'; ctx.lineWidth = 12;
-      ctx.beginPath(); ctx.moveTo(w.px + 4, w.py + 6); ctx.lineTo(x1 + 4, y1 + 6); ctx.stroke();
-      ctx.strokeStyle = '#0d0b0b'; ctx.lineWidth = 9;
-      ctx.beginPath(); ctx.moveTo(w.px, w.py); ctx.lineTo(w.px + dx * w.len * 0.55, w.py + dy * w.len * 0.55); ctx.stroke();
-      ctx.strokeStyle = '#141111'; ctx.lineWidth = 7;
-      ctx.beginPath(); ctx.moveTo(w.px + dx * w.len * 0.08, w.py + dy * w.len * 0.08); ctx.lineTo(x1, y1); ctx.stroke();
-      ctx.strokeStyle = 'rgba(255,255,255,0.14)'; ctx.lineWidth = 1.6;
-      ctx.beginPath(); ctx.moveTo(w.px + dx * w.len * 0.1 - dy * 3, w.py + dy * w.len * 0.1 + dx * 3); ctx.lineTo(x1 - dy * 3, y1 + dx * 3); ctx.stroke();
-    }
-    const ease = (t) => 0.5 - Math.cos(Math.PI * t) / 2;
-    const ZYKLUS = 6.8, HOCH = 0.78;
-    let t0 = performance.now(), laeuft = false, sichtbar = true, raf = 0;
-
-    function bild(now) {
-      raf = 0;
-      const t = (now - t0) / 1000;
-      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, W, H);
-      ctx.setTransform(s, 0, 0, s, 0, 0);
-      ctx.save(); ctx.clip(glas);
-      if (!ruhig && tropfen.length < 360) neu(2);
-      for (const w of wischer) {
-        const u = ((t - w.verz) % ZYKLUS + ZYKLUS) % ZYKLUS;
-        let p = 0;
-        if (!ruhig) { if (u < HOCH) p = ease(u / HOCH); else if (u < HOCH * 2) p = ease(1 - (u - HOCH) / HOCH); }
-        w.alt = w.a; w.a = lerp(w.ruhe, w.oben, p);
-        const lo = Math.min(w.alt, w.a) - 1.5, hi = Math.max(w.alt, w.a) + 1.5;
-        if (hi - lo > 3.2) {
-          tropfen = tropfen.filter((d) => {
-            const dx = d.x - w.px, dy = w.py - d.y; const dist = Math.hypot(dx, dy);
-            if (dist < 30 || dist > w.len + 6) return true;
-            const ang = (Math.atan2(dy, dx) * 180) / Math.PI;
-            return ang < lo || ang > hi;
-          });
-        }
-      }
-      for (const d of tropfen) {
-        if (d.lauf && !ruhig) { d.vy = Math.min(d.vy + 0.004, 0.55); d.y += d.vy; d.x += Math.sin((d.w += 0.05)) * 0.12; }
-        const sp = sprites[d.k]; const z = sp.width / s;
-        ctx.drawImage(sp, d.x - z / 2, d.y - z / 2, z, z);
-      }
-      tropfen = tropfen.filter((d) => d.y < 540);
-      for (const w of wischer) zeichneWischer(w);
-      ctx.restore();
-      if (laeuft && sichtbar && !ruhig) raf = requestAnimationFrame(bild);
-    }
-    const start = () => { if (!raf && !ruhig) { laeuft = true; raf = requestAnimationFrame(bild); } };
-    groesse(); neu(ruhig ? 260 : 120);
-    if (ruhig) bild(performance.now()); else start();
-    new ResizeObserver(() => { groesse(); if (ruhig || !raf) bild(performance.now()); }).observe(box);
-    new IntersectionObserver(([e]) => { sichtbar = e.isIntersecting; if (sichtbar) start(); }, { threshold: 0 }).observe(box);
-    document.addEventListener('visibilitychange', () => { sichtbar = !document.hidden; if (sichtbar) start(); });
-  }
-
-  /* ------------------------------------------------------------------
      4 · 2-Euro-Test
   ------------------------------------------------------------------ */
   function test() {
     const root = $('[data-test]'); if (!root) return;
     const range = $('[data-groesse]', root); const wert = $('[data-groesse-wert]', root);
-    const chipG = $('[data-chip]', root); const sterne = $('[data-sterne]', root);
-    const mini = $('[data-mini]', root); const miniSvg = $('svg', mini); const miniChip = $('[data-mini-chip]', root);
     const urteil = $('[data-urteil]');
-    const MM = 52 / 12.875; // SVG-Einheiten pro mm (2-Euro: 25,75 mm)
-    const R = rng(7);
-    const beine = Array.from({ length: 9 }, (_, i) => ({ a: (i / 9) * Math.PI * 2 + (R() - 0.5) * 0.5, l: 0.7 + R() * 0.32 }));
-    for (let i = 0; i < 12; i++) {
-      const a = (i / 12) * Math.PI * 2 - Math.PI / 2;
-      el('path', { d: star(Math.cos(a) * 44, Math.sin(a) * 44, 2.6), opacity: '.9' }, sterne);
-    }
-    function star(cx, cy, r) {
-      let d = '';
-      for (let i = 0; i < 10; i++) { const a = (i / 10) * Math.PI * 2 - Math.PI / 2; const rr = i % 2 ? r * 0.45 : r; d += (i ? 'L' : 'M') + (cx + Math.cos(a) * rr).toFixed(2) + ' ' + (cy + Math.sin(a) * rr).toFixed(2); }
-      return d + 'Z';
-    }
-    const presets = { frei: [270, 112], sicht: [95, 112], rand: [362, 70] };
     let ort = 'frei';
 
-    function zone(x, y) {
-      if (y < 12 || y > 206) return null;
-      const xl = 52 - (y - 18) * (44 / 182), xr = 348 + (y - 18) * (44 / 182);
-      if (x < xl || x > xr) return null;
-      if (y < 34 || y > 184 || x < xl + 22 || x > xr - 22) return 'rand';
-      if (x >= 52 && x <= 138) return 'sicht';
-      return 'frei';
-    }
-    mini.addEventListener('click', (e) => {
-      const pt = miniSvg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
-      const p = pt.matrixTransform(miniSvg.getScreenCTM().inverse());
-      const z = zone(p.x, p.y); if (!z) return;
-      ort = z; miniChip.setAttribute('transform', `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`);
-      $(`input[name="ort"][value="${z}"]`, root).checked = true;
-      auswerten();
-    });
     $$('input[name="ort"]', root).forEach((r) => r.addEventListener('change', () => {
-      ort = r.value; const [x, y] = presets[ort];
-      miniChip.setAttribute('transform', `translate(${x} ${y})`); auswerten();
+      ort = r.value; auswerten();
     }));
     $$('input[name="riss"]', root).forEach((r) => r.addEventListener('change', auswerten));
     range.addEventListener('input', auswerten);
 
-    function chip(d, riss) {
-      chipG.textContent = '';
-      const r = (d / 2) * MM;
-      const g = el('g', { fill: 'none', stroke: 'oklch(0.98 0.01 80)', 'stroke-linecap': 'round' }, chipG);
-      el('circle', { r: Math.max(1.4, r * 0.3).toFixed(2), fill: 'oklch(0.98 0.01 80 / .35)', 'stroke-width': 1.3 }, g);
-      let pd = '';
-      for (const b of beine) { const r0 = Math.max(1.4, r * 0.3); pd += `M${(Math.cos(b.a) * r0).toFixed(2)} ${(Math.sin(b.a) * r0).toFixed(2)}L${(Math.cos(b.a) * r * b.l).toFixed(2)} ${(Math.sin(b.a) * r * b.l).toFixed(2)}`; }
-      el('path', { d: pd, 'stroke-width': clamp(r / 14, 0.9, 1.8) }, g);
-      if (riss) el('path', { d: `M${r * 0.7} ${r * 0.2}C${r + 14} 8 ${r + 22} -14 ${r + 40} -6S ${r + 60} 20 ${r + 86} 12`, 'stroke-width': 1.6 }, g);
-      el('circle', { r: 52, 'stroke-dasharray': '3 4', stroke: 'oklch(0.98 0.01 80 / .5)', 'stroke-width': 1 }, g);
-    }
     function auswerten() {
       const d = parseInt(range.value, 10);
       const riss = $('input[name="riss"]:checked', root).value === 'ja';
       range.style.setProperty('--p', ((d - 1) / 39) * 100 + '%');
       wert.innerHTML = `${d}<small>mm</small>`;
-      chip(d, riss);
       let art = 'reparatur', grund;
       if (riss) { art = 'tausch'; grund = 'Sobald ein Riss rausläuft, hält keine Reparatur mehr. Die Scheibe muss neu.'; }
       else if (d > 26) { art = 'tausch'; grund = `${d} mm ist größer als eine 2-Euro-Münze. Das lässt sich nicht mehr sauber füllen.`; }
@@ -426,7 +279,7 @@
   }
 
   const sicher = (fn) => { try { fn(); } catch (err) { console.error('[Entwurf]', fn.name, err); } };
-  [oeffnung, kopf, regen, test, chat, karte, auftritte].forEach(sicher);
+  [oeffnung, kopf, test, chat, karte, auftritte].forEach(sicher);
   setInterval(() => sicher(oeffnung), 60000);
   const fertig = () => document.documentElement.classList.add('is-geladen');
   (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(fertig));
