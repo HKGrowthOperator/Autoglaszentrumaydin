@@ -3,3 +3,7 @@
 # Arbeitsdateien der Skills: Screenshots und Messberichte nicht einchecken
 .taste-skill/*/
 !.taste-skill/*.md
+
+# Arbeitsdateien von Hallmark (Screenshots, Vorher-Aufnahmen)
+.hallmark/*
+!.hallmark/*.md

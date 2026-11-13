@@ -1,3 +1,6 @@
+/* Hallmark · checked: 2026-11-13 · genre: editorial (inferred: lokale Autoglas-Werkstatt mit Shop)
+ * floor: siehe Sweep · fixed: 26a, 34, 40, 48, 50, 55a, 62, 63, 67 · structural: printed (58, 59, 77)
+ * built: the project · redesign: polish · v2.0.0 */
 /* ==========================================================================
    Shop · ergänzt site.css
    ========================================================================== */
@@ -19,38 +22,37 @@
 
 /* Fahrzeugschein */
 .schein {
-  --papier: oklch(0.925 0.035 150);
-  background: var(--papier);
-  color: oklch(0.25 0.03 160);
+  background: var(--schein-papier);
+  color: var(--schein-tinte);
   padding: 1.25rem 1.3rem 1.4rem;
   transform: rotate(1.2deg);
   font-family: var(--f-cond);
 }
-.schein__kopf { display: flex; justify-content: space-between; align-items: start; gap: 1rem; border-bottom: 1.5px solid oklch(0.35 0.04 160 / .35); padding-bottom: .7rem; margin-bottom: .9rem; }
+.schein__kopf { display: flex; justify-content: space-between; align-items: start; gap: 1rem; border-bottom: 1.5px solid var(--schein-linie); padding-bottom: .7rem; margin-bottom: .9rem; }
 .schein__kopf b { font-size: var(--t-text); font-weight: 800; letter-spacing: .02em; display: block; }
 .schein__kopf small { font-size: var(--t-klein); opacity: .75; }
 .schein__adler { width: 2.4rem; height: 2.4rem; flex: none; opacity: .5; }
-.schein__raster { display: grid; grid-template-columns: repeat(6, 1fr); gap: .5rem .9rem; }
+.schein__raster { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .5rem .9rem; }
 .feld { display: grid; gap: .15rem; grid-column: span 3; }
 .feld--2 { grid-column: span 2; } .feld--4 { grid-column: span 4; } .feld--6 { grid-column: span 6; }
 .feld__nr { font-size: var(--t-klein); font-weight: 800; letter-spacing: .04em; opacity: .7; }
-.feld__wert { font-size: var(--t-text); font-weight: 650; letter-spacing: .04em; color: oklch(0.3 0.03 160 / .6); border-bottom: 1px dotted oklch(0.35 0.04 160 / .35); padding-bottom: .15rem; min-height: 1.6rem; } /* taste-skill-ignore: Schreiblinie im nachgebauten Fahrzeugschein */
+.feld__wert { font-size: var(--t-text); font-weight: 650; letter-spacing: .04em; color: var(--schein-leer); border-bottom: 1px dotted var(--schein-linie); padding-bottom: .15rem; min-height: 1.6rem; } /* taste-skill-ignore: Schreiblinie im nachgebauten Fahrzeugschein */
 .feld--aktiv { position: relative; }
 .feld--aktiv .feld__nr { color: var(--rot-tief); opacity: 1; }
 .feld--aktiv input {
-  width: 100%; border: 2.5px solid var(--rot); border-radius: 0; background: oklch(1 0 0 / .65);
+  width: 100%; border: 2.5px solid var(--rot); border-radius: 0; background: var(--feld-hell);
   padding: .55rem .6rem; font-family: var(--f-cond); font-weight: 800; font-size: var(--t-lead); letter-spacing: .14em;
   text-transform: uppercase; color: var(--tinte);
 }
-.feld--aktiv input::placeholder { color: oklch(0.45 0.03 160 / .55); letter-spacing: .06em; font-weight: 600; font-size: var(--t-text); }
+.feld--aktiv input::placeholder { color: var(--schein-platzhalter); letter-spacing: .06em; font-weight: 600; font-size: var(--t-text); }
 .feld--aktiv input:focus-visible { outline: 3px solid var(--tinte); outline-offset: 2px; }
-.feld--aktiv[data-fehler="true"] input { border-color: var(--tinte); background: oklch(0.95 0.05 30); }
-.schein__hinweis { grid-column: 1 / -1; font-size: var(--t-klein); color: oklch(0.3 0.03 160 / .85); margin-top: .3rem; }
+.feld--aktiv[data-fehler="true"] input { border-color: var(--tinte); background: var(--feld-fehler); }
+.schein__hinweis { grid-column: 1 / -1; font-size: var(--t-klein); color: var(--schein-hinweis); margin-top: .3rem; }
 .finder__aktion { display: flex; flex-wrap: wrap; gap: 1rem 1.4rem; align-items: center; margin-top: 1.6rem; }
 .finder__antwort { color: var(--kreide); font-size: var(--t-text); max-width: 40ch; min-height: 1.5em; }
 .finder__antwort b { font-family: var(--f-cond); }
 @media (max-width: 520px) {
-  .schein__raster { grid-template-columns: repeat(2, 1fr); }
+  .schein__raster { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .feld, .feld--2, .feld--4 { grid-column: span 1; } .feld--6 { grid-column: span 2; }
   .schein { transform: none; }
 }
@@ -65,29 +67,30 @@
 }
 .filter button span { display: inline-block; transform: skewX(13deg); }
 .filter button[aria-pressed="true"] { background: var(--tinte); color: var(--kreide); }
-.filter button:hover:not([aria-pressed="true"]) { background: oklch(0.2 0.012 28 / .07); }
+.filter button:hover:not([aria-pressed="true"]) { background: var(--hover-hell); }
 .filter button small { font-weight: 600; opacity: .65; margin-left: .3rem; }
 /* Warenkorb-Schublade */
-.schublade-schatten { position: fixed; inset: 0; z-index: 95; background: oklch(0.12 0.01 28 / .55); opacity: 0; pointer-events: none; transition: opacity .4s; }
+.schublade-schatten { position: fixed; inset: 0; z-index: 95; background: var(--abdunkeln); opacity: 0; pointer-events: none; transition: opacity .4s; }
 .schublade-schatten.is-offen { opacity: 1; pointer-events: auto; }
 .schublade {
   position: fixed; top: 0; right: 0; bottom: 0; z-index: 96; width: min(28rem, 100%);
   background: var(--kreide); color: var(--tinte); display: grid; grid-template-rows: auto 1fr auto;
-  transform: translateX(102%); transition: transform .55s var(--ease-out); visibility: hidden;
+  transition: transform .55s var(--ease-out);
 }
-.schublade.is-offen { transform: none; visibility: visible; }
+.js .schublade:not(.is-offen) { transform: translateX(102%); visibility: hidden; }
+html:not(.js) .schublade { position: static; width: auto; }
 .schublade__kopf { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; background: var(--asphalt); color: var(--kreide); }
 .schublade__kopf h2 { font-family: var(--f-display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: var(--t-mittel); line-height: 1; }
 .schublade__zu { background: none; border: 0; cursor: pointer; font-family: var(--f-cond); font-weight: 800; font-style: italic; text-transform: uppercase; font-size: var(--t-text); padding: .5rem 0; }
 .schublade__liste { overflow-y: auto; padding: .5rem 1.5rem; list-style: none; margin: 0; }
-.posten { display: grid; grid-template-columns: 3.6rem 1fr auto; gap: .9rem; align-items: center; padding: .8rem 0; }
+.posten { display: grid; grid-template-columns: 3.6rem minmax(0, 1fr) auto; gap: .9rem; align-items: center; padding: .8rem 0; }
 .posten__bild { width: 3.6rem; height: 3.6rem; background: var(--kreide-2); display: block; overflow: hidden; }
 .posten__bild img { width: 100%; height: 100%; object-fit: cover; }
 .posten b { font-family: var(--f-cond); font-weight: 800; display: block; line-height: 1.15; }
 .posten small { color: var(--grau); font-size: var(--t-klein); }
-.menge { display: inline-flex; align-items: center; margin-top: .4rem; border: 1.5px solid oklch(0.2 0.012 28 / .3); }
+.menge { display: inline-flex; align-items: center; margin-top: .4rem; border: 1.5px solid var(--linie); }
 .menge button { width: 2rem; height: 2rem; border: 0; background: none; cursor: pointer; font-weight: 800; font-size: var(--t-text); }
-.menge button:hover { background: oklch(0.2 0.012 28 / .07); }
+.menge button:hover { background: var(--hover-hell); }
 .menge output { min-width: 1.8rem; text-align: center; font-family: var(--f-cond); font-weight: 800; }
 .posten__preis { font-family: var(--f-cond); font-weight: 800; font-size: var(--t-text); text-align: right; }
 .posten__weg { display: block; margin-top: .3rem; background: none; border: 0; padding: 0; cursor: pointer; font-size: var(--t-klein); color: var(--grau); text-decoration: underline; }
@@ -96,7 +99,7 @@
 .schublade__fuss { padding: 1.25rem 1.5rem 1.5rem; display: grid; gap: .9rem; background: var(--kreide-2); }
 .liefer { display: grid; gap: .35rem; border: 0; padding: 0; margin: 0; }
 .liefer legend { font-family: var(--f-cond); font-weight: 800; font-size: var(--t-text); margin-bottom: .3rem; }
-.liefer label { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: .55rem .75rem; border: 1.5px solid oklch(0.2 0.012 28 / .2); cursor: pointer; font-size: var(--t-text); }
+.liefer label { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: .55rem .75rem; border: 1.5px solid var(--linie-leicht); cursor: pointer; font-size: var(--t-text); }
 .liefer label:has(input:checked) { border-color: var(--tinte); background: var(--kreide); }
 .liefer input { accent-color: var(--rot); margin-right: .55rem; }
 .liefer span { display: flex; align-items: center; }
@@ -113,45 +116,46 @@
 .korb-knopf svg { flex: none; }
 .schublade .schublade__liste { padding: .25rem 1.5rem; }
 @media (max-width: 960px) { .kopf .wrap { gap: 1rem; } }
+@media (max-width: 380px) { .kopf .logo { width: 8.75rem; } .korb-knopf + .menu-knopf { margin-left: .75rem; } .schein { padding: 1rem .9rem 1.1rem; } .schein__raster { gap: .5rem .6rem; } }
 .entwurf-hinweis { font-family: var(--f-cond); font-weight: 700; font-size: var(--t-text); color: var(--kreide-3); }
 
 /* ---------- Shop-Hero mit Foto ---------- */
 .shop-hero { position: relative; background: var(--asphalt); color: var(--kreide); overflow: hidden; isolation: isolate; min-height: min(78svh, 46rem); display: grid; grid-template-rows: 1fr auto; }
 .shop-hero__bild { position: absolute; inset: 0 0 0 auto; width: min(70%, 70rem); height: 100%; object-fit: cover; object-position: 55% 50%; z-index: -2; }
 .shop-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; /* taste-skill-ignore: neutrale Abdunklung über dem Foto */
-  background: linear-gradient(90deg, var(--asphalt) 0%, /* taste-skill-ignore */ var(--asphalt) 30%, oklch(0.185 0.012 28 / .82) 46%, oklch(0.185 0.012 28 / .2) 72%, oklch(0.185 0.012 28 / .35) 100%),
+  background: linear-gradient(90deg, var(--asphalt) 0%, /* taste-skill-ignore */ var(--asphalt) 30%, color-mix(in oklch, var(--asphalt) 82%, transparent) 46%, color-mix(in oklch, var(--asphalt) 20%, transparent) 72%, color-mix(in oklch, var(--asphalt) 35%, transparent) 100%),
               linear-gradient(0deg, var(--asphalt) 0%, transparent 28%); } /* taste-skill-ignore */
 .shop-hero__inhalt { display: grid; gap: 1.4rem; align-content: center; padding-block: clamp(2.5rem, 6vw, 5rem) 2rem; }
 .shop-hero__inhalt .display { font-size: var(--t-riesig); line-height: .8; }
 .shop-hero__inhalt .lead { max-width: 30ch; color: var(--kreide-2); }
 .shop-hero__aktion { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: .4rem; }
-.shop-hero__fakten { list-style: none; margin: 0 auto; padding-bottom: clamp(1.5rem, 3vw, 2.5rem); display: grid; grid-template-columns: repeat(3, 1fr); }
+.shop-hero__fakten { list-style: none; margin: 0 auto; padding-bottom: clamp(1.5rem, 3vw, 2.5rem); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .shop-hero__fakten li { display: grid; gap: .1rem; padding: 1rem 1.25rem 0 0; }
 .shop-hero__fakten b { font-family: var(--f-display); font-style: italic; font-weight: 880; text-transform: uppercase; font-size: var(--t-lead); line-height: 1; }
 .shop-hero__fakten span { font-family: var(--f-cond); font-weight: 600; color: var(--kreide-3); }
 @media (max-width: 760px) {
   .shop-hero { min-height: 0; }
   .shop-hero__bild { width: 100%; height: 58%; inset: 0 0 auto 0; object-position: 60% 50%; }
-  .shop-hero::before { background: linear-gradient(0deg, var(--asphalt) 0%, var(--asphalt) 45%, oklch(0.185 0.012 28 / .55) 62%, oklch(0.185 0.012 28 / .25) 100%); } /* taste-skill-ignore: Abdunklung über dem Foto */
+  .shop-hero::before { background: linear-gradient(0deg, var(--asphalt) 0%, var(--asphalt) 45%, color-mix(in oklch, var(--asphalt) 55%, transparent) 62%, color-mix(in oklch, var(--asphalt) 25%, transparent) 100%); } /* taste-skill-ignore: Abdunklung über dem Foto */
   .shop-hero__inhalt { padding-top: 13rem; }
-  .shop-hero__fakten { grid-template-columns: 1fr; gap: .2rem; }
-  .shop-hero__fakten li { grid-template-columns: auto 1fr; gap: .75rem; align-items: baseline; padding: .7rem 0; }
+  .shop-hero__fakten { grid-template-columns: minmax(0, 1fr); gap: .2rem; }
+  .shop-hero__fakten li { grid-template-columns: auto minmax(0, 1fr); gap: .75rem; align-items: baseline; padding: .7rem 0; }
   .shop-hero__aktion .btn { flex: 1 1 100%; }
 }
 
 /* ---------- Finder-Band ---------- */
 .finder-band { padding-block: clamp(4rem, 8vw, 7rem); }
-.finder-band .wrap { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.25rem; align-items: center; }
+.finder-band .wrap { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.25rem; align-items: center; }
 .finder-band__text { grid-column: 1 / span 5; display: grid; gap: 1.25rem; }
-.finder-band__text .lead { color: oklch(0.96 0.025 40); max-width: 34ch; }
+.finder-band__text .lead { color: var(--kreide); max-width: 34ch; }
 .schein-box { grid-column: 7 / -1; }
 @media (max-width: 1080px) { .finder-band__text, .schein-box { grid-column: 1 / -1; } .schein-box { margin-top: 1.5rem; } }
 
 /* ---------- Sortiment: Fotokarten ---------- */
 .sortiment__kopf .h2 { font-size: var(--t-gross); }
-.regal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.25rem 1.25rem; list-style: none; margin: 0; padding: 0; grid-auto-flow: dense; }
+.regal { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.25rem 1.25rem; list-style: none; margin: 0; padding: 0; grid-auto-flow: dense; }
 .regal > li { display: grid; }
-.produkt { display: grid; grid-template-rows: auto 1fr; background: oklch(0.985 0.004 75); position: relative; isolation: isolate; }
+.produkt { display: grid; grid-template-rows: auto 1fr; background: var(--papier-hell); position: relative; isolation: isolate; }
 .produkt__bild { position: relative; overflow: hidden; aspect-ratio: 4 / 3; background: var(--asphalt-3); margin: 0; }
 .produkt__bild img { width: 100%; height: 100%; object-fit: cover; transition: scale 1.2s var(--ease-out); }
 .produkt:hover .produkt__bild img { scale: 1.05; }
@@ -180,9 +184,9 @@
 .produkt__punkte li { display: flex; gap: .55rem; align-items: baseline; }
 .produkt__punkte li::before { content: ""; width: .45rem; height: .45rem; background: var(--rot); flex: none; transform: skewX(-13deg); }
 
-@media (max-width: 1080px) { .regal { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 1080px) { .regal { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 760px) {
-  .regal { grid-template-columns: 1fr 1fr; gap: 1.25rem .75rem; }
+  .regal { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem .75rem; }
   .regal > li.gross { grid-column: 1 / -1; grid-row: auto; }
   .produkt--gross .produkt__bild { min-height: 14rem; }
   .produkt__info { padding: .75rem .75rem .85rem; }
@@ -194,7 +198,7 @@
 .regal__leer { padding: 3rem 0; font-family: var(--f-cond); font-size: var(--t-lead); }
 
 /* ---------- Winterpaket ---------- */
-.winterpaket { display: grid; grid-template-columns: 7fr 5fr; min-height: 34rem; }
+.winterpaket { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); min-height: 34rem; }
 .winterpaket__bild { margin: 0; position: relative; overflow: hidden; }
 .winterpaket__bild img { width: 100%; height: 100%; object-fit: cover; }
 .winterpaket__text { padding: clamp(2.5rem, 5vw, 4.5rem) var(--rand) clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem); display: grid; gap: 1.2rem; align-content: center; }
@@ -208,10 +212,10 @@
 .paket__preis small { font-family: var(--f-cond); font-weight: 700; color: var(--kreide-3); text-decoration: line-through; }
 .paket__preis b { font-family: var(--f-display); font-style: italic; font-weight: 900; font-size: var(--t-mittel); line-height: .9; color: var(--kreide); }
 .paket__preis b sup { font-size: .5em; vertical-align: .62em; }
-@media (max-width: 960px) { .winterpaket { grid-template-columns: 1fr; } .winterpaket__bild { aspect-ratio: 16 / 10; } .winterpaket__text { padding-inline: var(--rand); } }
+@media (max-width: 960px) { .winterpaket { grid-template-columns: minmax(0, 1fr); } .winterpaket__bild { aspect-ratio: 16 / 10; } .winterpaket__text { padding-inline: var(--rand); } }
 
 /* ---------- Montage + Nachweise ---------- */
-.montage { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.25rem; align-items: center; }
+.montage { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.25rem; align-items: center; }
 .montage .h2 { grid-column: 1 / span 7; font-size: var(--t-gross); }
 .montage p { grid-column: 8 / span 5; color: var(--tinte-2); max-width: 36ch; }
 .montage .btn { grid-column: 8 / span 5; justify-self: start; }
@@ -226,6 +230,6 @@
 .regal > li.anfrage { display: grid; }
 .anfrage__kachel { background: var(--rot); color: var(--kreide); padding: 1.4rem 1.25rem; display: grid; gap: .8rem; align-content: end; min-height: 18rem; position: relative; overflow: hidden; }
 .anfrage__titel { font-family: var(--f-display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: var(--t-mittel); line-height: .9; }
-.anfrage__kachel p:not(.anfrage__titel) { font-size: var(--t-text); color: oklch(0.96 0.025 40); }
+.anfrage__kachel p:not(.anfrage__titel) { font-size: var(--t-text); color: var(--kreide); }
 .anfrage__kachel .btn { justify-self: start; }
 @media (max-width: 760px) { .regal > li.anfrage { grid-column: 1 / -1; } .anfrage__kachel { min-height: 0; } }
