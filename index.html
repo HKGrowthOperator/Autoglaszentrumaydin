@@ -9,7 +9,7 @@
 <meta property="og:title" content="Autoglas Zentrum Aydin: Scheibe kaputt?">
 <meta property="og:description" content="Foto per WhatsApp, Rückmeldung in 24 Stunden. Steinschlag mit Teilkasko meist 0 €.">
 <meta property="og:type" content="website">
-<link rel="preload" href="assets/fonts/SofiaSansExtraCondensed-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/SofiaSansExtraCondensed-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/SofiaSans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23fe0000'/%3E%3Cpath d='M9 22l5-12h4l5 12h-3.4l-1-2.6h-5.2l-1 2.6zm5.4-5.2h3.2L16 12.6z' fill='%23fff'/%3E%3C/svg%3E">
@@ -64,14 +64,15 @@
     <a class="logo" href="index.html" aria-label="Autoglas Zentrum Aydin, Startseite"><svg viewBox="-2 0 903 104" aria-hidden="true"><use href="#wortmarke"/></svg></a>
     <nav class="nav" aria-label="Hauptnavigation">
       <ul>
+        <li><a class="nav__shop" href="shop.html"><svg aria-hidden="true"><use href="#i-korb"/></svg>Shop</a></li>
         <li><a href="#leistungen">Leistungen</a></li>
         <li><a href="#kosten">Kosten</a></li>
         <li><a href="#ablauf">Ablauf</a></li>
         <li><a href="#gebiet">Standorte</a></li>
-        <li><a href="shop.html">Shop</a></li>
       </ul>
     </nav>
     <a class="btn btn--klein btn--kopf" href="https://wa.me/4917620908479?text=Hallo%2C%20ich%20habe%20einen%20Glasschaden%20und%20schicke%20euch%20ein%20Foto." data-wa><span><svg aria-hidden="true"><use href="#i-chat"/></svg>Foto schicken</span></a>
+    <a class="kopf__shop" href="shop.html"><svg aria-hidden="true"><use href="#i-korb"/></svg>Shop</a>
     <button class="menu-knopf" type="button" aria-expanded="false" aria-controls="menu" data-menu-auf><i aria-hidden="true"></i>Menü</button>
   </div>
 </header>
@@ -83,12 +84,12 @@
   </div>
   <nav aria-label="Mobile Navigation">
     <ul>
+      <li><a href="shop.html">Shop</a></li>
       <li><a href="#test" data-menu-link>2-Euro-Test</a></li>
       <li><a href="#leistungen" data-menu-link>Leistungen</a></li>
       <li><a href="#kosten" data-menu-link>Kosten</a></li>
       <li><a href="#ablauf" data-menu-link>Ablauf</a></li>
       <li><a href="#gebiet" data-menu-link>Standorte</a></li>
-      <li><a href="shop.html">Shop</a></li>
     </ul>
   </nav>
   <div class="menu__fuss">
@@ -171,6 +172,31 @@
         <a class="btn btn--schwarz" href="https://wa.me/4917620908479?text=Hallo%2C%20ich%20habe%20einen%20Glasschaden%20und%20schicke%20euch%20ein%20Foto." data-wa><span><svg aria-hidden="true"><use href="#i-chat"/></svg>Foto per WhatsApp</span></a>
         <a class="telefon-gross" href="tel:+4920336989833">oder ruf an: <b class="zahl">0203 36989833</b></a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SHOP-TEASER ================= -->
+<section class="sektion asphalt teaser" aria-labelledby="teaser-titel">
+  <div class="wrap">
+    <div class="teaser__text" data-auftritt>
+      <h2 class="h2" id="teaser-titel">Der Shop.</h2>
+      <p>Wischer, Scheibenpflege, Winterkram. Ein Vorschlag im Entwurf: online bestellen, in der Werkstatt abholen.</p>
+      <a class="btn btn--rot" href="shop.html"><span>Zum Shop</span></a>
+    </div>
+    <div class="teaser__regal" aria-label="Auswahl aus dem Shop">
+      <a class="etikett" href="shop.html#wischer" style="text-decoration:none" data-auftritt>
+        <span class="etikett__bild etikett__bild--foto"><img src="assets/img/shop/w-satz.jpg" alt="Wischerarm auf rotem Lack vor der Windschutzscheibe" width="800" height="600" loading="lazy" decoding="async"></span>
+        <span class="etikett__info"><span class="etikett__name">Flachbalken-Wischer, Satz</span><span class="etikett__spec">passend nach Fahrzeugschein</span><span class="etikett__preis"><span class="preis">24<sup>90</sup></span><span class="etikett__grund">Beispielpreis</span></span></span>
+      </a>
+      <a class="etikett" href="shop.html#winter" style="text-decoration:none" data-auftritt>
+        <span class="etikett__bild etikett__bild--foto"><img src="assets/img/shop/p-winter5.jpg" alt="Behälter für Scheibenwaschwasser im Motorraum" width="800" height="600" loading="lazy" decoding="async"></span>
+        <span class="etikett__info"><span class="etikett__name">Winter-Scheibenreiniger 5 L</span><span class="etikett__spec">bis −20 °C, gebrauchsfertig</span><span class="etikett__preis"><span class="preis">12<sup>90</sup></span><span class="etikett__grund">Beispielpreis</span></span></span>
+      </a>
+      <a class="etikett" href="shop.html#winter" style="text-decoration:none" data-auftritt>
+        <span class="etikett__bild etikett__bild--foto"><img src="assets/img/shop/p-kratzer.jpg" alt="Eiskratzer mit kariertem Handschuh" width="800" height="600" loading="lazy" decoding="async"></span>
+        <span class="etikett__info"><span class="etikett__name">Eiskratzer mit Handschuh</span><span class="etikett__spec">Messinglippe, kratzfrei</span><span class="etikett__preis"><span class="preis">7<sup>90</sup></span><span class="etikett__grund">Beispielpreis</span></span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -324,7 +350,7 @@
           <svg viewBox="-2 0 903 104" aria-hidden="true"><use href="#wortmarke"/></svg>
           <small>Beispielrechnung</small>
         </header>
-        <p class="bon__titel">Steinschlag-Reparatur<br><span style="font-weight:600;text-transform:none;letter-spacing:0">mit Teilkasko</span></p>
+        <p class="bon__titel">Steinschlag-Reparatur<br><span class="bon__klein">mit Teilkasko</span></p>
         <p class="bon__zeile"><span>Reparatur mit Harz</span><i></i><b>Versicherung</b></p>
         <p class="bon__zeile"><span>Selbstbeteiligung</span><i></i><b>entfällt meist</b></p>
         <p class="bon__zeile"><span>Beitrag / SF-Klasse</span><i></i><b>bleibt gleich</b></p>
@@ -337,12 +363,12 @@
           <svg viewBox="-2 0 903 104" aria-hidden="true"><use href="#wortmarke"/></svg>
           <small>Beispielrechnung</small>
         </header>
-        <p class="bon__titel">Frontscheibe tauschen<br><span style="font-weight:600;text-transform:none;letter-spacing:0">mit Teilkasko</span></p>
+        <p class="bon__titel">Frontscheibe tauschen<br><span class="bon__klein">mit Teilkasko</span></p>
         <p class="bon__zeile"><span>Scheibe + Einbau</span><i></i><b>Versicherung</b></p>
         <p class="bon__zeile"><span>Kamera kalibrieren</span><i></i><b>Versicherung</b></p>
         <p class="bon__zeile"><span>Beitrag / SF-Klasse</span><i></i><b>bleibt gleich</b></p>
         <p class="bon__zeile"><span>Selbstbeteiligung</span><i></i><b>laut Vertrag</b></p>
-        <p class="bon__summe"><span>Du zahlst<br><small style="font-weight:600;text-transform:none;letter-spacing:0">z. B. deine SB</small></span><b class="zahl">150 €</b></p>
+        <p class="bon__summe"><span>Du zahlst<br><small class="bon__klein">z. B. deine SB</small></span><b class="zahl">150 €</b></p>
         <p class="bon__fuss">30 Jahre Garantie auf Dichtigkeit</p>
       </article>
     </div>
@@ -476,33 +502,8 @@
   </div>
 </section>
 
-<!-- ================= SHOP-TEASER ================= -->
-<section class="sektion rot teaser" aria-labelledby="teaser-titel">
-  <div class="wrap">
-    <div class="teaser__text" data-auftritt>
-      <h2 class="h2" id="teaser-titel">Der Shop.</h2>
-      <p>Wischer, Scheibenpflege, Winterkram. Ein Vorschlag im Entwurf: online bestellen, in der Werkstatt abholen.</p>
-      <a class="btn btn--schwarz" href="shop.html"><span>Zum Shop</span></a>
-    </div>
-    <div class="teaser__regal" aria-label="Auswahl aus dem Shop">
-      <a class="etikett" href="shop.html#wischer" style="text-decoration:none" data-auftritt>
-        <span class="etikett__bild etikett__bild--foto"><img src="assets/img/shop/w-satz.jpg" alt="Wischerarm auf rotem Lack vor der Windschutzscheibe" width="800" height="600" loading="lazy" decoding="async"></span>
-        <span class="etikett__info"><span class="etikett__name">Flachbalken-Wischer, Satz</span><span class="etikett__spec">passend nach Fahrzeugschein</span><span class="etikett__preis"><span class="preis">24<sup>90</sup></span><span class="etikett__grund">Beispielpreis</span></span></span>
-      </a>
-      <a class="etikett" href="shop.html#winter" style="text-decoration:none" data-auftritt>
-        <span class="etikett__bild etikett__bild--foto"><img src="assets/img/shop/p-winter5.jpg" alt="Behälter für Scheibenwaschwasser im Motorraum" width="800" height="600" loading="lazy" decoding="async"></span>
-        <span class="etikett__info"><span class="etikett__name">Winter-Scheibenreiniger 5 L</span><span class="etikett__spec">bis −20 °C, gebrauchsfertig</span><span class="etikett__preis"><span class="preis">12<sup>90</sup></span><span class="etikett__grund">Beispielpreis</span></span></span>
-      </a>
-      <a class="etikett" href="shop.html#winter" style="text-decoration:none" data-auftritt>
-        <span class="etikett__bild etikett__bild--foto"><img src="assets/img/shop/p-kratzer.jpg" alt="Eiskratzer mit kariertem Handschuh" width="800" height="600" loading="lazy" decoding="async"></span>
-        <span class="etikett__info"><span class="etikett__name">Eiskratzer mit Handschuh</span><span class="etikett__spec">Messinglippe, kratzfrei</span><span class="etikett__preis"><span class="preis">7<sup>90</sup></span><span class="etikett__grund">Beispielpreis</span></span></span>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- ================= FAQ ================= -->
-<section class="sektion kreide faq" aria-labelledby="faq-titel">
+<section class="sektion kreide-2 faq" aria-labelledby="faq-titel">
   <div class="wrap">
     <div class="faq__kopf" data-auftritt>
       <h2 class="h2" id="faq-titel">Die hören wir<br>jeden Tag.</h2>
