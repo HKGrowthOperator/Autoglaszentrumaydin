@@ -229,7 +229,8 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
   display: none;
 }
 .nav { margin-left: auto; }
-.nav ul { display: flex; gap: clamp(1rem, 2vw, 2rem); list-style: none; margin: 0; padding: 0; }
+.nav ul { display: flex; align-items: center; gap: clamp(1rem, 2vw, 2rem); list-style: none; margin: 0; padding: 0; }
+.nav li { display: flex; }
 .nav .nav__shop { display: inline-flex; align-items: center; gap: .4rem; }
 .nav__shop svg, .kopf__shop svg { width: 1.2rem; height: 1.2rem; flex: none; }
 .kopf__shop { display: none; }
