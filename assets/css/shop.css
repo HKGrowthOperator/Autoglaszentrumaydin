@@ -145,7 +145,7 @@ html:not(.js) .schublade { position: static; width: auto; }
 /* ---------- Finder-Band ---------- */
 .finder-band { padding-block: clamp(4rem, 8vw, 7rem); }
 .finder-band .wrap { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.25rem; align-items: center; }
-.finder-band__text { grid-column: 1 / span 5; display: grid; gap: 1.25rem; }
+.finder-band__text { grid-column: 1 / span 6; display: grid; gap: 1.25rem; }
 .finder-band__text .lead { color: var(--kreide); max-width: 34ch; }
 .schein-box { grid-column: 7 / -1; }
 @media (max-width: 1080px) { .finder-band__text, .schein-box { grid-column: 1 / -1; } .schein-box { margin-top: 1.5rem; } }

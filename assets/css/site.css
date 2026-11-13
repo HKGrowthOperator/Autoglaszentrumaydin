@@ -207,7 +207,7 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   min-height: 2.35rem;
 }
-.status { color: var(--kreide); }
+.status { color: var(--kreide); white-space: nowrap; }
 .statusbar__rechts { display: flex; gap: 1.5rem; align-items: center; }
 .statusbar a { text-decoration: none; color: var(--kreide-3); }
 .statusbar a:hover { color: var(--kreide); }
@@ -262,6 +262,9 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 }
 
 @media (max-width: 420px) {
+  .kopf .wrap { gap: .75rem; }
+  .statusbar__rechts { gap: .9rem; }
+  .statusbar .zahl { display: none; }
   .kopf .logo { width: 8.75rem; }
   .kopf__shop + .menu-knopf, .korb-knopf + .menu-knopf { margin-left: .9rem; }
 }
@@ -382,7 +385,7 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .test {
   margin-top: clamp(2.5rem, 5vw, 4.5rem);
   display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(1.5rem, 3.5vw, 3.5rem);
-  align-items: stretch;
+  align-items: start;
 }
 .test__buehne {
   background: var(--asphalt); color: var(--kreide);
@@ -418,7 +421,7 @@ input[type="range"]::-webkit-slider-thumb {
   clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%);
 }
 input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; background: var(--kreide); border: 0; border-radius: 0; clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%); }
-.regler__skala { display: flex; justify-content: space-between; font-size: var(--t-klein); color: var(--kreide-3); font-family: var(--f-cond); font-weight: 400; }
+.regler__skala { display: flex; justify-content: space-between; gap: .5rem; text-align: center; font-size: var(--t-klein); color: var(--kreide-3); font-family: var(--f-cond); font-weight: 400; }
 
 .wahl { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border: 2px solid var(--asphalt-3); }
 .wahl input { position: absolute; opacity: 0; pointer-events: none; }
@@ -431,7 +434,7 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 
 .urteil {
   background: var(--kreide-2); padding: clamp(1.5rem, 3vw, 2.75rem);
-  display: grid; align-content: space-between; gap: 2rem;
+  display: grid; align-content: start; gap: 2rem;
   position: relative; overflow: hidden;
 }
 .urteil[data-art="tausch"] { background: var(--rot); color: var(--kreide); }
@@ -708,8 +711,8 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
    FAQ
    ========================================================================== */
 .faq .wrap { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.25rem; }
-.faq__kopf { grid-column: 1 / span 4; }
-.faq__liste { grid-column: 6 / -1; }
+.faq__kopf { grid-column: 1 / span 6; }
+.faq__liste { grid-column: 7 / -1; }
 .faq summary {
   list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem;
   padding: 1.35rem 0; font-family: var(--f-cond); font-weight: 700; font-size: var(--t-lead); line-height: 1.15;
@@ -790,7 +793,7 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
   .urteil dl div { padding: .3rem 0; }
   /* Leistungen als kompakte Liste */
   .leistungen__kopf > div { gap: 1rem; margin-bottom: .5rem; }
-  .liste a { padding: .8rem 0 .85rem; gap: .2rem; }
+  .liste a { padding: .8rem 1rem .85rem; gap: .2rem; }
   /* Kosten: Bons untereinander und kleiner */
   .kosten__kopf { gap: 1rem; padding-top: 0; }
   .kosten__satz { display: none; }
