@@ -8,8 +8,7 @@
 <meta name="theme-color" content="#e2161c">
 <style>
 /* Hallmark · checked: 2026-11-13 · genre: editorial (inferred: lokale Autoglas-Werkstatt mit Shop)
- * floor: 0 FAIL nach Sweep · fixed: 26a, 34, 38ii, 39b, 40, 48, 50, 55a, 62, 63, 67, F3, F4, F19, F21 · structural: printed (25, 58, 59, 77, F15)
- * waive 80: die gezeichnete Scheibe mit Regen und Wischern ist das Erkennungszeichen der Seite, vom Kunden ausdrücklich behalten (PLAN-AUSBESSERN.md, Wurzel)
+ * floor: 0 FAIL nach Sweep · fixed: 26a, 34, 38ii, 80 (alle gezeichneten Grafiken entfernt), 39b, 40, 48, 50, 55a, 62, 63, 67, F3, F4, F19, F21 · structural: printed (25, 58, 59, 77, F15)
  * waive 49b: Bildnachweise nennen die Originaltitel der Fotos wörtlich, dort darf ein Link umbrechen
  * built: the project · redesign: polish · v2.0.0 */
 /* ==========================================================================
@@ -347,12 +346,12 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
   position: relative; display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: 1.25rem;
-  padding-block: clamp(1.25rem, 3.5vw, 3rem) clamp(2.5rem, 5vw, 4.5rem);
+  padding-block: clamp(2.5rem, 6vw, 5rem);
   min-height: inherit;
-  align-content: space-between;
+  align-content: center; align-items: end;
 }
 .hero__titel {
-  grid-column: 1 / span 8; grid-row: 1;
+  grid-column: 1 / span 7; grid-row: 1;
   font-size: var(--t-riesig);
   position: relative; z-index: 3;
   margin-left: -.04em;
@@ -360,10 +359,10 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .hero__titel span { display: block; }
 .hero__titel em { font-style: italic; }
 .hero__unten {
-  grid-column: 1 / span 6; grid-row: 2;
+  grid-column: 8 / -1; grid-row: 1;
   position: relative; z-index: 3;
   display: grid; gap: 1.6rem; align-self: end;
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-bottom: .6em;
 }
 .hero__unten .lead { max-width: 33ch; color: var(--kreide); text-wrap: pretty; }
 .hero__aktion { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem 1.6rem; }
@@ -371,28 +370,15 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .telefon-gross b { font-family: var(--f-display); font-weight: 900; font-size: var(--t-mittel); }
 .telefon-gross:hover b { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px; }
 
-/* Die Scheibe */
-.scheibe {
-  position: absolute; z-index: 2;
-  right: calc(var(--rand) * -1.6);
-  top: clamp(1.5rem, 5vw, 4.5rem);
-  width: min(64vw, 72rem);
-  aspect-ratio: 1000 / 560;
-  pointer-events: none;
-}
-.scheibe svg, .scheibe canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-
 @media (max-width: 1080px) {
   .hero__titel { grid-column: 1 / -1; }
-  .hero__unten { grid-column: 1 / span 9; }
-  .scheibe { width: 80vw; top: clamp(5rem, 11vw, 8rem); bottom: auto; right: -22vw; opacity: .92; }
+  .hero__unten { grid-column: 1 / span 9; grid-row: 2; margin-top: clamp(1.5rem, 4vw, 2.5rem); padding-bottom: 0; }
 }
 @media (max-width: 700px) {
   .hero { min-height: 0; }
   .hero .wrap { padding-top: 1.25rem; }
   .hero__titel { font-size: clamp(4.6rem, 27vw, 8rem); }
-  .scheibe { position: relative; grid-column: 1 / -1; grid-row: 2; width: 128%; right: auto; bottom: auto; top: auto; margin: -.6rem 0 0 -8%; opacity: 1; }
-  .hero__unten { grid-column: 1 / -1; grid-row: 3; margin-top: 1rem; }
+  .hero__unten { grid-column: 1 / -1; grid-row: 2; margin-top: 1.5rem; }
   .hero__aktion .btn { width: 100%; }
 }
 
@@ -435,18 +421,8 @@ ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
 .schritt { display: grid; gap: .8rem; }
 .schritt__kopf { display: flex; align-items: baseline; gap: .8rem; }
 .schritt__titel { font-family: var(--f-cond); font-weight: 700; font-size: var(--t-lead); }
-.mini-scheibe { position: relative; cursor: crosshair; touch-action: manipulation; }
-.mini-scheibe svg { width: 100%; height: auto; }
-.mini-scheibe .zone { transition: fill-opacity .25s, opacity .25s; }
-.mini-scheibe .zone--rand { opacity: .38; }
-.mini-scheibe:hover .zone--rand { opacity: .6; }
-.mini-scheibe:hover .zone, .mini-scheibe:focus-within .zone { fill-opacity: .16; }
-.mini-scheibe__hinweis { font-size: var(--t-klein); color: var(--kreide-3); }
-.mini-scheibe button { position: absolute; inset: 0; opacity: 0; cursor: crosshair; }
 
-.groesse { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.25rem; align-items: center; }
-.muenze-vergleich { width: 9rem; height: 9rem; position: relative; }
-.muenze-vergleich svg { width: 100%; height: 100%; overflow: hidden; }
+.groesse { display: grid; gap: 1.25rem; }
 .regler { display: grid; gap: .4rem; }
 .regler output { font-family: var(--f-display); font-weight: 900; font-size: var(--t-mittel); line-height: 1; }
 .regler output small { font-size: .5em; margin-left: .15em; }
@@ -458,9 +434,9 @@ input[type="range"]::-moz-range-track { height: 6px; background: var(--asphalt-3
 input[type="range"]::-moz-range-progress { height: 6px; background: var(--rot-hell); }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; width: 1.5rem; height: 1.85rem; margin-top: -.8rem; background: var(--kreide); border: 0;
-  clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%);
+ 
 }
-input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; background: var(--kreide); border: 0; border-radius: 0; clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%); }
+input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; background: var(--kreide); border: 0; border-radius: 0; }
 .regler__skala { display: flex; justify-content: space-between; gap: .5rem; text-align: center; font-size: var(--t-klein); color: var(--kreide-3); font-family: var(--f-cond); font-weight: 400; }
 
 .wahl { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border: 2px solid var(--asphalt-3); }
@@ -497,8 +473,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
   .test { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 480px) {
-  .groesse { grid-template-columns: minmax(0, 1fr); }
-  .muenze-vergleich { width: 7.5rem; height: 7.5rem; }
   .urteil dl div { grid-template-columns: minmax(0, 1fr); gap: .2rem; }
 }
 
@@ -590,8 +564,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 .js .blase.is-da { opacity: 1; transform: none; }
 .blase--kunde { align-self: flex-end; background: var(--kreide); color: var(--tinte); border-bottom-right-radius: .25rem; }
 .blase--aza { align-self: flex-start; background: var(--rot); color: var(--kreide); border-bottom-left-radius: .25rem; }
-.blase--foto { padding: .3rem; width: 56%; }
-.blase--foto svg { width: 100%; border-radius: .7rem; }
 .verlauf__hinweis { margin-top: 1rem; font-size: var(--t-klein); color: var(--kreide-3); }
 .tippt { align-self: flex-start; background: var(--asphalt-3); border-radius: 1rem; padding: .7rem .85rem; display: none; gap: .3rem; }
 .tippt.is-da { display: flex; }
@@ -610,7 +582,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
   .schritte { margin-top: 3rem; }
 }
 @media (max-width: 480px) {
-  .blase--foto { width: 50%; }
 }
 
 /* ==========================================================================
@@ -820,14 +791,10 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
   /* Start: Überschrift, Scheibe und WhatsApp-Knopf auf dem ersten Bildschirm */
   .hero .wrap { padding-bottom: 2rem; }
   .hero__titel { font-size: clamp(4.2rem, 23vw, 7rem); }
-  .scheibe { margin-top: -1rem; }
   .hero__unten { margin-top: 0; gap: 1.1rem; }
-  .hero__aktion { order: -1; }
   /* 2-Euro-Test */
   .test { margin-top: 1.75rem; gap: .75rem; }
   .test__buehne { gap: 1.25rem; }
-  .groesse { grid-template-columns: 5.5rem minmax(0, 1fr); gap: .9rem; }
-  .muenze-vergleich { width: 5.5rem; height: 5.5rem; }
   .urteil { gap: 1.25rem; }
   .urteil dl { margin-top: .75rem; }
   .urteil dl div { padding: .3rem 0; }
@@ -889,8 +856,7 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 </style>
 <style>
 /* Hallmark · checked: 2026-11-13 · genre: editorial (inferred: lokale Autoglas-Werkstatt mit Shop)
- * floor: 0 FAIL nach Sweep · fixed: 26a, 34, 38ii, 39b, 40, 48, 50, 55a, 62, 63, 67, F3, F4, F19, F21 · structural: printed (25, 58, 59, 77, F15)
- * waive 80: die gezeichnete Scheibe mit Regen und Wischern ist das Erkennungszeichen der Seite, vom Kunden ausdrücklich behalten (PLAN-AUSBESSERN.md, Wurzel)
+ * floor: 0 FAIL nach Sweep · fixed: 26a, 34, 38ii, 80 (alle gezeichneten Grafiken entfernt), 39b, 40, 48, 50, 55a, 62, 63, 67, F3, F4, F19, F21 · structural: printed (25, 58, 59, 77, F15)
  * waive 49b: Bildnachweise nennen die Originaltitel der Fotos wörtlich, dort darf ein Link umbrechen
  * built: the project · redesign: polish · v2.0.0 */
 /* ==========================================================================
@@ -922,7 +888,6 @@ input[type="range"]::-moz-range-thumb { width: 1.5rem; height: 1.85rem; backgrou
 .schein__kopf { display: flex; justify-content: space-between; align-items: start; gap: 1rem; border-bottom: 1.5px solid var(--schein-linie); padding-bottom: .7rem; margin-bottom: .9rem; }
 .schein__kopf b { font-size: var(--t-text); font-weight: 700; display: block; }
 .schein__kopf small { font-size: var(--t-klein); opacity: .75; }
-.schein__adler { width: 2.4rem; height: 2.4rem; flex: none; opacity: .5; }
 .schein__raster { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .5rem .9rem; }
 .feld { display: grid; gap: .15rem; grid-column: span 3; min-width: 0; overflow-wrap: anywhere; }
 .feld--2 { grid-column: span 2; } .feld--4 { grid-column: span 4; } .feld--6 { grid-column: span 6; }
@@ -1135,14 +1100,6 @@ html:not(.js) .schublade { position: static; width: auto; }
 <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.2s6.6-5.9 6.6-11.2a6.6 6.6 0 0 0-13.2 0c0 5.3 6.6 11.2 6.6 11.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="currentColor"/></symbol>
 <symbol id="i-ziel" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/><path d="M12 1.5v3.5M12 19v3.5M1.5 12H5M19 12h3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
 <symbol id="i-korb" viewBox="0 0 24 24"><path d="M3 4h2.4l2.3 11.2h10.6L20.6 7H7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="9" cy="19.5" r="1.6" fill="currentColor"/><circle cx="17" cy="19.5" r="1.6" fill="currentColor"/></symbol>
-<symbol id="p-wischer" viewBox="0 0 120 90"><g stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 62C40 52 80 48 112 50" stroke-width="7"/><path d="M10 68C42 58 80 54 110 56" stroke-width="1.6"/><path d="M14 58C44 49 78 45 106 47" stroke-width="1.6" opacity=".5"/><rect x="52" y="44" width="16" height="10" rx="2" fill="currentColor"/><path d="M60 46 92 14"/><path d="M88 12l8 4"/></g></symbol>
-<symbol id="p-heckwischer" viewBox="0 0 120 90"><g stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 66C50 58 72 56 92 58" stroke-width="6"/><rect x="54" y="52" width="12" height="9" rx="2" fill="currentColor"/><path d="M60 55 40 22"/><circle cx="38" cy="19" r="5"/></g></symbol>
-<symbol id="p-kanister" viewBox="0 0 120 90"><g stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M36 22h44l8 10v50H32V30Z"/><path d="M62 22V14h12v8"/><path d="M40 22c0-7 4-10 10-10h4" /><path d="M32 46h56M32 66h56"/><path d="M44 56h20" stroke-width="4"/></g></symbol>
-<symbol id="p-kratzer" viewBox="0 0 120 90"><g stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 70 30 42h26l6 28Z"/><path d="M14 70h48" stroke-width="5"/><path d="M56 42c8-12 16-20 30-20 14 0 22 8 22 20 0 14-10 24-26 28-8 2-14 2-20 0"/><path d="M78 30c2 6 2 12-2 18M92 30c2 8 0 16-6 22"/></g></symbol>
-<symbol id="p-spray" viewBox="0 0 120 90"><g stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="26" width="30" height="58" rx="5"/><path d="M50 26v-8h18v8"/><path d="M56 18v-6h10"/><path d="M78 10l10-4M78 14h12M78 18l10 4" stroke-width="1.8"/><path d="M44 44h30M44 66h30"/></g></symbol>
-<symbol id="p-flasche" viewBox="0 0 120 90"><g stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 30h20v6l6 8v40H44V44l6-8Z"/><rect x="52" y="16" width="16" height="14" rx="2"/><path d="M44 56h32"/><path d="M52 66h16" stroke-width="4"/></g></symbol>
-<symbol id="p-abdeckung" viewBox="0 0 120 90"><g stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M26 22C50 16 70 16 94 22L108 70C76 78 44 78 12 70Z"/><path d="M26 22 12 70M94 22l14 48" stroke-dasharray="3 5"/><path d="M20 46C46 40 74 40 100 46" opacity=".6"/><path d="M8 72 2 84M112 72l6 12"/></g></symbol>
-<symbol id="p-gutschein" viewBox="0 0 120 90"><g stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24h100v14a8 8 0 0 0 0 16v14H10V54a8 8 0 0 0 0-16Z"/><path d="M40 24v44" stroke-dasharray="3 5"/><path d="M54 40h40M54 52h28"/><path d="M22 40l8 6-8 6" /></g></symbol>
 </svg>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
@@ -1223,7 +1180,6 @@ html:not(.js) .schublade { position: static; width: auto; }
       <form class="schein" id="finder" data-finder novalidate aria-label="Wischer-Finder nach Fahrzeugschein">
         <div class="schein__kopf">
           <div><b>Zulassungsbescheinigung Teil I</b><small>Fahrzeugschein, Felder 2.1 und 2.2</small></div>
-          <svg class="schein__adler" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/><path d="M20 10l3 6 6 1-4.5 4 1 6.5L20 24l-5.5 3.5 1-6.5L11 17l6-1Z" fill="currentColor" opacity=".6"/></svg>
         </div>
         <div class="schein__raster">
           <div class="feld feld--2"><span class="feld__nr">B</span><span class="feld__wert">tt.mm.jjjj</span></div>
@@ -1387,8 +1343,6 @@ html:not(.js) .schublade { position: static; width: auto; }
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-  const lerp = (a, b, t) => a + (b - a) * t;
   const NS = 'http://www.w3.org/2000/svg';
   const el = (tag, attrs = {}, parent) => {
     const n = document.createElementNS(NS, tag);
@@ -1396,7 +1350,6 @@ html:not(.js) .schublade { position: static; width: auto; }
     if (parent) parent.appendChild(n);
     return n;
   };
-  const rng = (seed) => () => { seed |= 0; seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 
   /* ------------------------------------------------------------------
      1 · Öffnungsstatus (Europe/Berlin, Mo bis Sa 9:30 bis 18:00)
@@ -1449,169 +1402,25 @@ html:not(.js) .schublade { position: static; width: auto; }
   }
 
   /* ------------------------------------------------------------------
-     3 · Hero: Regen auf der Scheibe, zwei Wischer
-  ------------------------------------------------------------------ */
-  function regen() {
-    const box = $('[data-scheibe]'); const cv = $('[data-regen]');
-    if (!box || !cv || !cv.getContext) return;
-    const ctx = cv.getContext('2d');
-    const VW = 1000, VH = 560;
-    const glas = new Path2D('M120 30C380-4 620-4 880 30C905 33 920 48 928 70L994 470C999 500 985 520 955 524C650 560 350 560 45 524C15 520 1 500 6 470L72 70C80 48 95 33 120 30Z');
-    const R = rng(42);
-    const groessen = [1.5, 2.1, 2.8, 3.6, 4.6, 6];
-    let W = 0, H = 0, s = 1, sprites = [];
-    let tropfen = [];
-    const wischer = [
-      { px: 250, py: 552, len: 445, ruhe: 9, oben: 121, alt: 9, a: 9, verz: 0 },
-      { px: 590, py: 552, len: 402, ruhe: 7, oben: 116, alt: 7, a: 7, verz: 0.07 }
-    ];
-
-    function sprite(r) {
-      const d = Math.ceil(r * s * 2 * 1.7) + 4; const c = document.createElement('canvas'); c.width = c.height = d;
-      const g = c.getContext('2d'); const m = d / 2; const rr = r * s;
-      g.fillStyle = 'rgba(0,0,0,0.38)'; g.beginPath(); g.ellipse(m + rr * 0.22, m + rr * 0.34, rr, rr * 0.96, 0, 0, Math.PI * 2); g.fill();
-      const gr = g.createRadialGradient(m - rr * 0.32, m - rr * 0.38, rr * 0.05, m, m, rr * 1.05);
-      gr.addColorStop(0, 'rgba(255,255,255,0.62)'); gr.addColorStop(0.45, 'rgba(190,220,225,0.16)'); gr.addColorStop(1, 'rgba(10,20,24,0.32)');
-      g.fillStyle = gr; g.beginPath(); g.arc(m, m, rr, 0, Math.PI * 2); g.fill();
-      g.strokeStyle = 'rgba(255,255,255,0.4)'; g.lineWidth = Math.max(0.8, rr * 0.16);
-      g.beginPath(); g.arc(m, m, rr * 0.78, 0.15 * Math.PI, 0.62 * Math.PI); g.stroke();
-      g.fillStyle = 'rgba(255,255,255,0.9)'; g.beginPath(); g.arc(m - rr * 0.36, m - rr * 0.4, Math.max(0.6, rr * 0.2), 0, Math.PI * 2); g.fill();
-      return c;
-    }
-    function groesse() {
-      const r = box.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = cv.width = Math.max(1, Math.round(r.width * dpr)); H = cv.height = Math.max(1, Math.round(r.height * dpr));
-      s = W / VW;
-      sprites = groessen.map(sprite);
-    }
-    function neu(n) {
-      for (let i = 0; i < n; i++) {
-        const k = R() < 0.82 ? Math.floor(R() * 4) : 4 + Math.floor(R() * 2);
-        tropfen.push({ x: 60 + R() * 880, y: 40 + R() * 490, k, vy: 0, lauf: k >= 4 && R() < 0.5, w: R() * 6.28 });
-      }
-    }
-    function zeichneWischer(w) {
-      const rad = (w.a * Math.PI) / 180; const dx = Math.cos(rad), dy = -Math.sin(rad);
-      const x1 = w.px + dx * w.len, y1 = w.py + dy * w.len;
-      ctx.lineCap = 'round';
-      ctx.strokeStyle = 'rgba(0,0,0,0.35)'; ctx.lineWidth = 12;
-      ctx.beginPath(); ctx.moveTo(w.px + 4, w.py + 6); ctx.lineTo(x1 + 4, y1 + 6); ctx.stroke();
-      ctx.strokeStyle = '#0d0b0b'; ctx.lineWidth = 9;
-      ctx.beginPath(); ctx.moveTo(w.px, w.py); ctx.lineTo(w.px + dx * w.len * 0.55, w.py + dy * w.len * 0.55); ctx.stroke();
-      ctx.strokeStyle = '#141111'; ctx.lineWidth = 7;
-      ctx.beginPath(); ctx.moveTo(w.px + dx * w.len * 0.08, w.py + dy * w.len * 0.08); ctx.lineTo(x1, y1); ctx.stroke();
-      ctx.strokeStyle = 'rgba(255,255,255,0.14)'; ctx.lineWidth = 1.6;
-      ctx.beginPath(); ctx.moveTo(w.px + dx * w.len * 0.1 - dy * 3, w.py + dy * w.len * 0.1 + dx * 3); ctx.lineTo(x1 - dy * 3, y1 + dx * 3); ctx.stroke();
-    }
-    const ease = (t) => 0.5 - Math.cos(Math.PI * t) / 2;
-    const ZYKLUS = 6.8, HOCH = 0.78;
-    let t0 = performance.now(), laeuft = false, sichtbar = true, raf = 0;
-
-    function bild(now) {
-      raf = 0;
-      const t = (now - t0) / 1000;
-      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, W, H);
-      ctx.setTransform(s, 0, 0, s, 0, 0);
-      ctx.save(); ctx.clip(glas);
-      if (!ruhig && tropfen.length < 360) neu(2);
-      for (const w of wischer) {
-        const u = ((t - w.verz) % ZYKLUS + ZYKLUS) % ZYKLUS;
-        let p = 0;
-        if (!ruhig) { if (u < HOCH) p = ease(u / HOCH); else if (u < HOCH * 2) p = ease(1 - (u - HOCH) / HOCH); }
-        w.alt = w.a; w.a = lerp(w.ruhe, w.oben, p);
-        const lo = Math.min(w.alt, w.a) - 1.5, hi = Math.max(w.alt, w.a) + 1.5;
-        if (hi - lo > 3.2) {
-          tropfen = tropfen.filter((d) => {
-            const dx = d.x - w.px, dy = w.py - d.y; const dist = Math.hypot(dx, dy);
-            if (dist < 30 || dist > w.len + 6) return true;
-            const ang = (Math.atan2(dy, dx) * 180) / Math.PI;
-            return ang < lo || ang > hi;
-          });
-        }
-      }
-      for (const d of tropfen) {
-        if (d.lauf && !ruhig) { d.vy = Math.min(d.vy + 0.004, 0.55); d.y += d.vy; d.x += Math.sin((d.w += 0.05)) * 0.12; }
-        const sp = sprites[d.k]; const z = sp.width / s;
-        ctx.drawImage(sp, d.x - z / 2, d.y - z / 2, z, z);
-      }
-      tropfen = tropfen.filter((d) => d.y < 540);
-      for (const w of wischer) zeichneWischer(w);
-      ctx.restore();
-      if (laeuft && sichtbar && !ruhig) raf = requestAnimationFrame(bild);
-    }
-    const start = () => { if (!raf && !ruhig) { laeuft = true; raf = requestAnimationFrame(bild); } };
-    groesse(); neu(ruhig ? 260 : 120);
-    if (ruhig) bild(performance.now()); else start();
-    new ResizeObserver(() => { groesse(); if (ruhig || !raf) bild(performance.now()); }).observe(box);
-    new IntersectionObserver(([e]) => { sichtbar = e.isIntersecting; if (sichtbar) start(); }, { threshold: 0 }).observe(box);
-    document.addEventListener('visibilitychange', () => { sichtbar = !document.hidden; if (sichtbar) start(); });
-  }
-
-  /* ------------------------------------------------------------------
      4 · 2-Euro-Test
   ------------------------------------------------------------------ */
   function test() {
     const root = $('[data-test]'); if (!root) return;
     const range = $('[data-groesse]', root); const wert = $('[data-groesse-wert]', root);
-    const chipG = $('[data-chip]', root); const sterne = $('[data-sterne]', root);
-    const mini = $('[data-mini]', root); const miniSvg = $('svg', mini); const miniChip = $('[data-mini-chip]', root);
     const urteil = $('[data-urteil]');
-    const MM = 52 / 12.875; // SVG-Einheiten pro mm (2-Euro: 25,75 mm)
-    const R = rng(7);
-    const beine = Array.from({ length: 9 }, (_, i) => ({ a: (i / 9) * Math.PI * 2 + (R() - 0.5) * 0.5, l: 0.7 + R() * 0.32 }));
-    for (let i = 0; i < 12; i++) {
-      const a = (i / 12) * Math.PI * 2 - Math.PI / 2;
-      el('path', { d: star(Math.cos(a) * 44, Math.sin(a) * 44, 2.6), opacity: '.9' }, sterne);
-    }
-    function star(cx, cy, r) {
-      let d = '';
-      for (let i = 0; i < 10; i++) { const a = (i / 10) * Math.PI * 2 - Math.PI / 2; const rr = i % 2 ? r * 0.45 : r; d += (i ? 'L' : 'M') + (cx + Math.cos(a) * rr).toFixed(2) + ' ' + (cy + Math.sin(a) * rr).toFixed(2); }
-      return d + 'Z';
-    }
-    const presets = { frei: [270, 112], sicht: [95, 112], rand: [362, 70] };
     let ort = 'frei';
 
-    function zone(x, y) {
-      if (y < 12 || y > 206) return null;
-      const xl = 52 - (y - 18) * (44 / 182), xr = 348 + (y - 18) * (44 / 182);
-      if (x < xl || x > xr) return null;
-      if (y < 34 || y > 184 || x < xl + 22 || x > xr - 22) return 'rand';
-      if (x >= 52 && x <= 138) return 'sicht';
-      return 'frei';
-    }
-    mini.addEventListener('click', (e) => {
-      const pt = miniSvg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
-      const p = pt.matrixTransform(miniSvg.getScreenCTM().inverse());
-      const z = zone(p.x, p.y); if (!z) return;
-      ort = z; miniChip.setAttribute('transform', `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`);
-      $(`input[name="ort"][value="${z}"]`, root).checked = true;
-      auswerten();
-    });
     $$('input[name="ort"]', root).forEach((r) => r.addEventListener('change', () => {
-      ort = r.value; const [x, y] = presets[ort];
-      miniChip.setAttribute('transform', `translate(${x} ${y})`); auswerten();
+      ort = r.value; auswerten();
     }));
     $$('input[name="riss"]', root).forEach((r) => r.addEventListener('change', auswerten));
     range.addEventListener('input', auswerten);
 
-    function chip(d, riss) {
-      chipG.textContent = '';
-      const r = (d / 2) * MM;
-      const g = el('g', { fill: 'none', stroke: 'oklch(0.98 0.01 80)', 'stroke-linecap': 'round' }, chipG);
-      el('circle', { r: Math.max(1.4, r * 0.3).toFixed(2), fill: 'oklch(0.98 0.01 80 / .35)', 'stroke-width': 1.3 }, g);
-      let pd = '';
-      for (const b of beine) { const r0 = Math.max(1.4, r * 0.3); pd += `M${(Math.cos(b.a) * r0).toFixed(2)} ${(Math.sin(b.a) * r0).toFixed(2)}L${(Math.cos(b.a) * r * b.l).toFixed(2)} ${(Math.sin(b.a) * r * b.l).toFixed(2)}`; }
-      el('path', { d: pd, 'stroke-width': clamp(r / 14, 0.9, 1.8) }, g);
-      if (riss) el('path', { d: `M${r * 0.7} ${r * 0.2}C${r + 14} 8 ${r + 22} -14 ${r + 40} -6S ${r + 60} 20 ${r + 86} 12`, 'stroke-width': 1.6 }, g);
-      el('circle', { r: 52, 'stroke-dasharray': '3 4', stroke: 'oklch(0.98 0.01 80 / .5)', 'stroke-width': 1 }, g);
-    }
     function auswerten() {
       const d = parseInt(range.value, 10);
       const riss = $('input[name="riss"]:checked', root).value === 'ja';
       range.style.setProperty('--p', ((d - 1) / 39) * 100 + '%');
       wert.innerHTML = `${d}<small>mm</small>`;
-      chip(d, riss);
       let art = 'reparatur', grund;
       if (riss) { art = 'tausch'; grund = 'Sobald ein Riss rausläuft, hält keine Reparatur mehr. Die Scheibe muss neu.'; }
       else if (d > 26) { art = 'tausch'; grund = `${d} mm ist größer als eine 2-Euro-Münze. Das lässt sich nicht mehr sauber füllen.`; }
@@ -1808,7 +1617,7 @@ html:not(.js) .schublade { position: static; width: auto; }
   }
 
   const sicher = (fn) => { try { fn(); } catch (err) { console.error('[Entwurf]', fn.name, err); } };
-  [oeffnung, kopf, regen, test, chat, karte, auftritte].forEach(sicher);
+  [oeffnung, kopf, test, chat, karte, auftritte].forEach(sicher);
   setInterval(() => sicher(oeffnung), 60000);
   const fertig = () => document.documentElement.classList.add('is-geladen');
   (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(fertig));
