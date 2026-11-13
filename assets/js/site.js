@@ -238,7 +238,6 @@
       else if (d >= 22) grund = 'Knapp an der Grenze. Schick ein Foto, dann sagen wir dir genau, ob es noch geht.';
       else grund = 'Klein und außerhalb vom Sichtfeld: Das füllen wir mit Spezialharz, die Scheibe bleibt drin.';
       urteil.dataset.art = art;
-      $('[data-urteil-betrag]', urteil).innerHTML = art === 'reparatur' ? '0 €<small>mit Teilkasko, bei den meisten Versicherern</small>' : 'SB<small>nur deine Selbstbeteiligung mit Teilkasko</small>';
       $('[data-urteil-wort]', urteil).innerHTML = art === 'reparatur' ? '<span>Reparatur.</span>' : '<span>Neue</span><span>Scheibe.</span>';
       $('[data-urteil-grund]', urteil).textContent = grund;
       $('[data-urteil-kosten]', urteil).textContent = art === 'reparatur' ? 'Mit Teilkasko bei den meisten Versicherern 0 €.' : 'Mit Teilkasko nur deine Selbstbeteiligung. Ohne Teilkasko bekommst du nach einem Foto einen Preis.';
