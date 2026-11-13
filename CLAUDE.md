@@ -28,6 +28,7 @@ Entwurf von HK Growth Operator für die Autoglas-Werkstatt Autoglas Zentrum Aydi
 | Texte, Faktencheck | `texter` | design-taste-frontend (copy.md) |
 | Umsetzung, Gates | `frontend-bauer` | design-taste-frontend, verification-before-completion |
 | Lokales SEO | `local-seo` | seo-local |
+| KI-Look prüfen (Slop) | – | hallmark: `node .claude/skills/hallmark/scripts/sloplint.mjs index.html shop.html --genre editorial` |
 | Abnahme vor Push/Versand | `qa-abnahme` | unlazy, verification-before-completion |
 
 Reihenfolge für eine Überarbeitung: art-direktor → texter → frontend-bauer → art-direktor (Kritik) → local-seo → qa-abnahme → Push.
@@ -51,3 +52,4 @@ docker build -t autoglas-demo . && docker run --rm -p 8090:80 autoglas-demo
 | seo-local | HKGrowthOperator/claude-seo (6be93f4) | MIT |
 | unlazy | HKGrowthOperator/unlazy (1667149) | MIT |
 | verification-before-completion | HKGrowthOperator/superpowers (fe78c2a) | MIT |
+| hallmark | HKGrowthOperator/hallmark (04977e1) | MIT |
